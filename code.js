@@ -311,6 +311,18 @@ basiccore += dropBcores
 loot = "+ " + dropBcores + " Basic cores"
 }
 else
+if(drop < 15 && drop > 10)
+{
+  let dropLshard = Math.floor(Math.random()*50) + 50
+  legendaryclickshard += dropLshard
+  loot = "+ " + dropLshard + " Legendary shards"
+}else
+if(drop >14 &&  drop < 25)
+{
+  let dropgenM = Math.floor(Math.random() * 1000)+1000
+  genmult += dropgenM
+  loot = "+ " + dropgenM + " Generator multiplier"
+}else
 loot = "nothing"
 history(loot)
 }
@@ -349,6 +361,7 @@ function Craft2() {
     resourceupdate()
   }
 }
+
 
 
 
