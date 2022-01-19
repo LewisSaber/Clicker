@@ -17,6 +17,7 @@ let tocraft = 1
 let dropScrapsort
 let dropclickpower
 let dropclickshard
+function reset() {
 game = {
   clicks : 0,
   GKMa : 0,
@@ -44,11 +45,30 @@ game = {
   atomizedcopper : 0,
   rat : 0,
   riscopper : 0
+}
+}
+reset ()
+function save() {
+	localStorage.setItem("theClickerSave", JSON.stringify(game))
+}
+setInterval(save, 5000)
+function load() {
+	reset()
+	let loadgame = JSON.parse(localStorage.getItem("theClickerSave"))
+	if (loadgame != null) {
+		loadGame(loadgame)
+	}
+}
+load()
 
-
-
-
-
+function loadGame(loadgame) {
+  //Sets each variable in 'game' to the equivalent variable in 'loadgame' (the saved file)
+  for (i=0; i<Object.keys(loadgame).length; i++) {
+    if (loadgame[Object.keys(loadgame)[i]] != "undefined") {
+      if (typeof loadgame[Object.keys(loadgame)[i]] == "string") {game[Object.keys(loadgame)[i]] = loadgame[Object.keys(loadgame)[i]]}
+      else {game[Object.keys(game)[i]] = loadgame[Object.keys(loadgame)[i]]}
+    }
+  }
 }
 
 
