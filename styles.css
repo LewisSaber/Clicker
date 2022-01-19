@@ -85,24 +85,25 @@
   border: solid #32a1ce;
   background-color: #768279;
   font-size: 1.6vw;
+ 
 }
 #UpgradesButton {
   position: absolute;
-  top: 5.55%;
-  right: 73%;
+  top: 5.55vh;
+  left: 20vw;
 
-  border: 5px solid #db7d1f;
+  border:0.3vw solid #db7d1f;
   padding: 1px;
-  width: 6.25%;
+  width: 10vw;
 }
 #CrаftsButton {
   position: absolute;
-  top: 16.666%;
-  right: 73%;
+  top: 16.666vh;
+  left: 20vw;
 
-  border: 5px solid #db7d1f;
+  border:0.3vw solid #db7d1f;
   padding: 1px;
-  width: 6.25%;
+  width: 10vw;
 }
 #upgradesdiv {
   display: none;
@@ -156,12 +157,12 @@
 }
 #CratesButton {
   position: absolute;
-  top: 11.111%;
-  right: 73%;
+  top: 11.111vh;
+  left: 20vw;
 
-  border: 5px solid #db7d1f;
+  border:0.3vw solid #db7d1f;
   padding: 1px;
-  width: 6.25%;
+  width: 10vw;
 }
 #Crate1 {
   margin: 2%;
