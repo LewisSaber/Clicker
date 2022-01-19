@@ -12,12 +12,14 @@ let dropclickshard
 let upgrade3costreducer = 1
 let genmult = 1
 let upgrades1 = 0
+let legendaryclickshard = 0 
 //resource variable
 let scrap = 0
 let clickshard = 0
 let generatorshard = 0
 let basiccore = 0
 let atom = 0
+
 
 //elements
 Counter = document.getElementById("Counter")
@@ -52,11 +54,19 @@ let gen2 = 0
 function click1() {
   clicks += clickpower
   Counter.innerText = +Counter.innerText + clickpower
+  if(legendaryclickshard + 2 > 50)
+  {
+    clickshard += (legendaryclickshard+2)/100
+  }
+  else{
   dropclickshard = Math.floor(Math.random() * 100)
-  if (dropclickshard < 3) {
+
+  if (dropclickshard < legendaryclickshard+3) {
     clickshard++
   }
-  Clickshard.innerText = "Clickshards : " + clickshard
+}
+  Clickshard.innerText = "Clickshards : " + (clickshard>>0)
+
 }
 
 function onTick() {
@@ -79,7 +89,7 @@ let timertick = setInterval(onTick, 1000)
 
 function resourceupdate() {
   Scrap.innerText = "Scrap : " + scrap //export scrap
-  Clickshard.innerText = "Click shards : " + clickshard //export clickshards
+  Clickshard.innerText = "Click shards : " + (clickshard>>0) //export clickshards
   Basiccore.innerText = basiccore
   Generatorshard.innerText = "Generator shards : " + (generatorshard >> 0)
 }
@@ -279,7 +289,12 @@ function OpenCrate1() {
         let dropgenM = Math.floor(Math.random() * 10)
         genmult += dropgenM
         loot = "+ " + dropgenM + " Generator multiplier"
-    }else loot = "nothing"
+    }
+    else if(drop > 42 && drop < 45){
+      legendaryclickshard++;
+      loot = "legendary clickshard!"
+    }
+    else loot = "nothing"
     
     history(loot)
   }
