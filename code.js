@@ -1,7 +1,7 @@
 let numberforstop = 0 //numeer used to stop key trial
 let decrnumber = 10 // how many numbers
 let clickpower = 1 // how many button yield per click
-let clicks = 0 //clicks
+let clicks = 10000 //clicks
 let GK = 0
 let GKM = 1 //GK general modifier
 let GKMa = 0 // additional modifier
@@ -163,7 +163,7 @@ function keytrial() {
           mainmenu.style.display = "block"
           keytrialdiv.style.display = "none"
           body.style.backgroundImage = "url(MAinBackground.jpg)"
-          trialtip.innerText = "Use space to stop number"
+          trialtip.innerText = "Use W to stop number <br> Or click"
           trialtip.style.color = "black"
         }, 1000)
       } else
