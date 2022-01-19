@@ -211,7 +211,7 @@ function BuyUpgrade2() {
   if (GK >= cost) {
     GK -= cost
     decrnumber--
-    document.getElementById("upgrade2cost").innerText = Math.floor(cost * 1.5)
+    document.getElementById("upgrade2cost").innerText = cost + 2
     document.getElementById("upgrade2effect").innerText = effect + 1
   }
   if (decrnumber == 1) {
