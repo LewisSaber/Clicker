@@ -87,6 +87,11 @@ function updateupgrades()
   document.getElementById("upgrade3cost").innerText = game.upgrade3cost
   document.getElementById("upgrade2effect").innerText = game.upgrade2effect
   document.getElementById("upgrade3effect").innerText = game.upgrade3effect
+  if(isScrapOn == 1)
+  {
+    isScrapOn = 0
+    TurnScrap()
+  }
 
   if (game.decrnumber == 1) {
     document.getElementById("Upgrade2").disabled = true
@@ -375,7 +380,7 @@ function OpenCrate1() {
     game.GK -= 10
     if (drop < 10) {
       game.clicks = game.clicks * 1.2
-      loot = "+ 20% game.clicks"
+      loot = "+ 20% clicks"
     } else if (drop > 9 && drop < 20) {
       game.GK += game.GKM * 3
       loot = "+ " + 4 * game.GKM + " Gold keys"
@@ -390,7 +395,7 @@ function OpenCrate1() {
     } else if (drop > 25 && drop < 35) {
       dropclickpower = Math.floor(Math.random() * 6) + 1
       game.clickpower += dropclickpower
-      loot = "+ " + dropclickpower + " game.clickpower"
+      loot = "+ " + dropclickpower + "clickpower"
       document.getElementById("ClickPower").innerText = game.clickpower
     } else if (drop > 34 && drop < 38) {
       game.upgrade3costreducer = +10
@@ -403,7 +408,7 @@ function OpenCrate1() {
     }
     else if(drop > 42 && drop < 45){
       game.legendaryclickshard++;
-      loot = "legendary game.clickshard!"
+      loot = "legendary clickshard!"
     }
     else loot = "nothing"
     
