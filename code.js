@@ -50,7 +50,9 @@ game = {
   rawplastic : 0,
   atomizedcopper : 0,
   rat : 0,
-  riscopper : 0
+  riscopper : 0,
+  gen1 : 0,
+  gen2 : 0
 }
 
 
@@ -87,9 +89,9 @@ function updateupgrades()
   document.getElementById("upgrade3cost").innerText = game.upgrade3cost
   document.getElementById("upgrade2effect").innerText = game.upgrade2effect
   document.getElementById("upgrade3effect").innerText = game.upgrade3effect
-  if(isScrapOn == 1)
+  if(game.isScrapOn == 1)
   {
-    isScrapOn = 0
+    game.isScrapOn = 0
     TurnScrap()
   }
 
@@ -141,9 +143,7 @@ Riscopper = document.getElementById("riscopper")
 
 
 
-//generators
-let gen1 = 0
-let gen2 = 0
+
 //
 function click1() {
   game.clicks += game.clickpower
@@ -164,18 +164,18 @@ function click1() {
 }
 
 function onTick() {
-  game.clicks = game.clicks + gen1 * (1 + game.clickpower / 30) * game.genmult  //game.clicks per second
-  gen1 += gen2 * game.genmult
+  game.clicks = game.clicks + game.gen1 * (1 + game.clickpower / 30) * game.genmult  //game.clicks per second
+  game.gen1 += game.gen2 * game.genmult
 
   Counter.innerText = game.clicks >> 0 //export game.clicks on counter
   key1number.innerText = game.GK //export game.GK
-  game.generatorshard += gen1 * 0.1 * (1 + game.clickpower / 1000)
+  game.generatorshard += game.gen1 * 0.1 * (1 + game.clickpower / 1000)
   Generatorshard.innerText = "Generator shards : " + (game.generatorshard >> 0)
-  gt1.innerText = gen1
-  gt2.innerText = gen2
+  gt1.innerText = game.gen1
+  gt2.innerText = game.gen2
   game.GKM = (1 + game.GKMa) * +game.upgrade3effect
-  if (gen1 > 10000) {
-    game.atom += Math.log10(gen1) / 10 - 0.4
+  if (game.gen1 > 10000) {
+    game.atom += Math.log10(game.gen1) / 10 - 0.4
     Atom.innerText = "Atoms : " + (game.atom>>0)
     Boostercore.innerText = "Booster cores : " + game.boostercore
   }
@@ -290,11 +290,11 @@ function keytrial() {
   }
 }
 
-function BuyGen1() {
+function Buygen1() {
   if (game.GK >= 1) {
     game.GK = game.GK - 1
-    gen1++
-    gt1.innerText = gen1
+    game.gen1++
+    gt1.innerText = game.gen1
   }
 }
 
@@ -482,7 +482,7 @@ function craftgenerator2() {
     costGshards <= game.generatorshard &&
     costBcores <= game.basiccore
   ) {
-    gen2 +=tocraft
+    game.gen2 +=tocraft
     game.GK -= costGK
     game.generatorshard -= costGshards
     game.basiccore -= costBcores
