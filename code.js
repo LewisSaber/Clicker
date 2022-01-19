@@ -17,7 +17,7 @@ let clickshard = 0
 let generatorshard = 0
 let basiccore = 0
 let atom = 0
-let WTFisthis = 1
+let WTFisthis = 2
 //elements
 Counter = document.getElementById("Counter")
 gt1 = document.getElementById("gt1")
