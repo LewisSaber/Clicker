@@ -323,3 +323,14 @@ display: none;
    opacity: 0.8;
 
 }
+#TurnScrap
+{
+  width: 6vw;
+  height: 6vw;
+  background-size: cover;
+  background-image: url(off.jpg);
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 1.8vw;
+  opacity: 0.8;
+}

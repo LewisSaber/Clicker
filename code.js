@@ -13,6 +13,7 @@ let upgrade3costreducer = 1
 let genmult = 1
 let upgrades1 = 0
 let legendaryclickshard = 0 
+let isScrapOn = 0
 //resource variable
 let scrap = 0
 let clickshard = 0
@@ -405,7 +406,19 @@ function CloseMachine()
   document.getElementById("crafts").style.display = "block"
 
 } 
-
+function TurnScrap()
+{
+  if(isScrapOn == 1)
+  {
+    document.getElementById("TurnScrap").style.backgroundImage = "url(off.jpg)"
+    isScrapOn = 0;
+  }
+  else
+  {
+    document.getElementById("TurnScrap").style.backgroundImage = "url(on.jpg)"
+    isScrapOn = 1;
+  }
+}
 
 
 
