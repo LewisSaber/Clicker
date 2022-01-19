@@ -11,13 +11,14 @@ let dropclickpower
 let dropclickshard
 let upgrade3costreducer = 1
 let genmult = 1
+let upgrades1 = 0
 //resource variable
 let scrap = 0
 let clickshard = 0
 let generatorshard = 0
 let basiccore = 0
 let atom = 0
-let WTFisthis = 36
+
 //elements
 Counter = document.getElementById("Counter")
 gt1 = document.getElementById("gt1")
@@ -193,13 +194,14 @@ function OpenUpgrade() {
   body.style.background = "url(UpgradesBackground.jpg)"
 }
 function BuyUpgrade1() {
-  let cost = Number(document.getElementById("upgrade1cost").innerText)
+  let cost = Math.floor(Math.pow(1.5,upgrades1))
   let effect = Number(document.getElementById("upgrade1effect").innerText)
   if (clicks >= cost) {
     clicks = clicks - cost
     clickpower += 1
+   upgrades1++
     document.getElementById("upgrade1effect").innerText = effect + 1
-    document.getElementById("upgrade1cost").innerText = cost * 10
+    document.getElementById("upgrade1cost").innerText = Math.floor(Math.pow(1.5,upgrades1))
     document.getElementById("ClickPower").innerText = clickpower
   }
 }
