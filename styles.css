@@ -53,6 +53,7 @@
 #keytrial {
   display: block;
   float: right;
+  font-size: 0.8vw ;
 }
 .generator {
   background: #c2bebe;
@@ -110,14 +111,14 @@
   border: solid #32a1ce;
   background-color: #768279;
   width: 100%;
-  font-size: 69px;
+  font-size: 3vw;
   background-color: #f04735;
   display: block;
 }
 #body {
   height: 100vh;
   background-image:  url(MAinBackground.jpg) ;
-  background-size: contain;
+  background-size: cover;
  
   font-size: 1.6vw;
 
@@ -164,7 +165,7 @@
   margin: 2%;
   display: block;
   font-weight: bold;
-  font-size: 2.6rem;
+  font-size: 2.6vw;
   position: relative;
   text-align: center;
   float: left;
@@ -181,7 +182,7 @@
     margin: 2%;
     display: block;
     font-weight: bold;
-    font-size: 2.6rem;
+    font-size: 2.6vw;
   
     position: relative;
     text-align: center;
@@ -200,7 +201,7 @@
     height: 100%;
 }
 #OpenCrate1 {
-  font-size: 2rem;
+  font-size: 2vw;
   position: absolute;
   left: 12%;
   background: #e0dc3d;
@@ -209,7 +210,7 @@
   opacity: 0.8;
 }
 #OpenCrate2 {
-    font-size: 2rem;
+    font-size: 2vw;
     position: absolute;
     left: 5%;
     background: #e0dc3d;
@@ -254,7 +255,7 @@
   padding: 0.5%;
   margin: 1%;
 
-  font-size: 1.2rem;
+  font-size: 1.2vw;
 }
 .craftamonth {
   display: inline;
