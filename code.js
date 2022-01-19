@@ -379,7 +379,7 @@ function OpenCraft() {
   body.style.backgroundImage = "url(CraftsBackground.jpg)"
   resourceupdate()
 }
-function Craft1() {
+function craftbasiccore() {
   let costscrap = 100
   let costCshards = 50
   let costclicks = 10000
@@ -391,7 +391,7 @@ function Craft1() {
     resourceupdate()
   }
 }
-function Craft2() {
+function craftgenerator2() {
   let costGK = 1000
   let costGshards = 1000
   let costBcores = 20
@@ -408,7 +408,7 @@ function Craft2() {
   }
 
 }
-function Craft3()
+function craftscrapsorter()
 {
   let costBpotato = 20
   let costAtoms = 100
