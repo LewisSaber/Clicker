@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body id="body" onkeydown="keydown()">
+   
+
+
+    <div id="mainmenu">
+        <buttom id="UpgradesButton" class="button" onclick="OpenUpgrade()">Upgrades </buttom> 
+        <buttom id="CratesButton" class="button" onclick="OpenCrate()">Crates </buttom> 
+        <buttom id="CrаftsButton" class="button" onclick="OpenCraft()">Craft </buttom> 
+    <div class="countdiv">
+        <label id="Counter1">Your clicks:</label>
+    <p id="Counter">0</p>
+    
+    </div>
+    <div class="keys">
+        <p class="key1lable">Your keys</p>
+        <p class="key1text">Golden : </p>
+        <p id="key1number">1</p>
+        <button id="keytrial" class="button" onclick="keytrial()">Start trial<br>150 clicks</button>
+        
+</div>
+    <button id="mainclick" class="button" onclick="click1()">Click!<br> + <p id = "ClickPower"> 1 </p> Clicks</button>
+
+    <div class="generator">
+        <div class="g1t">Generator 1 : <p class="gt1" id="gt1">0</p>  </div>
+        <buttom id="Buygen1" class="button" onclick="BuyGen1()">Buy(1GK) </buttom> 
+        <div class="g1t">Generator 2 : <p class="gt1" id="gt2">0</p>  </div>
+        
+    </div>
+
+</div>
+
+<div id="keytrialdiv" class="closeddiv">
+    <div id="keytrialGame" >
+    <p id="trialtip">Use W to stop number</p>
+<p id="numbercode"></p>
+<p class="numberchose" id="num1"></p>
+<p class="numberchose" id="num2"></p>
+<p class="numberchose" id="num3"></p>
+<p class="numberchose" id="num4"></p>
+</div>
+</div>
+<div id="upgradesdiv" class="closeddiv">
+    <button class="close" onclick="Close()">Close</button>
+
+    <button id="Upgrade1" class="upgrade" onclick="BuyUpgrade1()">Upgrade Click button power<br>Cost : <p id="upgrade1cost" class="cost"> 1 </p>Clicks<br>Effect : + <p id="upgrade1effect" class="cost">0</p> </button>
+
+    <button id="Upgrade2" class="upgrade" onclick="BuyUpgrade2()">Decrease range of GK trial numbers<br>Cost : <p id="upgrade2cost" class="cost"> 3 </p>GK<br>Effect : - <p id="upgrade2effect" class="cost">0</p></button>
+    <button id="Upgrade3" class="upgrade" onclick="BuyUpgrade3()">Multiply GK amonth<br>Cost : <p id="upgrade3cost" class="cost"> 10 </p>GK<br>Effect : x <p id="upgrade3effect" class="cost">1</p></button>
+</div>
+<div id="cratesdiv" class="closeddiv">
+    <button  class="close" onclick="Close()">Close</button>
+    <div id="LootHistory">Drop history
+        <p id="loot1"   class="loot" ></p>
+        <p id="loot2"   class="loot" ></p>
+        <p id="loot3"   class="loot" ></p>
+        <p id="loot4"   class="loot" ></p>
+    
+    </div>
+    <div class="crate" id="Crate1">Gold crate 
+        <buttom id="OpenCrate1" class="button" onclick="OpenCrate1()">Open(10GK) </buttom>  
+    </div>
+    <div class="crate" id="Crate2">Atom crate 
+        <buttom id="OpenCrate2" class="button" onclick="OpenCrate2()">Open(5Atoms) </buttom>  
+    </div>
+</div>
+<div id="craftsdiv" class="closeddiv">
+    <button  class="close" onclick="Close()">Close</button>
+    <div id="resources">Resources
+     <p class="resource" id="scrap">Scrap : 0 </p>
+     <p class="resource" id="clickshard">Clickshards : 0 </p>
+     <p class="resource" id="generatorshard">Generatorshards : 0 </p>
+     <p class="resource" id="atom">Atoms : 0 </p>
+    
+     
+    </div>
+    <div id="craft1" class="craft">
+        <p class="craftamonth">Basic core : <p  id="basiccore" class="craftamonth">0</p></p>
+        <ul>
+            <li>100 scrap</li>
+            <li>50 click shards</li>
+            <li>10000 clicks</li>
+        </ul>
+        <button class="craftbutton" onclick="Craft1()"><img src="Craft.jpeg">Craft</button>      
+      
+    </div>
+    <div id="craft2" class="craft">
+        <p class="craftamonth">Generator 2 <p class="craftamonth"></p> </p>
+        <ul>
+            <li>1000 gold keys</li>
+            <li>1000 generator shards</li>
+            <li>20 basic cores</li>
+        </ul>
+        <button class="craftbutton"  onclick="Craft2()"><img src="Craft.jpeg">Craft</button>      
+      
+    </div>
+</div>
+
+<script src="code.js"></script>
+</body>
+</html>

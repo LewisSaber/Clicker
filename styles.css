@@ -1,0 +1,281 @@
+.countdiv {
+  border: 1px solid black;
+  width: 15.625%;
+  margin-left: 31.25%;
+
+  box-shadow: 0 0 10px;
+  background: #c2bebe;
+  opacity: 0.8;
+}
+#Counter1 {
+  display: inline;
+}
+#Counter {
+  display: inline;
+}
+#mainclick {
+  position: absolute;
+  left: 35.9375%;
+  top: 27.7%;
+  font-size: 2.5rem;
+  width: 22.9%;
+  height: 45%;
+
+  background: transparent;
+  border: transparent;
+}
+.closeddiv {
+  display: none;
+}
+.numberchose {
+  display: inline;
+}
+.keys {
+  background: #c2bebe;
+  opacity: 0.8;
+  border: 10px solid black;
+  width: 15.625%;
+  display: block;
+  float: right;
+
+  box-shadow: 0 0 10px;
+  padding-bottom: 1%;
+  padding-left: 1%;
+}
+#key1number {
+  display: inline;
+  color: gold;
+}
+.key1text {
+  display: inline;
+  color: gold;
+}
+#keytrial {
+  display: block;
+  float: right;
+}
+.generator {
+  background: #c2bebe;
+  opacity: 0.8;
+  border: 10px solid black;
+  width: 15.625%;
+  display: block;
+  float: left;
+
+  box-shadow: 0 0 10px;
+  padding: 1%;
+}
+#Buygen1 {
+  display: block;
+  float: right;
+}
+.g1t {
+  display: inline;
+  float: left;
+  border: thick double #32a1ce;
+  width: 90%;
+  margin: 2%;
+}
+.gt1 {
+  display: inline;
+}
+.button {
+  border: solid #32a1ce;
+  background-color: #768279;
+}
+#UpgradesButton {
+  position: absolute;
+  top: 5.55%;
+  right: 73%;
+
+  border: 5px solid #db7d1f;
+  padding: 1px;
+  width: 6.25%;
+}
+#CrаftsButton {
+  position: absolute;
+  top: 16.666%;
+  right: 73%;
+
+  border: 5px solid #db7d1f;
+  padding: 1px;
+  width: 6.25%;
+}
+#upgradesdiv {
+  display: none;
+  font-size: 30px;
+  height: 1000px;
+}
+.close {
+  border: solid #32a1ce;
+  background-color: #768279;
+  width: 100%;
+  font-size: 69px;
+  background-color: #f04735;
+  display: block;
+}
+#body {
+  height: 1000px;
+  background-image:  url(MAinBackground.jpg) ;
+  background-size: contain;
+  background-repeat: no-repeat;
+  font-size: 1.6vw;
+
+  width: 99%;
+}
+#keytrialGame {
+  position: absolute;
+  top: 300px;
+  left: 500px;
+  background: #c2bebe;
+  opacity: 0.8;
+  border: 10px solid black;
+  width: 300px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+.upgrade {
+  display: block;
+  float: left;
+  background: #c2bebe;
+  opacity: 0.8;
+  border: 5px solid #db7d1f;
+  width: 300px;
+  height: 150px;
+  margin: 20px;
+  font-size: 20px;
+}
+.cost {
+  display: inline;
+}
+#ClickPower {
+  display: inline;
+}
+#CratesButton {
+  position: absolute;
+  top: 11.111%;
+  right: 73%;
+
+  border: 5px solid #db7d1f;
+  padding: 1px;
+  width: 6.25%;
+}
+#Crate1 {
+  margin: 2%;
+  display: block;
+  font-weight: bold;
+  font-size: 2.6rem;
+  position: relative;
+  text-align: center;
+  float: left;
+  height: 27.777%;
+  width: 11.82%;
+  background: #c9c775;
+  background-image: url(GoldCrate.jpg);
+  background-position: center;
+  opacity: 0.8;
+  background-repeat: no-repeat;
+  border: 10px solid black;
+}
+#Crate2 {
+    margin: 2%;
+    display: block;
+    font-weight: bold;
+    font-size: 2.6rem;
+  
+    position: relative;
+    text-align: center;
+    float: left;
+    height: 27.777%;
+    width: 11.82%;
+    background: #c9c775;
+    background-image: url(AtomCrate.jpg);
+    background-position: center;
+    opacity: 0.8;
+    background-repeat: no-repeat;
+    border: 10px solid black;
+  }
+#cratesdiv
+{
+    height: 100%;
+}
+#OpenCrate1 {
+  font-size: 2rem;
+  position: absolute;
+  left: 12%;
+  background: #e0dc3d;
+  border-radius: 10px;
+  bottom: 5px;
+  opacity: 0.8;
+}
+#OpenCrate2 {
+    font-size: 2rem;
+    position: absolute;
+    left: 5%;
+    background: #e0dc3d;
+    border-radius: 10px;
+    bottom: 5px;
+    opacity: 0.8;
+  }
+#LootHistory {
+  display: block;
+  float: right;
+  text-align: center;
+  border: 10px solid black;
+  width: 15.625%;
+  opacity: 0.8;
+  background: #a1a19f;
+  height: 37%;
+  padding: 1%;
+  margin: 2%;
+}
+#resources {
+  display: block;
+  float: left;
+  text-align: center;
+  border: 10px solid black;
+  width: 15.625%;
+  opacity: 0.8;
+  background: #a1a19f;
+  height: 37%;
+  padding: 2%;
+  margin: 2%;
+}
+.resource {
+  width: 100%;
+  display: block;
+}
+.craft {
+  border: solid 2px blue;
+  display: block;
+  float: left;
+  opacity: 0.8;
+  background: #a1a19f;
+  padding: 0.5%;
+  margin: 1%;
+
+  font-size: 1.2rem;
+}
+.craftamonth {
+  display: inline;
+}
+.craft li {
+  list-style-type: "-";
+  margin: -2%;
+  padding-left: 0px;
+}
+.craft ul{
+    
+    margin-top: -10%;
+}
+.craftbutton {
+  width: 90%;
+
+}
+.craftbutton img
+{
+    height: 1em;
+    width: 1em;
+    background-size: contain;
+  background-repeat: no-repeat;
+}
