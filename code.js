@@ -393,7 +393,18 @@ function Craft3()
       resourceupdate()
     }
 }
+function OpenScrapSorting()
+{
+  
+  document.getElementById("crafts").style.display = "none"
+  document.getElementById("ScrapSorting").style.display = "block"
+}
+function CloseMachine()
+{
+  document.getElementById("ScrapSorting").style.display = "none"
+  document.getElementById("crafts").style.display = "block"
 
+} 
 
 
 
