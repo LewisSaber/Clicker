@@ -20,6 +20,7 @@ let generatorshard = 0
 let basiccore = 0
 let atom = 0
 let basedpotato = 0
+let scrapsorter = 0
 
 
 //elements
@@ -46,6 +47,7 @@ Generatorshard = document.getElementById("generatorshard")
 Basiccore = document.getElementById("basiccore")
 Atom = document.getElementById("atom")
 Basedpotato = document.getElementById("basedpotato")
+Scrapsorter = document.getElementById("scrapsorter")
 
 
 //Speeds
@@ -95,6 +97,9 @@ function resourceupdate() {
   Clickshard.innerText = "Click shards : " + (clickshard>>0) //export clickshards
   Basiccore.innerText = basiccore
   Generatorshard.innerText = "Generator shards : " + (generatorshard >> 0)
+  Atom.innerText = "Atoms : " + (atom>>0)
+  Basedpotato.innerText = "Based potatoes : " + (basedpotato>>0)
+  Scrapsorter.innerText = scrapsorter
 }
 function CloseMenu() {
   mainmenu.style.display = "none"
@@ -176,7 +181,7 @@ function keytrial() {
           mainmenu.style.display = "block"
           keytrialdiv.style.display = "none"
           body.style.backgroundImage = "url(MAinBackground.jpg)"
-          trialtip.innerText = "Use W to stop number <br> Or click"
+          trialtip.innerHTML = "Use W to stop number <br> Or click"
           trialtip.style.color = "black"
         }, 1000)
       } else
@@ -373,7 +378,21 @@ function Craft2() {
 
 }
 function Craft3()
-{}
+{
+  let costBpotato = 20
+  let costAtoms = 100
+  let costBcores = 1000
+  if(costBpotato <= basedpotato &&
+    costBcores <= basiccore &&
+    costAtoms <= atom)
+    {
+      atom -= costAtoms
+      basedpotato -=costBpotato
+      basiccore -= costBcores
+      scrapsorter++
+      resourceupdate()
+    }
+}
 
 
 
