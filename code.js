@@ -19,6 +19,7 @@ let clickshard = 0
 let generatorshard = 0
 let basiccore = 0
 let atom = 0
+let basedpotato = 0
 
 
 //elements
@@ -44,6 +45,8 @@ Clickshard = document.getElementById("clickshard")
 Generatorshard = document.getElementById("generatorshard")
 Basiccore = document.getElementById("basiccore")
 Atom = document.getElementById("atom")
+Basedpotato = document.getElementById("basedpotato")
+
 
 //Speeds
 let CPS = 0
@@ -323,6 +326,13 @@ if(drop >14 &&  drop < 25)
   genmult += dropgenM
   loot = "+ " + dropgenM + " Generator multiplier"
 }else
+if(drop >24 && drop < 28)
+{
+  let dropBpotato = Math.floor(Math.random() * 3)+1
+  basedpotato += dropBpotato
+  loot = "+ " + dropBpotato + " Based potatoes"
+}
+else
 loot = "nothing"
 history(loot)
 }
@@ -360,7 +370,10 @@ function Craft2() {
     basiccore -= costBcores
     resourceupdate()
   }
+
 }
+function Craft3()
+{}
 
 
 
