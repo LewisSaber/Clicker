@@ -28,10 +28,13 @@ let rawcopper = 0
 let rawsilicon = 0
 let rawplastic = 0
 let rat = 0
+let atomizedcopper = 0
+let riscopper = 0
 //drop variable
 let dropScrapsort
 let dropclickpower
 let dropclickshard
+
 
 
 
@@ -68,6 +71,8 @@ Rawcopper = document.getElementById("rawcopper")
 Rawsilicon = document.getElementById("rawsilicon")
 Rawplastic = document.getElementById("rawplastic")
 Rat = document.getElementById("rat")
+Atomizedcopper = document.getElementById("atomizedcopper")
+Riscopper = document.getElementById("riscopper")
 
 
 //Speeds
@@ -125,6 +130,8 @@ function resourceupdate() {
   Rawsilicon.innerText = "Raw silicon : " + rawsilicon
   Rawplastic.innerText = "Raw plastic : " + rawplastic
   Rat.innerText ="Rats : " + rat
+  Atomizedcopper.innerText = atomizedcopper
+  Riscopper.innerText = riscopper
 
 }
 function CloseMenu() {
@@ -424,6 +431,39 @@ function craftscrapsorter()
       resourceupdate()
     }
 }
+function craftatomizedcopper()
+{
+  let costRawcopper = 2
+  let costAtoms = 200
+  let costClicks = 100000
+  if(rawcopper >= costRawcopper &&
+   atom >= costAtoms&&
+    clicks >= costClicks)
+    {
+      rawcopper -= costRawcopper 
+   atom -= costAtoms
+    clicks -= costClicks
+    atomizedcopper += 1
+    resourceupdate()
+    }
+}
+function craftriscopper()
+{
+  let costRat = 3
+  let costatomizedcopper = 5
+  let costclickshards = 1000
+  if(rat >= costRat && 
+    atomizedcopper >= costatomizedcopper &&
+    clickshard >- costclickshards)
+    {
+    rat -= costRat 
+    atomizedcopper -= costatomizedcopper 
+    clickshard -= costclickshards
+    riscopper += 2
+    resourceupdate()
+    }
+}
+
 function OpenScrapSorting()
 {
   
