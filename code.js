@@ -379,8 +379,8 @@ function OpenCrate1() {
 
     game.GK -= 10
     if (drop < 10) {
-      game.clicks = game.clicks * 1.2
-      loot = "+ 20% clicks"
+      game.gen1 += 30
+      loot = "+ 30 gen 1"
     } else if (drop > 9 && drop < 20) {
       game.GK += game.GKM * 3
       loot = "+ " + 4 * game.GKM + " Gold keys"
@@ -395,7 +395,7 @@ function OpenCrate1() {
     } else if (drop > 25 && drop < 35) {
       dropclickpower = Math.floor(Math.random() * 6) + 1
       game.clickpower += dropclickpower
-      loot = "+ " + dropclickpower + "clickpower"
+      loot = "+ " + dropclickpower + " clickpower"
       document.getElementById("ClickPower").innerText = game.clickpower
     } else if (drop > 34 && drop < 38) {
       game.upgrade3costreducer = +10
