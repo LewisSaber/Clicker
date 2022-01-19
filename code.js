@@ -7,13 +7,13 @@ let GKM = 1 //GK general modifier
 let GKMa = 0 // additional modifier
 let loot //loot from last crate
 let drop //drop chance
-let dropclickpower
-let dropclickshard
+
 let upgrade3costreducer = 1
 let genmult = 1
 let upgrades1 = 0
 let legendaryclickshard = 0 
 let isScrapOn = 0
+let scraptimer
 //resource variable
 let scrap = 0
 let clickshard = 0
@@ -24,6 +24,17 @@ let basedpotato = 0
 let scrapsorter = 0
 let booster = 0
 let boostercore = 0
+let rawcopper = 0
+let rawsilicon = 0
+let rawplastic = 0
+let rat = 0
+//drop variable
+let dropScrapsort
+let dropclickpower
+let dropclickshard
+
+
+
 
 
 //elements
@@ -53,6 +64,10 @@ Basedpotato = document.getElementById("basedpotato")
 Scrapsorter = document.getElementById("scrapsorter")
 Boostercore = document.getElementById("boostercore")
 Booster = document.getElementById("booster")
+Rawcopper = document.getElementById("rawcopper")
+Rawsilicon = document.getElementById("rawsilicon")
+Rawplastic = document.getElementById("rawplastic")
+Rat = document.getElementById("rat")
 
 
 //Speeds
@@ -106,6 +121,11 @@ function resourceupdate() {
   Atom.innerText = "Atoms : " + (atom>>0)
   Basedpotato.innerText = "Based potatoes : " + (basedpotato>>0)
   Scrapsorter.innerText = scrapsorter
+  Rawcopper.innerText = "Raw copper : " + rawcopper
+  Rawsilicon.innerText = "Raw silicon : " + rawsilicon
+  Rawplastic.innerText = "Raw plastic : " + rawplastic
+  Rat.innerText ="Rats : " + rat
+
 }
 function CloseMenu() {
   mainmenu.style.display = "none"
@@ -422,15 +442,48 @@ function TurnScrap()
   {
     document.getElementById("TurnScrap").style.backgroundImage = "url(off.jpg)"
     isScrapOn = 0;
+    clearInterval(scraptimer)
     document.getElementById("TurnScrap").innerHTML = "Turn  <br> on"
   }
   else
   {
     document.getElementById("TurnScrap").style.backgroundImage = "url(on.jpg)"
     isScrapOn = 1;
+    scraptimer = setInterval(sortscrap, 4000)
     document.getElementById("TurnScrap").innerHTML = "Turn  <br> off"
   }
 
+}
+function sortscrap()
+{
+  if(scrap >= scrapsorter)
+  {
+    scrap -= scrapsorter
+  drop = Math.floor(Math.random()*100)
+  if(drop < 10)
+  {
+    dropScrapsort = (Math.floor(Math.random() * 2)+1)*scrapsorter
+    rawcopper += dropScrapsort
+
+  }
+  if(drop>9 && drop < 20)
+  {
+    dropScrapsort = (Math.floor(Math.random() * 3)+1)*scrapsorter
+    rawsilicon += dropScrapsort
+  }
+  if(drop >19 && drop < 30)
+  {
+    dropScrapsort = (Math.floor(Math.random() * 10)+1)*scrapsorter
+    rawplastic += dropScrapsort
+  }
+  if(drop > 29 && drop < 36)
+  {
+    dropScrapsort = (Math.floor(Math.random() * 2)+1)*scrapsorter
+    rat += dropScrapsort
+  }
+  resourceupdate()
+ }
+ else TurnScrap()
 }
 
 
