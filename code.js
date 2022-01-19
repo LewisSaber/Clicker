@@ -22,6 +22,8 @@ let basiccore = 0
 let atom = 0
 let basedpotato = 0
 let scrapsorter = 0
+let booster = 0
+let boostercore = 0
 
 
 //elements
@@ -49,6 +51,8 @@ Basiccore = document.getElementById("basiccore")
 Atom = document.getElementById("atom")
 Basedpotato = document.getElementById("basedpotato")
 Scrapsorter = document.getElementById("scrapsorter")
+Boostercore = document.getElementById("boostercore")
+Booster = document.getElementById("booster")
 
 
 //Speeds
@@ -89,6 +93,7 @@ function onTick() {
   if (gen1 > 10000) {
     atom += Math.log10(gen1) / 10 - 0.4
     Atom.innerText = "Atoms : " + (atom>>0)
+    Boostercore.innerText = "Booster cores : " + boostercore
   }
 }
 let timertick = setInterval(onTick, 1000)
@@ -339,6 +344,11 @@ if(drop >24 && drop < 28)
   loot = "+ " + dropBpotato + " Based potatoes"
 }
 else
+if(drop > 27 && drop < 32)
+{
+  boostercore++
+  loot = " + 1 booster core"
+}else
 loot = "nothing"
 history(loot)
 }
@@ -412,12 +422,15 @@ function TurnScrap()
   {
     document.getElementById("TurnScrap").style.backgroundImage = "url(off.jpg)"
     isScrapOn = 0;
+    document.getElementById("TurnScrap").innerHTML = "Turn  <br> on"
   }
   else
   {
     document.getElementById("TurnScrap").style.backgroundImage = "url(on.jpg)"
     isScrapOn = 1;
+    document.getElementById("TurnScrap").innerHTML = "Turn  <br> off"
   }
+
 }
 
 
