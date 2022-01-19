@@ -173,7 +173,7 @@
   text-align: center;
   float: left;
   height: 27.777%;
-  width: 11.82%;
+  width: 11.82vw;
   background: #c9c775;
   background-image: url(GoldCrate.jpg);
   background-position: center;
@@ -191,7 +191,7 @@
     text-align: center;
     float: left;
     height: 27.777%;
-    width: 11.82%;
+    width: 11.82vw;
     background: #c9c775;
     background-image: url(AtomCrate.jpg);
     background-position: center;
@@ -206,20 +206,26 @@
 #OpenCrate1 {
   
   position: absolute;
-  left: 12%;
+  left: 0px;
+  font-size: 1.4vw;
   background: #e0dc3d;
   border-radius: 10px;
   bottom: 5px;
   opacity: 0.8;
+  width: 90%;
+  left: 5%;
 }
 #OpenCrate2 {
    
     position: absolute;
-    left: 5%;
+   right: 0px;
+   font-size: 1.4vw;
     background: #e0dc3d;
     border-radius: 10px;
     bottom: 5px;
     opacity: 0.8;
+    width: 90%;
+    left: 5%;
   }
 #LootHistory {
   display: block;
