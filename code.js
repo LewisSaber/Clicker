@@ -28,6 +28,10 @@ game = {
   upgrade3costreducer: 1,
   genmult: 1,
   upgrades1: 0,
+  upgrade2cost: 1,
+  upgrade3cost: 10,
+  upgrade2effect: 0,
+  upgrade3effect: 1,
   legendaryclickshard: 0,
   isScrapOn : 0,
   scrap : 0,
@@ -46,6 +50,8 @@ game = {
   rat : 0,
   riscopper : 0
 }
+
+
 }
 reset ()
 function save() {
@@ -71,7 +77,15 @@ function loadGame(loadgame) {
   }
 }
 
+function updateupgrades()
+{
+  document.getElementById("upgrade2cost").innerText = game.upgrade2cost
+  document.getElementById("upgrade3cost").innerText = game.upgrade3cost
+  document.getElementById("upgrade2effect").innerText = game.upgrade2effect
+  document.getElementById("upgrade3effect").innerText = game.upgrade3effect
 
+}
+updateupgrades()
 
 
 
@@ -144,7 +158,7 @@ function onTick() {
   Generatorshard.innerText = "Generator shards : " + (game.generatorshard >> 0)
   gt1.innerText = gen1
   gt2.innerText = gen2
-  game.GKM = (1 + game.GKMa) * +upgrade3.innerText
+  game.GKM = (1 + game.GKMa) * +game.upgrade3effect
   if (gen1 > 10000) {
     game.atom += Math.log10(gen1) / 10 - 0.4
     Atom.innerText = "Atoms : " + (game.atom>>0)
@@ -297,16 +311,21 @@ function BuyUpgrade2() {
   if (game.GK >= cost) {
     game.GK -= cost
     game.decrnumber--
+    
     document.getElementById("upgrade2cost").innerText = cost + 1
     document.getElementById("upgrade2effect").innerText = effect + 1
   }
   if (game.decrnumber == 1) {
     document.getElementById("Upgrade2").disabled = true
     document.getElementById("Upgrade2").innerText = "MAXED!"
+
   }
+  game.upgrade2cost = cost + 1;
+  game.upgrade2effect = effect + 1;
 }
 function BuyUpgrade3() {
   let cost = Number(document.getElementById("upgrade3cost").innerText)
+  
   let effect = Number(document.getElementById("upgrade3effect").innerText)
   let x = 1.3
   if (game.GK >= cost) {
@@ -320,6 +339,8 @@ function BuyUpgrade3() {
           (Math.log(game.upgrade3costreducer) / Math.log(x))
     )
     document.getElementById("upgrade3effect").innerText = effect * 3
+    game.upgrade3cost = document.getElementById("upgrade3cost").innerText
+    game.upgrade3effect = effect * 3
   }
 }
 function OpenCrate() {
