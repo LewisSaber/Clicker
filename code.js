@@ -88,7 +88,7 @@ function CloseMenu() {
 }
 function Close() {
   mainmenu.style.display = "block"
-  body.style.background = "url(MAinBackground.jpg)"
+  body.style.backgroundImage = "url(MAinBackground.jpg)"
   keytrialdiv.style.display = "none"
   upgradesdiv.style.display = "none"
   cratesdiv.style.display = "none"
@@ -101,7 +101,7 @@ function keytrial() {
 
     CloseMenu()
     keytrialdiv.style.display = "block"
-    body.style.background = "url(GKBackground.jpg)"
+    body.style.backgroundImage = "url(GKBackground.jpg)"
 
     let RandomNumber =
       Math.floor(Math.random() * decrnumber) * 1000 +
@@ -162,7 +162,7 @@ function keytrial() {
         setTimeout(function () {
           mainmenu.style.display = "block"
           keytrialdiv.style.display = "none"
-          body.style.background = "url(MAinBackground.jpg)"
+          body.style.backgroundImage = "url(MAinBackground.jpg)"
           trialtip.innerText = "Use space to stop number"
           trialtip.style.color = "black"
         }, 1000)
@@ -191,7 +191,7 @@ function keydown() {
 function OpenUpgrade() {
   CloseMenu()
   upgradesdiv.style.display = "block"
-  body.style.background = "url(UpgradesBackground.jpg)"
+  body.style.backgroundImage = "url(UpgradesBackground.jpg)"
 }
 function BuyUpgrade1() {
   let cost = Math.floor(Math.pow(1.5,upgrades1))
@@ -239,7 +239,7 @@ function BuyUpgrade3() {
 function OpenCrate() {
   CloseMenu()
   cratesdiv.style.display = "block"
-  body.style.background = "url(CratesBackground.png)"
+  body.style.backgroundImage = "url(CratesBackground.png)"
 }
 function history(loot) {
   loot1.innerText = loot2.innerText
@@ -303,7 +303,7 @@ history(loot)
 function OpenCraft() {
   CloseMenu()
   craftsdiv.style.display = "block"
-  body.style.background = "url(CraftsBackground.jpg)"
+  body.style.backgroundImage = "url(CraftsBackground.jpg)"
   resourceupdate()
 }
 function Craft1() {

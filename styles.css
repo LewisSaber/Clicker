@@ -17,7 +17,7 @@
   position: absolute;
   left: 35.9375%;
   top: 27.7%;
-  font-size: 2.5rem;
+  font-size: 2.5vw;
   width: 22.9%;
   height: 45%;
 
@@ -57,7 +57,7 @@
 .generator {
   background: #c2bebe;
   opacity: 0.8;
-  border: 10px solid black;
+  border: 1% solid black;
   width: 15.625%;
   display: block;
   float: left;
@@ -115,10 +115,10 @@
   display: block;
 }
 #body {
-  height: 1000px;
+  height: 100vh;
   background-image:  url(MAinBackground.jpg) ;
   background-size: contain;
-  background-repeat: no-repeat;
+ 
   font-size: 1.6vw;
 
   width: 99%;
@@ -129,7 +129,7 @@
   left: 500px;
   background: #c2bebe;
   opacity: 0.8;
-  border: 10px solid black;
+  border: 1% solid black;
   width: 300px;
   padding-left: 20px;
   padding-bottom: 20px;
