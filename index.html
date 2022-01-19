@@ -11,6 +11,7 @@
 
 
     <div id="mainmenu">
+      
         <button id="UpgradesButton" class="button" onclick="OpenUpgrade()">Upgrades </button> 
         <button id="CratesButton" class="button" onclick="OpenCrate()">Crates </button> 
         <button id="CrаftsButton" class="button" onclick="OpenCraft()">Craft </button> 
@@ -90,7 +91,8 @@
     </div>
 
     <div id="crafts" >
-
+        <div id="Craftslect"><input type="number" name="Tocraft" id="Tocraft" >
+            <button class="button" id="setcraftamonth" onclick="setcraftvalue()">set craft amonth</button></div>
     <div id="craftbasiccore" class="craft">
         <p class="craftamonth">Basic core : <p  id="basiccore" class="craftamonth">0</p></p>
         <ul>
@@ -154,7 +156,7 @@
 </div>
 
     
-</div>
+
  <div id="CraftMachines">
     <button id="ScrapSorter" class="button" onclick="OpenScrapSorting()"> Scrap sorter</button>
 </div>

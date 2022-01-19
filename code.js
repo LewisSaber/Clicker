@@ -14,6 +14,7 @@ let upgrades1 = 0
 let legendaryclickshard = 0 
 let isScrapOn = 0
 let scraptimer
+let tocraft = 1
 //resource variable
 let scrap = 0
 let clickshard = 0
@@ -30,6 +31,7 @@ let rawplastic = 0
 let rat = 0
 let atomizedcopper = 0
 let riscopper = 0
+
 //drop variable
 let dropScrapsort
 let dropclickpower
@@ -57,6 +59,7 @@ loot2 = document.getElementById("loot2")
 loot3 = document.getElementById("loot3")
 loot4 = document.getElementById("loot4")
 upgrade3 = document.getElementById("upgrade3effect")
+Ca = document.getElementById("Tocraft")
 //resources
 Scrap = document.getElementById("scrap")
 Clickshard = document.getElementById("clickshard")
@@ -387,11 +390,11 @@ function OpenCraft() {
   resourceupdate()
 }
 function craftbasiccore() {
-  let costscrap = 100
-  let costCshards = 50
-  let costclicks = 10000
+  let costscrap = 100 *tocraft
+  let costCshards = 50 *tocraft
+  let costclicks = 10000 *tocraft
   if (costscrap <= scrap && costCshards <= clickshard && costclicks <= clicks) {
-    basiccore++
+    basiccore += tocraft
     scrap -= costscrap
     clickshard -= costCshards
     clicks -= costclicks
@@ -399,15 +402,15 @@ function craftbasiccore() {
   }
 }
 function craftgenerator2() {
-  let costGK = 1000
-  let costGshards = 1000
-  let costBcores = 20
+  let costGK = 1000*tocraft
+  let costGshards = 1000*tocraft
+  let costBcores = 20*tocraft
   if (
     costGK <= GK &&
     costGshards <= generatorshard &&
     costBcores <= basiccore
   ) {
-    gen2++
+    gen2 +=tocraft
     GK -= costGK
     generatorshard -= costGshards
     basiccore -= costBcores
@@ -415,11 +418,15 @@ function craftgenerator2() {
   }
 
 }
+function setcraftvalue()
+{
+  tocraft = +Ca.value 
+}
 function craftscrapsorter()
 {
-  let costBpotato = 20
-  let costAtoms = 100
-  let costBcores = 1000
+  let costBpotato = 20 *tocraft
+  let costAtoms = 100*tocraft
+  let costBcores = 1000*tocraft
   if(costBpotato <= basedpotato &&
     costBcores <= basiccore &&
     costAtoms <= atom)
@@ -427,15 +434,15 @@ function craftscrapsorter()
       atom -= costAtoms
       basedpotato -=costBpotato
       basiccore -= costBcores
-      scrapsorter++
+      scrapsorter +=tocraft
       resourceupdate()
     }
 }
 function craftatomizedcopper()
 {
-  let costRawcopper = 2
-  let costAtoms = 200
-  let costClicks = 100000
+  let costRawcopper = 2*tocraft
+  let costAtoms = 200*tocraft
+  let costClicks = 100000*tocraft
   if(rawcopper >= costRawcopper &&
    atom >= costAtoms&&
     clicks >= costClicks)
@@ -443,15 +450,15 @@ function craftatomizedcopper()
       rawcopper -= costRawcopper 
    atom -= costAtoms
     clicks -= costClicks
-    atomizedcopper += 1
+    atomizedcopper += tocraft
     resourceupdate()
     }
 }
 function craftriscopper()
 {
-  let costRat = 3
-  let costatomizedcopper = 5
-  let costclickshards = 1000
+  let costRat = 3*tocraft
+  let costatomizedcopper = 5*tocraft
+  let costclickshards = 1000*tocraft
   if(rat >= costRat && 
     atomizedcopper >= costatomizedcopper &&
     clickshard >- costclickshards)
@@ -459,7 +466,7 @@ function craftriscopper()
     rat -= costRat 
     atomizedcopper -= costatomizedcopper 
     clickshard -= costclickshards
-    riscopper += 2
+    riscopper += 2*tocraft
     resourceupdate()
     }
 }

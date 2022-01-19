@@ -269,6 +269,19 @@
 .craftamonth {
   display: inline;
 }
+#Tocraft
+{
+  width: 20%;
+  font-size: 1.2vw;
+}
+#Craftslect
+{
+  width: 100%;
+}
+#setcraftamonth
+{
+  font-size: 1vw;
+}
 .craft li {
   list-style-type: "-";
   margin: -2%;
