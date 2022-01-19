@@ -203,6 +203,19 @@
 {
     height: 100%;
 }
+#ToOpen
+{
+  width: 20%;
+  font-size: 1.2vw;
+}
+#Crateselect
+{
+  width: 100%;
+}
+#setcrateamonth
+{
+  font-size: 1vw;
+}
 #OpenCrate1 {
   
   position: absolute;

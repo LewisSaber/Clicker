@@ -11,6 +11,7 @@ let drop //drop chance
 
 let scraptimer
 let tocraft = 1
+let toopen = 1
 
 
 //drop variable
@@ -124,6 +125,7 @@ loot3 = document.getElementById("loot3")
 loot4 = document.getElementById("loot4")
 upgrade3 = document.getElementById("upgrade3effect")
 Ca = document.getElementById("Tocraft")
+Oa = document.getElementById("ToOpen")
 //resources
 Scrap = document.getElementById("scrap")
 Clickshard = document.getElementById("clickshard")
@@ -180,6 +182,7 @@ function onTick() {
     Boostercore.innerText = "Booster cores : " + game.boostercore
   }
 }
+
 let timertick = setInterval(onTick, 1000)
 
 function resourceupdate() {
@@ -362,6 +365,14 @@ function BuyUpgrade3() {
     game.upgrade3effect = effect * 3
   }
 }
+function setcratevalue()
+{
+if(+Oa.value > 999)
+{
+  toopen = 999
+}
+else toopen = +Oa.value
+}
 function OpenCrate() {
   CloseMenu()
   cratesdiv.style.display = "block"
@@ -374,40 +385,40 @@ function history(loot) {
   loot4.innerText = loot
 }
 function OpenCrate1() {
-  if (game.GK >= 10) {
+  if (game.GK >= 10 *toopen) {
     drop = Math.floor(Math.random() * 100)
 
-    game.GK -= 10
+    game.GK -= 10 *toopen
     if (drop < 10) {
-      game.gen1 += 30
-      loot = "+ 30 gen 1"
+      game.gen1 += 30 *toopen
+      loot = "+" +  30*toopen + " gen 1"
     } else if (drop > 9 && drop < 20) {
-      game.GK += game.GKM * 3
-      loot = "+ " + 4 * game.GKM + " Gold keys"
+      game.GK += game.GKM * 3 *toopen
+      loot = "+ " + 3 * game.GKM *toopen + " Gold keys"
     } else if (drop > 19 && drop < 25) {
-      let scrapdropped = Math.floor(Math.random() * 25)
-      game.scrap += scrapdropped
+      let scrapdropped = Math.floor(Math.random() * 25) *toopen
+      game.scrap += scrapdropped 
       loot = "+ " + scrapdropped + " Scrap"
     } else if (drop == 25) {
-      let dropGKM = Math.floor(Math.random() * 3) + 1
+      let dropGKM = (Math.floor(Math.random() * 3) + 1)*toopen
       game.GKMa += dropGKM
       loot = "+ " + dropGKM + " Gold key modifier"
     } else if (drop > 25 && drop < 35) {
-      dropclickpower = Math.floor(Math.random() * 6) + 1
+      dropclickpower = (Math.floor(Math.random() * 6) + 1)*toopen
       game.clickpower += dropclickpower
       loot = "+ " + dropclickpower + " clickpower"
       document.getElementById("ClickPower").innerText = game.clickpower
     } else if (drop > 34 && drop < 38) {
-      game.upgrade3costreducer = +10
+      game.upgrade3costreducer += 10*toopen
       loot = "Upgrade 3 cost reduced!"
     }else if(drop >37 && drop < 43) 
     {
-        let dropgenM = Math.floor(Math.random() * 10)
+        let dropgenM = Math.floor(Math.random() * 10)*toopen
         game.genmult += dropgenM
         loot = "+ " + dropgenM + " Generator multiplier"
     }
     else if(drop > 42 && drop < 45){
-      game.legendaryclickshard++;
+      game.legendaryclickshard += toopen;
       loot = "legendary clickshard!"
     }
     else loot = "nothing"
@@ -422,34 +433,34 @@ drop = Math.floor(Math.random() * 100)
 game.atom -=5
 if(drop < 10)
 {
-let dropBcores = Math.floor(Math.random()*300)
+let dropBcores = Math.floor(Math.random()*300)*toopen
 game.basiccore += dropBcores
 loot = "+ " + dropBcores + " Basic cores"
 }
 else
 if(drop < 15 && drop > 10)
 {
-  let dropLshard = Math.floor(Math.random()*50) + 50
+  let dropLshard = (Math.floor(Math.random()*50) + 50)*toopen
   game.legendaryclickshard += dropLshard
   loot = "+ " + dropLshard + " Legendary shards"
 }else
 if(drop >14 &&  drop < 25)
 {
-  let dropgenM = Math.floor(Math.random() * 1000)+1000
+  let dropgenM =( Math.floor(Math.random() * 1000)+1000) *toopen
   game.genmult += dropgenM
   loot = "+ " + dropgenM + " Generator multiplier"
 }else
 if(drop >24 && drop < 28)
 {
-  let dropBpotato = Math.floor(Math.random() * 3)+1
+  let dropBpotato = (Math.floor(Math.random() * 3)+1 *toopen)
   game.basedpotato += dropBpotato
   loot = "+ " + dropBpotato + " Based potatoes"
 }
 else
 if(drop > 27 && drop < 32)
 {
-  game.boostercore++
-  loot = " + 1 game.booster core"
+  game.boostercore += toopen
+  loot = " + "+ toopen +" booster core"
 }else
 loot = "nothing"
 history(loot)
