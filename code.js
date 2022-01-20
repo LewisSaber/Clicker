@@ -49,7 +49,7 @@ function reset() {
     riscopper: 0,
     gen1: 0,
     gen2: 0,
-    upgrade4cost: 3,
+    upgrade4cost: 10000,
     upgrade4effect: 1,
     trialmultiplier : 1
   
@@ -166,7 +166,7 @@ function click1() {
   game.clicks += game.clickpower
   if (game.clicks > 1e7) {
     Counter.innerText = game.clicks.toExponential(2) //export game.clicks on counter
-  } else Counter.innerText = game.clicks
+  } else Counter.innerText = game.clicks>>0
   if (game.legendaryclickshard + 2 > 50) {
     game.clickshard += (game.legendaryclickshard + 2) / 100
   } else {
