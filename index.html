@@ -20,7 +20,7 @@
     <p id="Counter">0</p>
     
     </div>
-    <div class="keys">
+    <div id="keys">
         <p class="key1lable">Your keys</p>
         <p class="key1text">Golden : </p>
         <p id="key1number">0</p>
@@ -29,10 +29,10 @@
 </div>
     <button id="mainclick" class="button" onclick="click1()">Click!<br> + <p id = "ClickPower"> 1 </p> Clicks</button>
 
-    <div class="generator">
+    <div id="generator">
         <div class="g1t">Generator 1 : <p class="gt1" id="gt1">0</p>  </div>
         <button id="Buygen1" class="button" onclick="Buygen1()">Buy(1GK) </button> 
-        <div class="g1t">Generator 2 : <p class="gt1" id="gt2">0</p>  </div>
+        <div class="g1t" id="gen2">Generator 2 : <p class="gt1" id="gt2">0</p>  </div>
         
     </div>
 
@@ -54,7 +54,7 @@
     <button id="Upgrade1" class="upgrade" onclick="BuyUpgrade1()">Upgrade Click button power<br>Cost : <p id="upgrade1cost" class="cost"> 1 </p> Clicks<br>Effect : + <p id="upgrade1effect" class="cost">0</p> </button>
 
     <button id="Upgrade2" class="upgrade" onclick="BuyUpgrade2()">Decrease range of  GK trial numbers<br>Cost : <p id="upgrade2cost" class="cost"> 1 </p> GK<br>Effect : - <p id="upgrade2effect" class="cost">0</p></button>
-    <button id="Upgrade3" class="upgrade" onclick="BuyUpgrade3()">Multiply  GK amonth<br>Cost : <p id="upgrade3cost" class="cost"> 10 </p> GK<br>Effect : x <p id="upgrade3effect" class="cost">1</p></button>
+    <button id="Upgrade3" class="upgrade" onclick="BuyUpgrade3()">Multiply GK amonth<br>Cost : <p id="upgrade3cost" class="cost"> 10 </p> GK<br>Effect : x <p id="upgrade3effect" class="cost">1</p></button>
 </div>
 <div id="cratesdiv" class="closeddiv">
     <button  class="close" onclick="Close()">Close</button>
@@ -77,17 +77,22 @@
 <div id="craftsdiv" class="closeddiv">
     <button  class="close" onclick="Close()">Close</button>
     <div id="resources">Resources
+     
      <p class="resource" id="scrap">Scrap : 0 </p>
      <p class="resource" id="clickshard">Clickshards : 0 </p>
      <p class="resource" id="generatorshard">Generatorshards : 0 </p>
+     
      <p class="resource" id="atom">Atoms : 0 </p>
+     <div id="pastcrate2">
      <p class="resource" id="basedpotato">Based potatoes : 0 </p>
      <p class="resource" id="boostercore">Booster cores : 0 </p>
+    </div>
+    <div id="scrapmats">
      <p class="resource" id="rawcopper">Raw copper : 0 </p>
      <p class="resource" id="rawsilicon">Raw silicon : 0 </p>
      <p class="resource" id="rawplastic">Raw plastic : 0 </p>
      <p class="resource" id="rat">Rats : 0 </p>
-
+</div>
     
      
     </div>
@@ -95,6 +100,7 @@
     <div id="crafts" >
         <div id="Craftslect"><input type="number" name="Tocraft" id="Tocraft" >
             <button class="button" id="setcraftamonth" onclick="setcraftvalue()">set craft amonth</button></div>
+          
     <div id="craftbasiccore" class="craft">
         <p class="craftamonth">Basic core : <p  id="basiccore" class="craftamonth">0</p></p>
         <ul>
@@ -114,6 +120,7 @@
         </ul>
         <button class="craftbutton"  onclick="craftgenerator2()"><img src="Craft.jpeg">Craft</button>      
       
+
     </div>
     <div id="craftscrapsorter" class="craft">
         <p class="craftamonth">Scrap sorter : <p  id="scrapsorter" class="craftamonth">0</p></p>
@@ -170,6 +177,7 @@
 
 
 <script src="code.js"></script>
+<script src="reveal.js"></script>
 
 
 </body>

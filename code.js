@@ -1,97 +1,109 @@
-
 let numberforstop = 0 //numeer used to stop key trial
- // how many numbers
- //game.clicks
+// how many numbers
+//game.clicks
 let loot //loot from last crate
 let drop //drop chance
-
-
-
-
 
 let scraptimer
 let tocraft = 1
 let toopen = 1
-
 
 //drop variable
 let dropScrapsort
 let dropclickpower
 let dropclickshard
 function reset() {
-game = {
-  clicks : 0,
-  GKMa : 0,
-  GKM : 1,
-  GK : 0,
-  clickpower : 1,
-  decrnumber : 10,
-  upgrade3costreducer: 1,
-  genmult: 1,
-  upgrades1: 0,
-  upgrade1cost : 1,
-  upgrade1effect : 0,
-  upgrade2cost: 1,
-  upgrade3cost: 10,
-  upgrade2effect: 0,
-  upgrade3effect: 1,
-  legendaryclickshard: 0,
-  isScrapOn : 0,
-  scrap : 0,
-  clickshard : 0,
-  generatorshard : 0,
-  basiccore : 0,
-  atom : 0,
-  basedpotato : 0,
-  scrapsorter : 0,
-  booster : 0,
-  boostercore : 0,
-  rawcopper : 0,
-  rawsilicon : 0,
-  rawplastic : 0,
-  atomizedcopper : 0,
-  rat : 0,
-  riscopper : 0,
-  gen1 : 0,
-  gen2 : 0
+  game = {
+    clicks: 0,
+    GKMa: 0,
+    GKM: 1,
+    GK: 0,
+    clickpower: 1,
+    decrnumber: 10,
+    upgrade3costreducer: 1,
+    genmult: 1,
+    upgrades1: 0,
+    upgrade1cost: 1,
+    upgrade1effect: 0,
+    upgrade2cost: 1,
+    upgrade3cost: 10,
+    upgrade2effect: 0,
+    upgrade3effect: 1,
+    legendaryclickshard: 0,
+    isScrapOn: 0,
+    scrap: 0,
+    clickshard: 0,
+    generatorshard: 0,
+    basiccore: 0,
+    atom: 0,
+    basedpotato: 0,
+    scrapsorter: 0,
+    booster: 0,
+    boostercore: 0,
+    rawcopper: 0,
+    rawsilicon: 0,
+    rawplastic: 0,
+    atomizedcopper: 0,
+    rat: 0,
+    riscopper: 0,
+    gen1: 0,
+    gen2: 0,
+  }
 }
+reset()
 
-
-}
-reset ()
 function save() {
-	localStorage.setItem("theClickerSave", JSON.stringify(game))
+  localStorage.setItem("theClickerSave", JSON.stringify(game))
 }
 setInterval(save, 5000)
 function load() {
-	reset()
-	let loadgame = JSON.parse(localStorage.getItem("theClickerSave"))
-	if (loadgame != null) {
-		loadGame(loadgame)
-	}
+  reset()
+  let loadgame = JSON.parse(localStorage.getItem("theClickerSave"))
+  if (loadgame != null) {
+    loadGame(loadgame)
+  }
+  
+  //Keys,generators,upgrades,crates,crafts,upgrade2,upgrade3
 }
 load()
-
+game.tabs = [
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false
+]
 function loadGame(loadgame) {
   //Sets each variable in 'game' to the equivalent variable in 'loadgame' (the saved file)
-  for (i=0; i<Object.keys(loadgame).length; i++) {
+  for (i = 0; i < Object.keys(loadgame).length; i++) {
     if (loadgame[Object.keys(loadgame)[i]] != "undefined") {
-      if (typeof loadgame[Object.keys(loadgame)[i]] == "string") {game[Object.keys(loadgame)[i]] = loadgame[Object.keys(loadgame)[i]]}
-      else {game[Object.keys(game)[i]] = loadgame[Object.keys(loadgame)[i]]}
+      if (typeof loadgame[Object.keys(loadgame)[i]] == "string") {
+        game[Object.keys(loadgame)[i]] = loadgame[Object.keys(loadgame)[i]]
+      } else {
+        game[Object.keys(game)[i]] = loadgame[Object.keys(loadgame)[i]]
+      }
     }
   }
 }
 
-function updateupgrades()
-{
+function updateupgrades() {
   document.getElementById("upgrade1cost").innerText = game.upgrade1cost
   document.getElementById("upgrade1effect").innerText = game.upgrade1effect
   document.getElementById("upgrade2cost").innerText = game.upgrade2cost
   document.getElementById("upgrade3cost").innerText = game.upgrade3cost
   document.getElementById("upgrade2effect").innerText = game.upgrade2effect
   document.getElementById("upgrade3effect").innerText = game.upgrade3effect
-  if(game.isScrapOn == 1)
-  {
+  if (game.isScrapOn == 1) {
     game.isScrapOn = 0
     TurnScrap()
   }
@@ -99,13 +111,9 @@ function updateupgrades()
   if (game.decrnumber == 1) {
     document.getElementById("Upgrade2").disabled = true
     document.getElementById("Upgrade2").innerText = "MAXED!"
-
   }
-
 }
 updateupgrades()
-
-
 
 //elements
 Counter = document.getElementById("Counter")
@@ -143,37 +151,31 @@ Rat = document.getElementById("rat")
 Atomizedcopper = document.getElementById("atomizedcopper")
 Riscopper = document.getElementById("riscopper")
 
-
-
-
 //
 function click1() {
   game.clicks += game.clickpower
-  Counter.innerText = +Counter.innerText + game.clickpower
-  if(game.legendaryclickshard + 2 > 50)
-  {
-    game.clickshard += (game.legendaryclickshard+2)/100
-  }
-  else{
-  dropclickshard = Math.floor(Math.random() * 100)
+  if (game.clicks > 1e7) {
+    Counter.innerText = game.clicks.toExponential(2) //export game.clicks on counter
+  } else Counter.innerText = game.clicks
+  if (game.legendaryclickshard + 2 > 50) {
+    game.clickshard += (game.legendaryclickshard + 2) / 100
+  } else {
+    dropclickshard = Math.floor(Math.random() * 100)
 
-  if (dropclickshard < game.legendaryclickshard+3) {
-    game.clickshard++
+    if (dropclickshard < game.legendaryclickshard + 3) {
+      game.clickshard++
+    }
   }
-}
-  Clickshard.innerText = "Clickshards : " + (game.clickshard>>0)
-
+  Clickshard.innerText = "Clickshards : " + (game.clickshard >> 0)
 }
 
 function onTick() {
-  game.clicks = game.clicks + game.gen1 * (1 + game.clickpower / 30) * game.genmult  //game.clicks per second
+  game.clicks =
+    game.clicks + game.gen1 * (1 + game.clickpower / 30) * game.genmult //game.clicks per second
   game.gen1 += game.gen2 * game.genmult
-if(game.clicks > 1e7)
-{
-  Counter.innerText = game.clicks.toExponential(2) //export game.clicks on counter
-
-}
-else Counter.innerText = game.clicks
+  if (game.clicks > 1e7) {
+    Counter.innerText = game.clicks.toExponential(2) //export game.clicks on counter
+  } else Counter.innerText = game.clicks
   key1number.innerText = game.GK //export game.GK
   game.generatorshard += game.gen1 * 0.1 * (1 + game.clickpower / 1000)
   Generatorshard.innerText = "Generator shards : " + (game.generatorshard >> 0)
@@ -182,28 +184,29 @@ else Counter.innerText = game.clicks
   game.GKM = (1 + game.GKMa) * +game.upgrade3effect
   if (game.gen1 > 10000) {
     game.atom += Math.log10(game.gen1) / 10 - 0.4
-    Atom.innerText = "Atoms : " + (game.atom>>0)
-    Boostercore.innerText = "Booster cores : " + game.boostercore
+    Atom.innerText = "Atoms : " + (game.atom >> 0)
+  
   }
 }
 
 let timertick = setInterval(onTick, 1000)
 
+
 function resourceupdate() {
   Scrap.innerText = "Scrap : " + game.scrap //export game.scrap
-  Clickshard.innerText = "Click shards : " + (game.clickshard>>0) //export clickshards
+  Clickshard.innerText = "Click shards : " + (game.clickshard >> 0) //export clickshards
   Basiccore.innerText = game.basiccore
   Generatorshard.innerText = "Generator shards : " + (game.generatorshard >> 0)
-  Atom.innerText = "Atoms : " + (game.atom>>0)
-  Basedpotato.innerText = "Based potatoes : " + (game.basedpotato>>0)
+  Atom.innerText = "Atoms : " + (game.atom >> 0)
+  Basedpotato.innerText = "Based potatoes : " + (game.basedpotato >> 0)
   Scrapsorter.innerText = game.scrapsorter
   Rawcopper.innerText = "Raw copper : " + game.rawcopper
   Rawsilicon.innerText = "Raw silicon : " + game.rawsilicon
   Rawplastic.innerText = "Raw plastic : " + game.rawplastic
-  Rat.innerText ="Rats : " + game.rat
+  Rat.innerText = "Rats : " + game.rat
   Atomizedcopper.innerText = game.atomizedcopper
   Riscopper.innerText = game.riscopper
-
+  Boostercore.innerText = "Booster cores : " + game.boostercore
 }
 function CloseMenu() {
   mainmenu.style.display = "none"
@@ -316,18 +319,19 @@ function OpenUpgrade() {
   body.style.backgroundImage = "url(UpgradesBackground.jpg)"
 }
 function BuyUpgrade1() {
-  let cost = Math.floor(Math.pow(1.5,game.upgrades1))
+  let cost = Math.floor(Math.pow(1.5, game.upgrades1))
   let effect = Number(document.getElementById("upgrade1effect").innerText)
   if (game.clicks >= cost) {
     game.clicks = game.clicks - cost
     game.clickpower += 1
-   game.upgrades1++
+    game.upgrades1++
     document.getElementById("upgrade1effect").innerText = effect + 1
-    document.getElementById("upgrade1cost").innerText = Math.floor(Math.pow(1.5,game.upgrades1))
+    document.getElementById("upgrade1cost").innerText = Math.floor(
+      Math.pow(1.5, game.upgrades1)
+    )
     document.getElementById("ClickPower").innerText = game.clickpower
-    game.upgrade1cost = Math.floor(Math.pow(1.5,game.upgrades1));
-  game.upgrade1effect = effect + 1;
-    
+    game.upgrade1cost = Math.floor(Math.pow(1.5, game.upgrades1))
+    game.upgrade1effect = effect + 1
   }
 }
 function BuyUpgrade2() {
@@ -336,22 +340,20 @@ function BuyUpgrade2() {
   if (game.GK >= cost) {
     game.GK -= cost
     game.decrnumber--
-    
+
     document.getElementById("upgrade2cost").innerText = cost + 1
     document.getElementById("upgrade2effect").innerText = effect + 1
-    game.upgrade2cost = cost + 1;
-  game.upgrade2effect = effect + 1;
+    game.upgrade2cost = cost + 1
+    game.upgrade2effect = effect + 1
   }
   if (game.decrnumber == 1) {
     document.getElementById("Upgrade2").disabled = true
     document.getElementById("Upgrade2").innerText = "MAXED!"
-
   }
-  
 }
 function BuyUpgrade3() {
   let cost = Number(document.getElementById("upgrade3cost").innerText)
-  
+
   let effect = Number(document.getElementById("upgrade3effect").innerText)
   let x = 1.3
   if (game.GK >= cost) {
@@ -369,13 +371,10 @@ function BuyUpgrade3() {
     game.upgrade3effect = effect * 3
   }
 }
-function setcratevalue()
-{
-if(+Oa.value > 999)
-{
-  toopen = 999
-}
-else toopen = +Oa.value
+function setcratevalue() {
+  if (+Oa.value > 999) {
+    toopen = 999
+  } else toopen = +Oa.value
 }
 function OpenCrate() {
   CloseMenu()
@@ -389,86 +388,70 @@ function history(loot) {
   loot4.innerText = loot
 }
 function OpenCrate1() {
-  if (game.GK >= 10 *toopen) {
+  if (game.GK >= 10 * toopen) {
     drop = Math.floor(Math.random() * 100)
 
-    game.GK -= 10 *toopen
+    game.GK -= 10 * toopen
     if (drop < 10) {
-      game.gen1 += 30 *toopen
-      loot = "+" +  30*toopen + " gen 1"
+      game.gen1 += 30 * toopen
+      loot = "+" + 30 * toopen + " gen 1"
     } else if (drop > 9 && drop < 20) {
-      game.GK += game.GKM * 3 *toopen
-      loot = "+ " + 3 * game.GKM *toopen + " Gold keys"
+      game.GK += game.GKM * 3 * toopen
+      loot = "+ " + 3 * game.GKM * toopen + " Gold keys"
     } else if (drop > 19 && drop < 25) {
-      let scrapdropped = Math.floor(Math.random() * 25) *toopen
-      game.scrap += scrapdropped 
+      let scrapdropped = Math.floor(Math.random() * 25) * toopen
+      game.scrap += scrapdropped
       loot = "+ " + scrapdropped + " Scrap"
     } else if (drop == 25) {
-      let dropGKM = (Math.floor(Math.random() * 3) + 1)*toopen
+      let dropGKM = (Math.floor(Math.random() * 3) + 1) * toopen
       game.GKMa += dropGKM
       loot = "+ " + dropGKM + " Gold key modifier"
     } else if (drop > 25 && drop < 35) {
-      dropclickpower = (Math.floor(Math.random() * 6) + 1)*toopen
+      dropclickpower = (Math.floor(Math.random() * 6) + 1) * toopen
       game.clickpower += dropclickpower
       loot = "+ " + dropclickpower + " clickpower"
       document.getElementById("ClickPower").innerText = game.clickpower
     } else if (drop > 34 && drop < 38) {
-      game.upgrade3costreducer += 10*toopen
+      game.upgrade3costreducer += 10 * toopen
       loot = "Upgrade 3 cost reduced!"
-    }else if(drop >37 && drop < 43) 
-    {
-        let dropgenM = Math.floor(Math.random() * 10)*toopen
-        game.genmult += dropgenM
-        loot = "+ " + dropgenM + " Generator multiplier"
-    }
-    else if(drop > 42 && drop < 45){
-      game.legendaryclickshard += toopen;
+    } else if (drop > 37 && drop < 43) {
+      let dropgenM = Math.floor(Math.random() * 10) * toopen
+      game.genmult += dropgenM
+      loot = "+ " + dropgenM + " Generator multiplier"
+    } else if (drop > 42 && drop < 45) {
+      game.legendaryclickshard += toopen
       loot = "legendary clickshard!"
-    }
-    else loot = "nothing"
-    
+    } else loot = "nothing"
+
     history(loot)
   }
 }
-function OpenCrate2(){
-if(game.atom >= 5)
-{
-drop = Math.floor(Math.random() * 100)
-game.atom -=5
-if(drop < 10)
-{
-let dropBcores = Math.floor(Math.random()*300)*toopen
-game.basiccore += dropBcores
-loot = "+ " + dropBcores + " Basic cores"
-}
-else
-if(drop < 15 && drop > 10)
-{
-  let dropLshard = (Math.floor(Math.random()*50) + 50)*toopen
-  game.legendaryclickshard += dropLshard
-  loot = "+ " + dropLshard + " Legendary shards"
-}else
-if(drop >14 &&  drop < 25)
-{
-  let dropgenM =( Math.floor(Math.random() * 1000)+1000) *toopen
-  game.genmult += dropgenM
-  loot = "+ " + dropgenM + " Generator multiplier"
-}else
-if(drop >24 && drop < 28)
-{
-  let dropBpotato = (Math.floor(Math.random() * 3)+1 *toopen)
-  game.basedpotato += dropBpotato
-  loot = "+ " + dropBpotato + " Based potatoes"
-}
-else
-if(drop > 27 && drop < 32)
-{
-  game.boostercore += toopen
-  loot = " + "+ toopen +" booster core"
-}else
-loot = "nothing"
-history(loot)
-}
+function OpenCrate2() {
+  if (game.atom >= 5) {
+    drop = Math.floor(Math.random() * 100)
+    game.atom -= 5
+    if (drop < 10) {
+      let dropBcores = Math.floor(Math.random() * 300) * toopen
+      game.basiccore += dropBcores
+      loot = "+ " + dropBcores + " Basic cores"
+    } else if (drop < 15 && drop > 10) {
+      let dropLshard = (Math.floor(Math.random() * 50) + 50) * toopen
+      game.legendaryclickshard += dropLshard
+      loot = "+ " + dropLshard + " Legendary shards"
+    } else if (drop > 14 && drop < 25) {
+      let dropgenM = (Math.floor(Math.random() * 1000) + 1000) * toopen
+      game.genmult += dropgenM
+      loot = "+ " + dropgenM + " Generator multiplier"
+    } else if (drop > 24 && drop < 28) {
+      let dropBpotato = Math.floor(Math.random() * 3) + 1 * toopen
+      game.basedpotato += dropBpotato
+      loot = "+ " + dropBpotato + " Based potatoes"
+    } else if (drop > 27 && drop < 32) {
+      game.boostercore += toopen
+      loot = " + " + toopen + " booster core"
+    } else loot = "nothing"
+    history(loot)
+  }
 }
 function OpenCraft() {
   CloseMenu()
@@ -477,10 +460,14 @@ function OpenCraft() {
   resourceupdate()
 }
 function craftbasiccore() {
-  let costscrap = 100 *tocraft
-  let costCshards = 50 *tocraft
-  let costclicks = 10000 *tocraft
-  if (costscrap <= game.scrap && costCshards <= game.clickshard && costclicks <= game.clicks) {
+  let costscrap = 100 * tocraft
+  let costCshards = 50 * tocraft
+  let costclicks = 10000 * tocraft
+  if (
+    costscrap <= game.scrap &&
+    costCshards <= game.clickshard &&
+    costclicks <= game.clicks
+  ) {
     game.basiccore += tocraft
     game.scrap -= costscrap
     game.clickshard -= costCshards
@@ -489,141 +476,117 @@ function craftbasiccore() {
   }
 }
 function craftgenerator2() {
-  let costGK = 1000*tocraft
-  let costGshards = 1000*tocraft
-  let costBcores = 20*tocraft
+  let costGK = 1000 * tocraft
+  let costGshards = 1000 * tocraft
+  let costBcores = 20 * tocraft
   if (
     costGK <= game.GK &&
     costGshards <= game.generatorshard &&
     costBcores <= game.basiccore
   ) {
-    game.gen2 +=tocraft
+    game.gen2 += tocraft
     game.GK -= costGK
     game.generatorshard -= costGshards
     game.basiccore -= costBcores
     resourceupdate()
   }
-
 }
-function setcraftvalue()
-{
-  tocraft = +Ca.value 
+function setcraftvalue() {
+  tocraft = +Ca.value
 }
-function craftscrapsorter()
-{
-  let costBpotato = 20 *tocraft
-  let costAtoms = 100*tocraft
-  let costBcores = 1000*tocraft
-  if(costBpotato <= game.basedpotato &&
+function craftscrapsorter() {
+  let costBpotato = 20 * tocraft
+  let costAtoms = 100 * tocraft
+  let costBcores = 1000 * tocraft
+  if (
+    costBpotato <= game.basedpotato &&
     costBcores <= game.basiccore &&
-    costAtoms <= game.atom)
-    {
-      game.atom -= costAtoms
-      game.basedpotato -=costBpotato
-      game.basiccore -= costBcores
-      game.scrapsorter +=tocraft
-      resourceupdate()
-    }
+    costAtoms <= game.atom
+  ) {
+    game.atom -= costAtoms
+    game.basedpotato -= costBpotato
+    game.basiccore -= costBcores
+    game.scrapsorter += tocraft
+    resourceupdate()
+  }
 }
-function craftatomizedcopper()
-{
-  let costRawcopper = 2*tocraft
-  let costAtoms = 200*tocraft
-  let costClicks = 100000*tocraft
-  if(game.rawcopper >= costRawcopper &&
-   game.atom >= costAtoms&&
-    game.clicks >= costClicks)
-    {
-      game.rawcopper -= costRawcopper 
-   game.atom -= costAtoms
+function craftatomizedcopper() {
+  let costRawcopper = 2 * tocraft
+  let costAtoms = 200 * tocraft
+  let costClicks = 100000 * tocraft
+  if (
+    game.rawcopper >= costRawcopper &&
+    game.atom >= costAtoms &&
+    game.clicks >= costClicks
+  ) {
+    game.rawcopper -= costRawcopper
+    game.atom -= costAtoms
     game.clicks -= costClicks
-    game.atomizedcopper+= tocraft
+    game.atomizedcopper += tocraft
     resourceupdate()
-    }
+  }
 }
-function craftriscopper()
-{
-  let costRat = 3*tocraft
-  let costatomizedcopper = 5*tocraft
-  let costclickshards = 1000*tocraft
-  if(game.rat >= costRat && 
-    game.atomizedcopper>= costatomizedcopper &&
-    game.clickshard >- costclickshards)
-    {
-    game.rat -= costRat 
-    game.atomizedcopper-= costatomizedcopper 
+function craftriscopper() {
+  let costRat = 3 * tocraft
+  let costatomizedcopper = 5 * tocraft
+  let costclickshards = 1000 * tocraft
+  if (
+    game.rat >= costRat &&
+    game.atomizedcopper >= costatomizedcopper &&
+    game.clickshard > -costclickshards
+  ) {
+    game.rat -= costRat
+    game.atomizedcopper -= costatomizedcopper
     game.clickshard -= costclickshards
-    game.riscopper += 2*tocraft
+    game.riscopper += 2 * tocraft
     resourceupdate()
-    }
+  }
 }
 
-function OpenScrapSorting()
-{
-  
+function OpenScrapSorting() {
   document.getElementById("crafts").style.display = "none"
   document.getElementById("ScrapSorting").style.display = "block"
 }
-function CloseMachine()
-{
+function CloseMachine() {
   document.getElementById("ScrapSorting").style.display = "none"
   document.getElementById("crafts").style.display = "block"
-
-} 
-function TurnScrap()
-{
-  if(game.isScrapOn == 1)
-  {
+}
+function TurnScrap() {
+  if (game.isScrapOn == 1) {
     document.getElementById("TurnScrap").style.backgroundImage = "url(off.jpg)"
-    game.isScrapOn = 0;
+    game.isScrapOn = 0
     clearInterval(scraptimer)
     document.getElementById("TurnScrap").innerHTML = "Turn  <br> on"
-  }
-  else
-  {
+  } else {
     document.getElementById("TurnScrap").style.backgroundImage = "url(on.jpg)"
-    game.isScrapOn = 1;
+    game.isScrapOn = 1
     scraptimer = setInterval(sortscrap, 4000)
     document.getElementById("TurnScrap").innerHTML = "Turn  <br> off"
   }
-
 }
-function sortscrap()
-{
-  if(game.scrap >= game.scrapsorter)
-  {
+function sortscrap() {
+  if (game.scrap >= game.scrapsorter) {
     game.scrap -= game.scrapsorter
-  drop = Math.floor(Math.random()*100)
-  if(drop < 10)
-  {
-    dropScrapsort = (Math.floor(Math.random() * 2)+1)*game.scrapsorter
-    game.rawcopper += dropScrapsort
-
-  }
-  if(drop>9 && drop < 20)
-  {
-    dropScrapsort = (Math.floor(Math.random() * 3)+1)*game.scrapsorter
-    game.rawsilicon += dropScrapsort
-  }
-  if(drop >19 && drop < 30)
-  {
-    dropScrapsort = (Math.floor(Math.random() * 10)+1)*game.scrapsorter
-    game.rawplastic += dropScrapsort
-  }
-  if(drop > 29 && drop < 36)
-  {
-    dropScrapsort = (Math.floor(Math.random() * 2)+1)*game.scrapsorter
-    game.rat += dropScrapsort
-  }
-  resourceupdate()
- }
- else TurnScrap()
+    drop = Math.floor(Math.random() * 100)
+    if (drop < 10) {
+      dropScrapsort = (Math.floor(Math.random() * 2) + 1) * game.scrapsorter
+      game.rawcopper += dropScrapsort
+    }
+    if (drop > 9 && drop < 20) {
+      dropScrapsort = (Math.floor(Math.random() * 3) + 1) * game.scrapsorter
+      game.rawsilicon += dropScrapsort
+    }
+    if (drop > 19 && drop < 30) {
+      dropScrapsort = (Math.floor(Math.random() * 10) + 1) * game.scrapsorter
+      game.rawplastic += dropScrapsort
+    }
+    if (drop > 29 && drop < 36) {
+      dropScrapsort = (Math.floor(Math.random() * 2) + 1) * game.scrapsorter
+      game.rat += dropScrapsort
+    }
+    resourceupdate()
+  } else TurnScrap()
 }
-
-
-
-
-
 
 OpenCraft()
 Close()
