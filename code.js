@@ -52,6 +52,7 @@ function reset() {
     upgrade4cost: 3,
     upgrade4effect: 1,
     trialmultiplier : 1
+  
   }
 }
 reset()
@@ -90,17 +91,19 @@ tabs = [
 ]
 function loadGame(loadgame) {
   //Sets each variable in 'game' to the equivalent variable in 'loadgame' (the saved file)
-  for (i = 0; i < game.length; i++) {
+  for (i = 0; i < Object.keys(loadgame).length; i++) {
     if (loadgame[Object.keys(loadgame)[i]] != "undefined") {
       if (typeof loadgame[Object.keys(loadgame)[i]] == "string") {
         game[Object.keys(loadgame)[i]] = loadgame[Object.keys(loadgame)[i]]
       } else {
-        game[Object.keys(game)[i]] = game[i]
+        game[Object.keys(game)[i]] = loadgame[Object.keys(loadgame)[i]]
       }
     }
+    //else  Object.value(game)[i] = Object.value(game)[i]
+    
   }
 }
-
+//else game[Object.keys(game)[i]] = game[i]
 function updateupgrades() {
   document.getElementById("upgrade1cost").innerText = game.upgrade1cost
   document.getElementById("upgrade1effect").innerText = game.upgrade1effect
