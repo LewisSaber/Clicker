@@ -8,7 +8,6 @@ let scraptimer
 let tocraft = 1
 let toopen = 1
 
-
 //drop variable
 let dropScrapsort
 let dropclickpower
@@ -51,8 +50,7 @@ function reset() {
     gen2: 0,
     upgrade4cost: 10000,
     upgrade4effect: 1,
-    trialmultiplier : 1
-  
+    trialmultiplier: 1,
   }
 }
 reset()
@@ -67,7 +65,7 @@ function load() {
   if (loadgame != null) {
     loadGame(loadgame)
   }
-  
+
   //Keys,generators,upgrades,crates,crafts,upgrade2,upgrade3
 }
 load()
@@ -87,7 +85,7 @@ tabs = [
   false,
   false,
   false,
-  false
+  false,
 ]
 function loadGame(loadgame) {
   //Sets each variable in 'game' to the equivalent variable in 'loadgame' (the saved file)
@@ -100,12 +98,11 @@ function loadGame(loadgame) {
       }
     }
     //else  Object.value(game)[i] = Object.value(game)[i]
-    
   }
 }
 //else game[Object.keys(game)[i]] = game[i]
 function updateupgrades() {
-  document.getElementById("ClickPower").innerText = game.clickpower//updates clickpower showcase
+  document.getElementById("ClickPower").innerText = game.clickpower //updates clickpower showcase
   document.getElementById("upgrade1cost").innerText = game.upgrade1cost
   document.getElementById("upgrade1effect").innerText = game.upgrade1effect
   document.getElementById("upgrade2cost").innerText = game.upgrade2cost
@@ -167,7 +164,7 @@ function click1() {
   game.clicks += game.clickpower
   if (game.clicks > 1e7) {
     Counter.innerText = game.clicks.toExponential(2) //export game.clicks on counter
-  } else Counter.innerText = game.clicks>>0
+  } else Counter.innerText = game.clicks >> 0
   if (game.legendaryclickshard + 2 > 50) {
     game.clickshard += (game.legendaryclickshard + 2) / 100
   } else {
@@ -186,43 +183,64 @@ function onTick() {
   game.gen1 += game.gen2 * game.genmult
   if (game.clicks > 1e6) {
     Counter.innerText = game.clicks.toExponential(2) //export game.clicks on counter
-  } else Counter.innerText = game.clicks>>0
-  if(game.GK > 1e4)
-  key1number.innerText = game.GK.toExponential(1)
-  else   key1number.innerText = game.GK//export game.GK
+  } else Counter.innerText = game.clicks >> 0
+  if (game.GK > 1e4) key1number.innerText = game.GK.toExponential(1)
+  else key1number.innerText = game.GK //export game.GK
   game.generatorshard += game.gen1 * 0.1 * (1 + game.clickpower / 1000)
   Generatorshard.innerText = "Generator shards : " + (game.generatorshard >> 0)
-  if(game.gen1 > 1e7)
-  {
-  gt1.innerText = game.gen1.toExponential(2)
-  }else gt1.innerText = game.gen1
+  if (game.gen1 > 1e7) {
+    gt1.innerText = game.gen1.toExponential(2)
+  } else gt1.innerText = game.gen1
   gt2.innerText = game.gen2
   game.GKM = (1 + game.GKMa) * +game.upgrade3effect
   if (game.gen1 > 10000) {
     game.atom += Math.log10(game.gen1) / 10 - 0.4
     Atom.innerText = "Atoms : " + (game.atom >> 0)
-  
   }
 }
 
 let timertick = setInterval(onTick, 1000)
 
-
 function resourceupdate() {
-  Scrap.innerText = "Scrap : " + game.scrap //export game.scrap
-  Clickshard.innerText = "Click shards : " + (game.clickshard >> 0) //export clickshards
-  Basiccore.innerText = game.basiccore
-  Generatorshard.innerText = "Generator shards : " + (game.generatorshard >> 0)
-  Atom.innerText = "Atoms : " + (game.atom >> 0)
-  Basedpotato.innerText = "Based potatoes : " + (game.basedpotato >> 0)
-  Scrapsorter.innerText = game.scrapsorter
-  Rawcopper.innerText = "Raw copper : " + game.rawcopper
-  Rawsilicon.innerText = "Raw silicon : " + game.rawsilicon
-  Rawplastic.innerText = "Raw plastic : " + game.rawplastic
-  Rat.innerText = "Rats : " + game.rat
-  Atomizedcopper.innerText = game.atomizedcopper
-  Riscopper.innerText = game.riscopper
-  Boostercore.innerText = "Booster cores : " + game.boostercore
+  if (game.scrap > 1e6)
+    Scrap.innerText = "Scrap : " + game.scrap.toExponential(2)
+  else Scrap.innerText = "Scrap : " + game.scrap //export game.scrap
+
+  if (game.clickshard > 1e6)
+    Clickshard.innerText = "Click shards : " + game.clickshard.toExponential(2)
+  else Clickshard.innerText = "Click shards : " + (game.clickshard >> 0) //export clickshards
+
+  if (game.basiccore > 1e5)
+    Basiccore.innerText = game.basiccore.toExponential(2)
+  else Basiccore.innerText = game.basiccore
+  if (game.generatorshard > 1e5)
+    Generatorshard.innerText =
+      "Generator shards : " + game.generatorshard.toExponential(2)
+  else
+    Generatorshard.innerText =
+      "Generator shards : " + (game.generatorshard >> 0)
+  if (game.atom > 1e6) Atom.innerText = "Atoms : " + game.atom.toExponential(2)
+  else Atom.innerText = "Atoms : " + (game.atom >> 0)
+  if (game.basedpotato > 1e6)
+    Basedpotato.innerText =
+      "Based potatoes : " + game.basedpotato.toExponential(2)
+  else Basedpotato.innerText = "Based potatoes : " + (game.basedpotato >> 0)
+  if(game.scrapsorter > 1e6) Scrapsorter.innerText = game.scrapsorter.toExponential(2)
+  else Scrapsorter.innerText = game.scrapsorter
+  if(game.rawcopper  > 1e6 ) Rawcopper.innerText = "Raw copper : " + game.rawcopper.toExponential(2)
+  else Rawcopper.innerText = "Raw copper : " + game.rawcopper
+ if(game.rawsilicon)  Rawsilicon.innerText = "Raw silicon : " + game.rawsilicon.toExponential(2)
+ else Rawsilicon.innerText = "Raw silicon : " + game.rawsilicon
+ if(game.rawsilicon > 1e6)  Rawplastic.innerText = "Raw plastic : " + game.rawplastic.toExponential(2)
+ else Rawplastic.innerText = "Raw plastic : " + game.rawplastic
+  if ( game.rat > 1e6) Rat.innerText = "Rats : " + game.rat.toExponential(2)
+  else Rat.innerText = "Rats : " + game.rat
+  if(game.atomizedcopper > 1e6) Atomizedcopper.innerText = game.atomizedcopper.toExponential(2)
+  else Atomizedcopper.innerText = game.atomizedcopper
+  if(game.riscopper > 1e6) Riscopper.innerText = game.riscopper.toExponential(2)
+  else Riscopper.innerText = game.riscopper
+  if(game.boostercore > 1e6) Boostercore.innerText = "Booster cores : " + game.boostercore.toExponential(2)
+  else Boostercore.innerText = "Booster cores : " + game.boostercore
 }
 function CloseMenu() {
   mainmenu.style.display = "none"
@@ -390,13 +408,12 @@ function BuyUpgrade3() {
 function BuyUpgrade4() {
   let cost = Number(document.getElementById("upgrade4cost").innerText)
   let effect = Number(document.getElementById("upgrade4effect").innerText)
-  if(game.clicks >= cost)
-  {
+  if (game.clicks >= cost) {
     game.clicks -= cost
     game.trialmultiplier++
-    document.getElementById("upgrade4cost").innerText = cost*10
+    document.getElementById("upgrade4cost").innerText = cost * 10
     document.getElementById("upgrade4effect").innerText = effect + 1
-    game.upgrade4cost = cost*10
+    game.upgrade4cost = cost * 10
     game.upgrade4effect = effect + 1
   }
 }
