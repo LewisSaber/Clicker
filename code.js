@@ -8,6 +8,7 @@ let scraptimer
 let tocraft = 1
 let toopen = 1
 
+
 //drop variable
 let dropScrapsort
 let dropclickpower
@@ -49,7 +50,8 @@ function reset() {
     gen1: 0,
     gen2: 0,
     upgrade4cost: 3,
-    upgrade4effect: 0
+    upgrade4effect: 1,
+    trialmultiplier : 1
   }
 }
 reset()
@@ -68,7 +70,7 @@ function load() {
   //Keys,generators,upgrades,crates,crafts,upgrade2,upgrade3
 }
 load()
-game
+
 tabs = [
   false,
   false,
@@ -106,6 +108,8 @@ function updateupgrades() {
   document.getElementById("upgrade3cost").innerText = game.upgrade3cost
   document.getElementById("upgrade2effect").innerText = game.upgrade2effect
   document.getElementById("upgrade3effect").innerText = game.upgrade3effect
+  document.getElementById("upgrade4cost").innerText = game.upgrade4cost
+  document.getElementById("upgrade4effect").innerText = game.upgrade4effect
   if (game.isScrapOn == 1) {
     game.isScrapOn = 0
     TurnScrap()
@@ -286,7 +290,7 @@ function keytrial() {
         if (guessednumber == RandomNumber) {
           document.getElementById("trialtip").innerText = "Correct!"
           document.getElementById("trialtip").style.color = "green"
-          game.GK += 1 * game.GKM
+          game.GK += 1 * game.GKM * game.trialmultiplier
         } else {
           trialtip.innerText = "Wrong"
           trialtip.style.color = "red"
@@ -367,7 +371,7 @@ function BuyUpgrade3() {
   if (game.GK >= cost) {
     game.GK -= cost
     if (game.upgrade3costreducer > 2000) {
-      x = log10(game.upgrade3costreducer) / 10 + 1
+      x = Math.log10(game.upgrade3costreducer) / 10 + 1
     }
     document.getElementById("upgrade3cost").innerText = Math.floor(
       cost * 4 * Math.floor(Math.log10(cost)) -
@@ -377,6 +381,19 @@ function BuyUpgrade3() {
     document.getElementById("upgrade3effect").innerText = effect * 3
     game.upgrade3cost = document.getElementById("upgrade3cost").innerText
     game.upgrade3effect = effect * 3
+  }
+}
+function BuyUpgrade4() {
+  let cost = Number(document.getElementById("upgrade4cost").innerText)
+  let effect = Number(document.getElementById("upgrade4effect").innerText)
+  if(game.clicks >= cost)
+  {
+    game.clicks -= cost
+    game.trialmultiplier++
+    document.getElementById("upgrade4cost").innerText = cost*10
+    document.getElementById("upgrade4effect").innerText = effect + 1
+    game.upgrade4cost = cost*10
+    game.upgrade4effect = effect + 1
   }
 }
 function setcratevalue() {
@@ -547,6 +564,7 @@ function craftriscopper() {
     game.atomizedcopper -= costatomizedcopper
     game.clickshard -= costclickshards
     game.riscopper += 2 * tocraft
+
     resourceupdate()
   }
 }
