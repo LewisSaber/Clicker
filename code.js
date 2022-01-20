@@ -119,7 +119,7 @@ updateupgrades()
 Counter = document.getElementById("Counter")
 gt1 = document.getElementById("gt1")
 gt2 = document.getElementById("gt2")
-key1numbe = document.getElementById("key1number")
+key1number = document.getElementById("key1number")
 mainmenu = document.getElementById("mainmenu")
 body = document.getElementById("body")
 keytrialdiv = document.getElementById("keytrialdiv")
@@ -175,11 +175,16 @@ function onTick() {
   game.gen1 += game.gen2 * game.genmult
   if (game.clicks > 1e7) {
     Counter.innerText = game.clicks.toExponential(2) //export game.clicks on counter
-  } else Counter.innerText = game.clicks
-  key1number.innerText = game.GK //export game.GK
+  } else Counter.innerText = game.clicks>>0
+  if(game.GK > 1e7)
+  key1number.innerText = game.GK.toExponential(1)
+  else   key1number.innerText = game.GK//export game.GK
   game.generatorshard += game.gen1 * 0.1 * (1 + game.clickpower / 1000)
   Generatorshard.innerText = "Generator shards : " + (game.generatorshard >> 0)
-  gt1.innerText = game.gen1
+  if(game.gen1 > 1e7)
+  {
+  gt1.innerText = game.gen1.toExponential(2)
+  }else gt1.innerText = game.gen1
   gt2.innerText = game.gen2
   game.GKM = (1 + game.GKMa) * +game.upgrade3effect
   if (game.gen1 > 10000) {
