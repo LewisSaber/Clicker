@@ -105,6 +105,7 @@ function loadGame(loadgame) {
 }
 //else game[Object.keys(game)[i]] = game[i]
 function updateupgrades() {
+  document.getElementById("ClickPower").innerText = game.clickpower//updates clickpower showcase
   document.getElementById("upgrade1cost").innerText = game.upgrade1cost
   document.getElementById("upgrade1effect").innerText = game.upgrade1effect
   document.getElementById("upgrade2cost").innerText = game.upgrade2cost
@@ -183,10 +184,10 @@ function onTick() {
   game.clicks =
     game.clicks + game.gen1 * (1 + game.clickpower / 30) * game.genmult //game.clicks per second
   game.gen1 += game.gen2 * game.genmult
-  if (game.clicks > 1e7) {
+  if (game.clicks > 1e6) {
     Counter.innerText = game.clicks.toExponential(2) //export game.clicks on counter
   } else Counter.innerText = game.clicks>>0
-  if(game.GK > 1e7)
+  if(game.GK > 1e4)
   key1number.innerText = game.GK.toExponential(1)
   else   key1number.innerText = game.GK//export game.GK
   game.generatorshard += game.gen1 * 0.1 * (1 + game.clickpower / 1000)
