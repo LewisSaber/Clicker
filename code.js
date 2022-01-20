@@ -90,12 +90,12 @@ tabs = [
 ]
 function loadGame(loadgame) {
   //Sets each variable in 'game' to the equivalent variable in 'loadgame' (the saved file)
-  for (i = 0; i < Object.keys(loadgame).length; i++) {
+  for (i = 0; i < game.length; i++) {
     if (loadgame[Object.keys(loadgame)[i]] != "undefined") {
       if (typeof loadgame[Object.keys(loadgame)[i]] == "string") {
         game[Object.keys(loadgame)[i]] = loadgame[Object.keys(loadgame)[i]]
       } else {
-        game[Object.keys(game)[i]] = loadgame[Object.keys(loadgame)[i]]
+        game[Object.keys(game)[i]] = game[i]
       }
     }
   }
