@@ -209,7 +209,7 @@
 #Crateselect {
   width: 100%;
 }
-#setcrateamonth {
+#setcrateamount {
   font-size: 1vw;
 }
 #OpenCrate1 {
@@ -273,7 +273,7 @@
 
   font-size: 1.2vw;
 }
-.craftamonth {
+.craftamount {
   display: inline;
 }
 #Tocraft {
@@ -283,7 +283,7 @@
 #Craftslect {
   width: 100%;
 }
-#setcraftamonth {
+#setcraftamount {
   font-size: 1vw;
 }
 .craft li {

@@ -60,7 +60,7 @@
     <button id="Upgrade2" class="upgrade" onclick="BuyUpgrade2()">Decrease range of  GK trial numbers<br>Cost : <p id="upgrade2cost" class="cost"> 1 </p> GK<br>Effect : - <p id="upgrade2effect" class="cost">0</p></button>
     <button id="Upgrade4" class="upgrade" onclick="BuyUpgrade4()">Upgrade gold trial reward<br>Cost : <p id="upgrade4cost" class="cost"> 1000 </p> clicks<br>Effect : x <p id="upgrade4effect" class="cost">1</p></button>
 
-    <button id="Upgrade3" class="upgrade" onclick="BuyUpgrade3()">Multiply GK amonth<br>Cost : <p id="upgrade3cost" class="cost"> 10 </p> GK<br>Effect : x <p id="upgrade3effect" class="cost">1</p></button>
+    <button id="Upgrade3" class="upgrade" onclick="BuyUpgrade3()">Multiply GK amount<br>Cost : <p id="upgrade3cost" class="cost"> 10 </p> GK<br>Effect : x <p id="upgrade3effect" class="cost">1</p></button>
 
 </div>
 <div id="cratesdiv" class="closeddiv">
@@ -73,7 +73,7 @@
     
     </div>
     <div id="Cratelect"><input type="number" name="ToOpen" id="ToOpen" >
-        <button class="button" id="setcrateamonth" onclick="setcratevalue()" maxlength="3" >set crate amonth to open at once(max 999)</button></div>
+        <button class="button" id="setcrateamount" onclick="setcratevalue()" maxlength="3" >set crate amount to open at once(max 999)</button></div>
     <div class="crate" id="Crate1">Gold crate 
         <button id="OpenCrate1" class="button" onclick="OpenCrate1()">Open(10GK) </button>  
     </div>
@@ -106,10 +106,10 @@
 
     <div id="crafts" >
         <div id="Craftslect"><input type="number" name="Tocraft" id="Tocraft" >
-            <button class="button" id="setcraftamonth" onclick="setcraftvalue()">set craft amonth</button></div>
+            <button class="button" id="setcraftamount" onclick="setcraftvalue()">set craft amount</button></div>
           
     <div id="craftbasiccore" class="craft">
-        <p class="craftamonth">Basic core : <p  id="basiccore" class="craftamonth">0</p></p>
+        <p class="craftamount">Basic core : <p  id="basiccore" class="craftamount">0</p></p>
         <ul>
             <li>100 scrap</li>
             <li>50 click shards</li>
@@ -119,7 +119,7 @@
       
     </div>
     <div id="craftgenerator2" class="craft">
-        <p class="craftamonth">Generator 2 <p class="craftamonth"></p> </p>
+        <p class="craftamount">Generator 2 <p class="craftamount"></p> </p>
         <ul>
             <li>1000 gold keys</li>
             <li>1000 generator shards</li>
@@ -130,7 +130,7 @@
 
     </div>
     <div id="craftscrapsorter" class="craft">
-        <p class="craftamonth">Scrap sorter : <p  id="scrapsorter" class="craftamonth">0</p></p>
+        <p class="craftamount">Scrap sorter : <p  id="scrapsorter" class="craftamount">0</p></p>
         <ul>
             <li>100 atoms</li>
             <li>1000 basic cores</li>
@@ -140,7 +140,7 @@
       
     </div>
     <div id="craftbooster" class="craft" >
-        <p class="craftamonth">Booster : <p  id="booster" class="craftamonth">0</p></p>
+        <p class="craftamount">Booster : <p  id="booster" class="craftamount">0</p></p>
         <ul>
             <li>2 booster core</li>
             <li>WIP</li>
@@ -151,7 +151,7 @@
     </div>
     <div id="scrapcraft">
     <div id="craftatomizedcopper" class="craft">
-        <p class="craftamonth">Atomized copper : <p  id="atomizedcopper" class="craftamonth">0</p></p>
+        <p class="craftamount">Atomized copper : <p  id="atomizedcopper" class="craftamount">0</p></p>
         <ul>
             <li>2 raw copper</li>
             <li>200 atoms</li>
@@ -161,7 +161,7 @@
       
     </div>
     <div id="craftriscopper" class="craft">
-        <p class="craftamonth">RIS copper : <p  id="riscopper" class="craftamonth">0</p></p>
+        <p class="craftamount">RIS copper : <p  id="riscopper" class="craftamount">0</p></p>
         <ul>
             <li>3 rats</li>
             <li>5 atomized copper</li>
