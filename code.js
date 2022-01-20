@@ -168,8 +168,12 @@ function click1() {
 function onTick() {
   game.clicks = game.clicks + game.gen1 * (1 + game.clickpower / 30) * game.genmult  //game.clicks per second
   game.gen1 += game.gen2 * game.genmult
+if(game.clicks > 1e7)
+{
+  Counter.innerText = game.clicks.toExponential(2) //export game.clicks on counter
 
-  Counter.innerText = game.clicks.toExponential(3) //export game.clicks on counter
+}
+else Counter.innerText = game.clicks
   key1number.innerText = game.GK //export game.GK
   game.generatorshard += game.gen1 * 0.1 * (1 + game.clickpower / 1000)
   Generatorshard.innerText = "Generator shards : " + (game.generatorshard >> 0)
