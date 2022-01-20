@@ -134,7 +134,7 @@
   background: #c2bebe;
   opacity: 0.8;
   border: 1% solid black;
-  width: 300px;
+  width: 26%;
   padding-left: 20px;
   padding-bottom: 20px;
 }
@@ -372,4 +372,9 @@
 #scrapcraft
 {
   display: none;
+}
+#GKinstruction
+{
+  font-size: 0.7 vw;
+ margin-top: 2%;
 }
