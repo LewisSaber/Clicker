@@ -48,6 +48,8 @@ function reset() {
     riscopper: 0,
     gen1: 0,
     gen2: 0,
+    upgrade4cost: 3,
+    upgrade4effect: 0
   }
 }
 reset()
@@ -66,7 +68,8 @@ function load() {
   //Keys,generators,upgrades,crates,crafts,upgrade2,upgrade3
 }
 load()
-game.tabs = [
+game
+tabs = [
   false,
   false,
   false,
