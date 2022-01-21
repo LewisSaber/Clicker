@@ -339,12 +339,12 @@ function BuyUpgrade1() {
     game.clickpower += 1
     game.upgrades1++
     cost = Math.floor(Math.pow(1.5, game.upgrades1))
-    document.getElementById("upgrade1effect").innerText = effect + 1
+    document.getElementById("upgrade1effect").innerText = (effect + 1 * (effect/7 + 1)).formateNumber()
     document.getElementById("upgrade1cost").innerText =cost.formateNumber()
     
     document.getElementById("ClickPower").innerText = game.clickpower
     game.upgrade1cost = cost
-    game.upgrade1effect = effect + 1
+    game.upgrade1effect = effect + 1 * (effect/7 + 1)
   }
 }
 function BuyUpgrade2() {
