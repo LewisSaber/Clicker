@@ -75,6 +75,38 @@ function OpenUpgrade() {
     }
     OverlayUpdate()
   }
+  function BuyUpgrade5() {
+    if (game.upgrade5effect <= 0.1) {
+        document.getElementById("Upgrade5").disabled = true
+        document.getElementById("Upgrade5").innerText = "MAXED!"
+      }
+      else{
+    if (game.riscopper >= game.upgrade5cost) {
+      game.riscopper -= game.upgrade5cost
+     if (game.upgrade5effect == 10)
+     {
+        game.upgrade5effect = 5
+     }
+     else
+     if (game.upgrade5effect <= 2) game.upgrade5effect -=0.1
+     else game.upgrade5effect -= 1
+  
+      
+      game.upgrade5cost *=100
+      document.getElementById("upgrade5cost").innerText = game.upgrade5cost.formateNumber()
+    }
+    
+    OverlayUpdate()
+}
+}
+
+
+
+
+
+
+
+
   function updateupgrades() {
     document.getElementById("ClickPower").innerText = game.clickpower.formateNumber() //updates clickpower showcase
     document.getElementById("upgrade1cost").innerText = game.upgrade1cost.formateNumber()

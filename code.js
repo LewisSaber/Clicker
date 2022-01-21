@@ -50,7 +50,9 @@ function reset() {
     gen2: 0,
     upgrade4cost: 100000,
     upgrade4effect: 1,
-    trialmultiplier: 1
+    trialmultiplier: 1,
+    upgrade5cost : 1,
+    upgrade5effect : 10,
   }
 }
 reset()
@@ -180,7 +182,7 @@ function onTick() {
   gt2.innerText = game.gen2.formateNumber()
   game.GKM = (1 + game.GKMa) * +game.upgrade3effect
   if (game.gen2 > 0) {
-    game.atom += Math.log10(game.gen1) / 10 - 0.2
+    game.atom += Math.log10(game.gen1)/Math.log10(game.upgrade5effect) / game.upgrade5effect 
     Atom.innerText = "Atoms : " + (game.atom >> 0)
   }
   document.getElementById("ClickPower").innerText = game.clickpower.formateNumber()

@@ -14,7 +14,8 @@ let Partsofgame = [
   document.getElementById("gen2"),//12
   document.getElementById("scrapcraft"),//13
   document.getElementById("craftbooster"),//14
-  document.getElementById("Upgrade4")//15
+  document.getElementById("Upgrade4"),//15
+  document.getElementById("Upgrade5")//16
 ]
 
 function revealstatus() {
@@ -34,6 +35,7 @@ function revealstatus() {
   if (tabs[13] == false && game.scrapsorter> 0) tabs[13] = true
   //if (tabs[14] == false && game.GK> 0) tabs[14] = true
   if (tabs[15] == false && game.GK> 0) tabs[15] = true
+  if (tabs[16] == false && game.scrapsorter> 0) tabs[16] = true
 }
 function reveal() {
   revealstatus()
