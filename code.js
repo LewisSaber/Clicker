@@ -307,7 +307,7 @@ function Buygen1() {
   if (game.GK >= 1) {
     game.GK = game.GK - 1
     game.gen1++
-    gt1.innerText = game.gen1
+    gt1.innerText = game.gen1.formateNumber()
   }
 }
 
