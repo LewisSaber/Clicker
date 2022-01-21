@@ -82,12 +82,24 @@ function OpenCraft() {
     if (
       game.rat >= costRat &&
       game.atomizedcopper >= costatomizedcopper &&
-      game.clickshard > -costclickshards
+      game.clickshard >= costclickshards
     ) {
       game.rat -= costRat
       game.atomizedcopper -= costatomizedcopper
       game.clickshard -= costclickshards
       game.riscopper += 2 * tocraft
+  
+      resourceupdate()
+    }
+  }
+  function craftsilicon() {
+    let costRawsilicon = 1 * tocraft
+    
+    if (
+      game.rawsilicon >= costRawsilicon
+    ) {
+        game.rawsilicon -= costRawsilicon
+        game.silicon += tocraft
   
       resourceupdate()
     }

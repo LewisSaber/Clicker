@@ -53,6 +53,7 @@ function reset() {
     trialmultiplier: 1,
     upgrade5cost : 1,
     upgrade5effect : 10,
+    silicon : 0
   }
 }
 reset()
@@ -88,6 +89,7 @@ tabs = [
   false,
   false,
   false,
+  false
 ]
 function loadGame(loadgame) {
   //Sets each variable in 'game' to the equivalent variable in 'loadgame' (the saved file)
@@ -149,6 +151,7 @@ Rawplastic = document.getElementById("rawplastic")
 Rat = document.getElementById("rat")
 Atomizedcopper = document.getElementById("atomizedcopper")
 Riscopper = document.getElementById("riscopper")
+Silicon = document.getElementById("silicon")
 
 //
 function click1() {
@@ -207,6 +210,7 @@ function resourceupdate() {
   Atomizedcopper.innerText = game.atomizedcopper.formateNumber()
   Riscopper.innerText = game.riscopper.formateNumber()
   Boostercore.innerText = "Booster cores : " + game.boostercore.formateNumber()
+  Silicon.innerText = game.silicon.formateNumber()
   OverlayUpdate()
  
 }
