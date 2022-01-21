@@ -131,7 +131,7 @@ Ca = document.getElementById("Tocraft")
 Oa = document.getElementById("ToOpen")
 //resources
 Clickscraft = document.getElementById("clickscraft")
-GKcraft = document.getElementById("GK craft")
+GKcraft = document.getElementById("GKcraft")
 Scrap = document.getElementById("scrap")
 Clickshard = document.getElementById("clickshard")
 Generatorshard = document.getElementById("generatorshard")
@@ -206,6 +206,7 @@ function resourceupdate() {
   Riscopper.innerText = game.riscopper.formateNumber()
   Boostercore.innerText = "Booster cores : " + game.boostercore.formateNumber()
   OverlayUpdate()
+ 
 }
 function CloseMenu() {
   mainmenu.style.display = "none"
