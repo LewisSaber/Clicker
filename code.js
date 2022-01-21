@@ -108,27 +108,7 @@ Number.prototype.formateNumber = function(max = 1e6) {
   return formatestring
 };
 //else game[Object.keys(game)[i]] = game[i]
-function updateupgrades() {
-  document.getElementById("ClickPower").innerText = game.clickpower.formateNumber() //updates clickpower showcase
-  document.getElementById("upgrade1cost").innerText = game.upgrade1cost.formateNumber()
-  document.getElementById("upgrade1effect").innerText = game.upgrade1effect.formateNumber()
-  document.getElementById("upgrade2cost").innerText = game.upgrade2cost.formateNumber()
-  document.getElementById("upgrade3cost").innerText = game.upgrade3cost.formateNumber()
-  document.getElementById("upgrade2effect").innerText = game.upgrade2effect.formateNumber()
-  document.getElementById("upgrade3effect").innerText = game.upgrade3effect.formateNumber()
-  document.getElementById("upgrade4cost").innerText = game.upgrade4cost.formateNumber()
-  document.getElementById("upgrade4effect").innerText = game.upgrade4effect.formateNumber()
-  if (game.isScrapOn == 1) {
-    game.isScrapOn = 0
-    TurnScrap()
-  }
 
-  if (game.decrnumber == 1) {
-    document.getElementById("Upgrade2").disabled = true
-    document.getElementById("Upgrade2").innerText = "MAXED!"
-  }
-}
-updateupgrades()
 
 //elements
 Counter = document.getElementById("Counter")
@@ -201,6 +181,7 @@ function onTick() {
     game.atom += Math.log10(game.gen1) / 10 - 0.2
     Atom.innerText = "Atoms : " + (game.atom >> 0)
   }
+  document.getElementById("ClickPower").innerText = game.clickpower.formateNumber()
 }
 
 let timertick = setInterval(onTick, 1000)
@@ -366,7 +347,7 @@ function OpenCrate1() {
       dropclickpower = (Math.floor(Math.random() * 6) + 1) * toopen
       game.clickpower += dropclickpower
       loot = "+ " + dropclickpower.formateNumber() + " clickpower"
-      document.getElementById("ClickPower").innerText = game.clickpower
+      
     } else if (drop > 34 && drop < 38) {
       game.upgrade3costreducer += 10 * toopen
       loot = "Upgrade 3 cost reduced!(half WIP)"

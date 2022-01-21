@@ -8,7 +8,7 @@ function OpenUpgrade() {
     let effect = Number(document.getElementById("upgrade1effect").innerText)
     if (game.clicks >= cost) {
       game.clicks = game.clicks - cost
-      game.clickpower += 1
+      game.clickpower += effect + 1 * (effect/7 + 1) - effect
       game.upgrades1++
       cost = Math.floor(Math.pow(1.5, game.upgrades1))
       document.getElementById("upgrade1effect").innerText = (effect + 1 * (effect/7 + 1)).formateNumber()
