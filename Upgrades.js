@@ -63,9 +63,9 @@ function OpenUpgrade() {
     if (game.clicks >= cost) {
       game.clicks -= cost
       game.trialmultiplier++
-      document.getElementById("upgrade4cost").innerText = (cost * 10).formateNumber()
+      document.getElementById("upgrade4cost").innerText = (cost * 3).formateNumber()
       document.getElementById("upgrade4effect").innerText = effect + 1
-      game.upgrade4cost = (cost * 10)
+      game.upgrade4cost = (cost * 3)
       game.upgrade4effect = effect + 1
     }
   }

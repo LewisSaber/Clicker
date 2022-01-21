@@ -48,7 +48,7 @@ function reset() {
     riscopper: 0,
     gen1: 0,
     gen2: 0,
-    upgrade4cost: 10000,
+    upgrade4cost: 100000,
     upgrade4effect: 1,
     trialmultiplier: 1
   }
@@ -215,8 +215,8 @@ function Close() {
 }
 function keytrial() {
   numberforstop = 0
-  if (game.clicks >= 150) {
-    game.clicks -= 150
+  if (game.clicks >= 2000) {
+    game.clicks -= 2000
 
     CloseMenu()
     keytrialdiv.style.display = "block"

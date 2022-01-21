@@ -19,7 +19,7 @@ let Partsofgame = [
 
 function revealstatus() {
   if (tabs[0] == false && game.GK > 0) tabs[0] = true
-  if (tabs[1] == false && game.clicks > 150) tabs[1] = true
+  if (tabs[1] == false && game.clicks > 2000) tabs[1] = true
   if (tabs[2] == false && game.clicks > 10) tabs[2] = true
   if (tabs[3] == false && game.GK > 10) tabs[3] = true
   if (tabs[4] == false && game.scrap > 10) tabs[4] = true
