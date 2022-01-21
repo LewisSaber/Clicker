@@ -214,7 +214,7 @@ function Close() {
   craftsdiv.style.display = "none"
 }
 function keytrial() {
-  if(game.decrnumber == 1)
+  if(game.decrnumber == 1 && game.clicks >= 2000)
   {
     game.GK += 1 * game.GKM * game.trialmultiplier
     game.clicks -= 2000 
