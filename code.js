@@ -50,7 +50,7 @@ function reset() {
     gen2: 0,
     upgrade4cost: 10000,
     upgrade4effect: 1,
-    trialmultiplier: 1,
+    trialmultiplier: 1
   }
 }
 reset()
@@ -189,16 +189,16 @@ function onTick() {
     game.clicks + game.gen1 * (1 + game.clickpower / 30) * game.genmult //game.clicks per second
   game.gen1 += game.gen2 * game.genmult
   Counter.innerText = game.clicks.formateNumber()
-  key1number.innerText = game.GK.formateNumber(1e4)
-   //export game.GK
+  key1number.innerText = game.GK.formateNumber(1e4) //export game.GK
+  
   game.generatorshard += game.gen1 * 0.1 * (1 + game.clickpower / 1000)
   Generatorshard.innerText = "Generator shards : " + game.generatorshard.formateNumber()
 
     gt1.innerText = game.gen1.formateNumber()
   gt2.innerText = game.gen2.formateNumber()
   game.GKM = (1 + game.GKMa) * +game.upgrade3effect
-  if (game.gen1 > 10000) {
-    game.atom += Math.log10(game.gen1) / 10 - 0.4
+  if (game.gen2 > 0) {
+    game.atom += Math.log10(game.gen1) / 10 - 0.2
     Atom.innerText = "Atoms : " + (game.atom >> 0)
   }
 }
