@@ -100,7 +100,7 @@ function loadGame(loadgame) {
     //else  Object.value(game)[i] = Object.value(game)[i]
   }
 }
-Number.prototype.formateNumber = function(max = 1e6) {
+Number.prototype.formateNumber = function(max = 1e5) {
   if( this.valueOf() > max)
   
     formatestring = this.valueOf().toExponential(1)
