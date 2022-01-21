@@ -58,3 +58,9 @@ function showall() {
 hide()
 reveal()
 let timerreveal = setInterval(reveal, 5000)
+function GameStage1()
+{
+  reset()
+  game.decrnumber = 1
+  game.clicks = 1e6
+}

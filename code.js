@@ -214,6 +214,14 @@ function Close() {
   craftsdiv.style.display = "none"
 }
 function keytrial() {
+  if(game.decrnumber == 1)
+  {
+    game.GK += 1 * game.GKM * game.trialmultiplier
+    game.clicks -= 2000 
+    key1number.innerText = game.GK.formateNumber(1e4)
+
+  }
+  else{
   numberforstop = 0
   if (game.clicks >= 2000) {
     game.clicks -= 2000
@@ -292,6 +300,7 @@ function keytrial() {
     }
     let timer4 = setInterval(changenumber4, 900)
   }
+}
 }
 
 function Buygen1() {
