@@ -117,6 +117,11 @@ function OpenUpgrade() {
     document.getElementById("upgrade3effect").innerText = game.upgrade3effect.formateNumber()
     document.getElementById("upgrade4cost").innerText = game.upgrade4cost.formateNumber()
     document.getElementById("upgrade4effect").innerText = game.upgrade4effect.formateNumber()
+    document.getElementById("upgrade5cost").innerText = game.upgrade5cost.formateNumber()
+    if (game.upgrade5effect <= 0.1) {
+        document.getElementById("Upgrade5").disabled = true
+        document.getElementById("Upgrade5").innerText = "MAXED!"
+      }
     if (game.isScrapOn == 1) {
       game.isScrapOn = 0
       TurnScrap()
