@@ -408,7 +408,7 @@ function OpenCraft() {
 function craftbasiccore() {
   let costscrap = 100 * tocraft
   let costCshards = 50 * tocraft
-  let costclicks = 10000 * tocraft
+  let costclicks = 5e12 * tocraft
   if (
     costscrap <= game.scrap &&
     costCshards <= game.clickshard &&
@@ -422,8 +422,8 @@ function craftbasiccore() {
   }
 }
 function craftgenerator2() {
-  let costGK = 1000 * tocraft
-  let costGshards = 1000 * tocraft
+  let costGK = 1e8 * tocraft
+  let costGshards = 3e7 * tocraft
   let costBcores = 20 * tocraft
   if (
     costGK <= game.GK &&
