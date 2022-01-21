@@ -130,6 +130,8 @@ upgrade3 = document.getElementById("upgrade3effect")
 Ca = document.getElementById("Tocraft")
 Oa = document.getElementById("ToOpen")
 //resources
+Clickscraft = document.getElementById("clickscraft")
+GKcraft = document.getElementById("GK craft")
 Scrap = document.getElementById("scrap")
 Clickshard = document.getElementById("clickshard")
 Generatorshard = document.getElementById("generatorshard")
@@ -187,6 +189,8 @@ function onTick() {
 let timertick = setInterval(onTick, 1000)
 
 function resourceupdate() {
+  Clickscraft.innerText =  "Clicks : " + game.clicks.formateNumber()
+  GKcraft.innerText =  "Gold keys : " + game.GK.formateNumber()
   Scrap.innerText = "Scrap : " + game.scrap.formateNumber() //export game.scrap
   Clickshard.innerText = "Click shards : " + game.clickshard.formateNumber() //export clickshards
   Basiccore.innerText = game.basiccore.formateNumber()
