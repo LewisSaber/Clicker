@@ -452,7 +452,7 @@ function setcraftvalue() {
   tocraft = +Ca.value
 }
 function craftscrapsorter() {
-  let costBpotato = 20 * tocraft
+  let costBpotato = 200 * tocraft
   let costAtoms = 100 * tocraft
   let costBcores = 1000 * tocraft
   if (
@@ -470,7 +470,7 @@ function craftscrapsorter() {
 function craftatomizedcopper() {
   let costRawcopper = 2 * tocraft
   let costAtoms = 200 * tocraft
-  let costClicks = 100000 * tocraft
+  let costClicks = 1e26 * tocraft
   if (
     game.rawcopper >= costRawcopper &&
     game.atom >= costAtoms &&
