@@ -201,6 +201,7 @@ function resourceupdate() {
   Atomizedcopper.innerText = game.atomizedcopper.formateNumber()
   Riscopper.innerText = game.riscopper.formateNumber()
   Boostercore.innerText = "Booster cores : " + game.boostercore.formateNumber()
+  OverlayUpdate()
 }
 function CloseMenu() {
   mainmenu.style.display = "none"
@@ -323,9 +324,11 @@ function setcratevalue() {
   } else toopen = +Oa.value
 }
 function OpenCrate() {
+  
   CloseMenu()
   cratesdiv.style.display = "block"
   body.style.backgroundImage = "url(CratesBackground.png)"
+  OverlayUpdate()
 }
 function history(loot) {
   loot1.innerText = loot2.innerText
@@ -370,6 +373,7 @@ function OpenCrate1() {
     } else loot = "nothing"
 
     history(loot)
+    OverlayUpdate()
   }
 }
 function OpenCrate2() {
@@ -397,6 +401,7 @@ function OpenCrate2() {
       loot = " + " + toopen + " booster core"
     } else loot = "nothing"
     history(loot)
+    OverlayUpdate()
   }
 }
 function OpenCraft() {
@@ -404,6 +409,7 @@ function OpenCraft() {
   craftsdiv.style.display = "block"
   body.style.backgroundImage = "url(CraftsBackground.jpg)"
   resourceupdate()
+  
 }
 function craftbasiccore() {
   let costscrap = 100 * tocraft
@@ -535,5 +541,5 @@ function sortscrap() {
   } else TurnScrap()
 }
 
-OpenCraft()
-Close()
+//OpenCraft()
+//Close()

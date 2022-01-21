@@ -261,6 +261,7 @@
 .resource {
   width: 100%;
   display: block;
+  margin: 0px;
 }
 .craft {
   border: solid 2px blue;
@@ -377,4 +378,21 @@
 {
   font-size: 0.7 vw;
  margin-top: 2%;
+}
+.ResourceOverlay
+{
+  width: 95vw;
+  font-size: 2vw;
+  opacity: 0.8;
+  background: #a1a19f;
+  border: 10px solid black;
+  padding: 1vh;
+}
+.overlayresource
+{
+  width: 100%;
+  display: inline;
+  margin: 0px;
+  margin-left: 1vw;
+ 
 }

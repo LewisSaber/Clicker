@@ -64,3 +64,4 @@ function GameStage1()
   game.decrnumber = 1
   game.clicks = 1e6
 }
+

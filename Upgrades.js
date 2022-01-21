@@ -2,6 +2,7 @@ function OpenUpgrade() {
     CloseMenu()
     upgradesdiv.style.display = "block"
     body.style.backgroundImage = "url(UpgradesBackground.jpg)"
+    OverlayUpdate()
   }
   function BuyUpgrade1() {
     let cost = Math.floor(Math.pow(1.5, game.upgrades1))
@@ -18,6 +19,7 @@ function OpenUpgrade() {
       game.upgrade1cost = cost
       game.upgrade1effect = effect + 1 * (effect/7 + 1)
     }
+    OverlayUpdate()
   }
   function BuyUpgrade2() {
     let cost = Number(document.getElementById("upgrade2cost").innerText)
@@ -35,6 +37,8 @@ function OpenUpgrade() {
       document.getElementById("Upgrade2").disabled = true
       document.getElementById("Upgrade2").innerText = "MAXED!"
     }
+    OverlayUpdate()
+    
   }
   function BuyUpgrade3() {
     let cost = Number(document.getElementById("upgrade3cost").innerText)
@@ -56,6 +60,7 @@ function OpenUpgrade() {
       game.upgrade3cost = cost
       game.upgrade3effect = effect * 3
     }
+    OverlayUpdate()
   }
   function BuyUpgrade4() {
     let cost =  game.upgrade4cost
@@ -68,6 +73,7 @@ function OpenUpgrade() {
       game.upgrade4cost = (cost * 3)
       game.upgrade4effect = effect + 1
     }
+    OverlayUpdate()
   }
   function updateupgrades() {
     document.getElementById("ClickPower").innerText = game.clickpower.formateNumber() //updates clickpower showcase
