@@ -1,3 +1,15 @@
+//steps to add craft
+/*
+1.make resource in game object
+2.Add resource elements to //resource
+3.Add materials to resource update
+4.make craft in html
+5.make craft function
+6.fix 100500 bugs
+
+
+
+*/
 function OpenCraft() {
     CloseMenu()
     craftsdiv.style.display = "block"
@@ -101,6 +113,28 @@ function OpenCraft() {
         game.rawsilicon -= costRawsilicon
         game.silicon += tocraft
   
+      resourceupdate()
+    }
+  }
+  function craftleswafer()
+  {
+    let costlesboule = 1 * tocraft
+    if(game.lesboule >= costlesboule)
+    {
+      game.leswafer += 32 * tocraft
+      game.lesboule -= costlesboule
+      resourceupdate()
+    }
+  }
+  function craftlesboule()
+  {
+    let costsilicon = 64 * tocraft
+    let costrawplastic = 32 * tocraft
+    if(game.silicon >= costsilicon && game.rawplastic >= costrawplastic )
+    {
+      game.lesboule += 1 * tocraft
+      game.silicon -= costsilicon
+      game.rawplastic -= costrawplastic
       resourceupdate()
     }
   }

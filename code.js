@@ -56,7 +56,9 @@ function reset() {
     silicon : 0,
     dragonlore : 0,
     upgrade6cost : 10,
-    upgrade6effect : 1
+    upgrade6effect : 1,
+    lesboule : 0,
+    leswafer : 0
   }
 }
 reset()
@@ -141,6 +143,8 @@ Rat = document.getElementById("rat")
 Atomizedcopper = document.getElementById("atomizedcopper")
 Riscopper = document.getElementById("riscopper")
 Silicon = document.getElementById("silicon")
+LESboule = document.getElementById("lesboule")
+LESwafer = document.getElementById("leswafer")
 
 //
 function click1() {
@@ -200,6 +204,8 @@ function resourceupdate() {
   Riscopper.innerText = game.riscopper.formateNumber()
   Boostercore.innerText = "Booster cores : " + game.boostercore.formateNumber()
   Silicon.innerText = game.silicon.formateNumber()
+  LESboule.innerText = game.lesboule.formateNumber()
+  LESwafer.innerText = game.leswafer.formateNumber()
   OverlayUpdate()
  
 }
