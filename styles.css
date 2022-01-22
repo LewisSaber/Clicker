@@ -271,7 +271,7 @@
   background: #a1a19f;
   padding: 0.5%;
   margin: 1%;
-
+  height: 15vh;
   font-size: 1.2vw;
 }
 .craftamount {
@@ -291,18 +291,27 @@
   list-style-type: "-";
   margin: -2%;
   padding-left: 0px;
+  margin-left:-1.2vw;
+  
+}
+
+.craftbutton {
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 1%;
+
 }
 .craft ul {
   margin-top: -10%;
-}
-.craftbutton {
-  width: 90%;
+  margin-bottom: 0%;
+  height: 8vh;
 }
 .craftbutton img {
   height: 1em;
   width: 1em;
   background-size: contain;
   background-repeat: no-repeat;
+  
 }
 #crafts {
   display: block;
