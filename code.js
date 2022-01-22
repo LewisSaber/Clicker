@@ -175,7 +175,7 @@ function onTick() {
   game.GKM = (1 + game.GKMa) * +game.upgrade3effect
   if (game.gen2 > 0) {
     game.atom += Math.log10(game.gen1)/Math.log10(game.upgrade5effect) / game.upgrade5effect 
-    Atom.innerText = "Atoms : " + (game.atom >> 0)
+    Atom.innerText = "Atoms : " + game.atom.formateNumber()
   }
   document.getElementById("ClickPower").innerText = game.clickpower.formateNumber()
 }
