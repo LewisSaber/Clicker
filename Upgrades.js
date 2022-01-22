@@ -28,9 +28,9 @@ function OpenUpgrade() {
       game.GK -= cost
       game.decrnumber--
   
-      document.getElementById("upgrade2cost").innerText = (cost + 1).formateNumber()
+      document.getElementById("upgrade2cost").innerText = (cost)
       document.getElementById("upgrade2effect").innerText = effect + 1
-      game.upgrade2cost = (cost + 1)
+      game.upgrade2cost = (cost)
       game.upgrade2effect = effect + 1
     }
     if (game.decrnumber == 1) {
