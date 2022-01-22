@@ -19,7 +19,7 @@ function reset() {
     GKM: 1,
     GK: 0,
     clickpower: 1,
-    decrnumber: 10,
+    decrnumber: 7,
     upgrade3costreducer: 1,
     genmult: 1,
     upgrades1: 0,
@@ -226,7 +226,7 @@ function Close() {
   craftsdiv.style.display = "none"
 }
 function keytrial() {
-  if(game.decrnumber == 1 && game.clicks >= 2000)
+  if(game.decrnumber <= 1 && game.clicks >= 2000)
   {
     game.GK += 1 * game.GKM * game.trialmultiplier
     game.clicks -= 2000 
@@ -243,27 +243,19 @@ function keytrial() {
     body.style.backgroundImage = "url(GKBackground.jpg)"
 
     let RandomNumber =
-      Math.floor(Math.random() * game.decrnumber) * 1000 +
+     
       Math.floor(Math.random() * game.decrnumber) * 100 +
       Math.floor(Math.random() * game.decrnumber) * 10 +
       Math.floor(Math.random() * game.decrnumber)
-    if (RandomNumber < 1000) {
-      RandomNumber = RandomNumber + (game.decrnumber - 1) * 1000
+    if (RandomNumber < 100) {
+      RandomNumber = RandomNumber + (game.decrnumber - 1) * 100
     }
 
     document.getElementById("numbercode").innerText = RandomNumber
-    function changenumber() {
-      if (numberforstop >= 1) {
-        clearInterval(timer1)
-      } else
-        document.getElementById("num1").innerText = Math.floor(
-          Math.random() * game.decrnumber
-        )
-    }
-    let timer1 = setInterval(changenumber, 900)
+   
 
     function changenumber2() {
-      if (numberforstop >= 2) {
+      if (numberforstop >= 1) {
         clearInterval(timer2)
       } else
         document.getElementById("num2").innerText = Math.floor(
@@ -272,7 +264,7 @@ function keytrial() {
     }
     let timer2 = setInterval(changenumber2, 900)
     function changenumber3() {
-      if (numberforstop >= 3) {
+      if (numberforstop >= 2) {
         clearInterval(timer3)
       } else
         document.getElementById("num3").innerText = Math.floor(
@@ -281,9 +273,9 @@ function keytrial() {
     }
     let timer3 = setInterval(changenumber3, 900)
     function changenumber4() {
-      if (numberforstop >= 4) {
+      if (numberforstop >= 3) {
         let guessednumber = Number(
-          document.getElementById("num1").innerText +
+         
             document.getElementById("num2").innerText +
             document.getElementById("num3").innerText +
             document.getElementById("num4").innerText
