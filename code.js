@@ -54,7 +54,9 @@ function reset() {
     upgrade5cost : 1,
     upgrade5effect : 10,
     silicon : 0,
-    dragonlore : 0
+    dragonlore : 0,
+    upgrade6cost : 10,
+    upgrade6effect : 1
   }
 }
 reset()

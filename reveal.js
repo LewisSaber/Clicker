@@ -15,7 +15,10 @@ let Partsofgame = [
   document.getElementById("scrapcraft"),//13
   document.getElementById("craftbooster"),//14
   document.getElementById("Upgrade4"),//15
-  document.getElementById("Upgrade5")//16
+  document.getElementById("Upgrade5"),//16
+  document.getElementById("Upgrade6"),//17
+  Dragonloreupgrade//18
+
 ]
 
 function revealstatus() {
@@ -36,6 +39,8 @@ function revealstatus() {
   //if (tabs[14] == false && game.GK> 0) tabs[14] = true
   if (tabs[15] == false && game.GK> 0) tabs[15] = true
   if (tabs[16] == false && game.scrapsorter> 0) tabs[16] = true
+  if (tabs[17] == false && game.dragonlore> 0) tabs[17] = true
+  if (tabs[18] == false && game.dragonlore> 0) tabs[18] = true
 }
 function reveal() {
   revealstatus()
