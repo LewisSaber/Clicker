@@ -53,7 +53,8 @@ function reset() {
     trialmultiplier: 1,
     upgrade5cost : 1,
     upgrade5effect : 10,
-    silicon : 0
+    silicon : 0,
+    dragonlore : 0
   }
 }
 reset()
@@ -72,25 +73,10 @@ function load() {
   //Keys,generators,upgrades,crates,crafts,upgrade2,upgrade3
 }
 load()
-
-tabs = [
-  false,
-  false,
-  false,
-  false,
-  false,
-  false,
-  false,
-  false,
-  false,
-  false,
-  false,
-  false,
-  false,
-  false,
-  false,
-  false
-]
+tabs = []
+for (let i=0; i < 30; i ++) {
+  tabs.push(false);
+}
 function loadGame(loadgame) {
   //Sets each variable in 'game' to the equivalent variable in 'loadgame' (the saved file)
   for (i = 0; i < Object.keys(loadgame).length; i++) {
@@ -133,6 +119,7 @@ loot4 = document.getElementById("loot4")
 upgrade3 = document.getElementById("upgrade3effect")
 Ca = document.getElementById("Tocraft")
 Oa = document.getElementById("ToOpen")
+placeholder = document.getElementById("placeholder")
 //resources
 Clickscraft = document.getElementById("clickscraft")
 GKcraft = document.getElementById("GKcraft")
@@ -335,6 +322,25 @@ function OpenCrate() {
   OverlayUpdate()
 }
 function history(loot) {
+/*  if( loot2.style.color == "red")
+  loot1.style.color = "red"
+  else  loot1.style.color = "black"
+  if( loot3.style.color == "red")
+  loot2.style.color = "red"
+  else  loot2.style.color = "black"
+  if( loot4.style.color == "red")
+  loot3.style.color = "red"
+  else  loot3.style.color = "black"*/
+  loot1.style.color = loot2.style.color
+  loot2.style.color = loot3.style.color
+  if( placeholder.style.color == "black")
+  loot3.style.color = "black"
+  else
+  loot3.style.color = "red"
+  placeholder.style.color = loot4.style.color
+  
+ 
+ 
   loot1.innerText = loot2.innerText
   loot2.innerText = loot3.innerText
   loot3.innerText = loot4.innerText
@@ -343,7 +349,7 @@ function history(loot) {
 function OpenCrate1() {
   if (game.GK >= 10 * toopen) {
     drop = Math.floor(Math.random() * 100)
-
+    loot4.style.color = "black"
     game.GK -= 10 * toopen
     if (drop < 10) {
       game.gen1 += 30 * toopen
@@ -374,14 +380,27 @@ function OpenCrate1() {
     } else if (drop > 42 && drop < 45) {
       game.legendaryclickshard += toopen
       loot = "legendary clickshard!"
-    } else loot = "nothing"
+    } else 
+    if (drop == 45)
+    {
+      let dropdragonlore = Math.floor(Math.random()*10)
+      if(dropdragonlore == 1)
+      {
+      game.dragonlore += Math.floor(Math.sqrt(toopen))
+      loot = " + " + Math.floor(Math.sqrt(toopen)) + " Dragonlore"
+      loot4.style.color = "red"
+      }
+    }else
+    loot = "nothing"
 
     history(loot)
+   
     OverlayUpdate()
   }
 }
 function OpenCrate2() {
   if (game.atom >= 5) {
+    
     drop = Math.floor(Math.random() * 100)
     game.atom -= 5
     if (drop < 10) {
@@ -406,6 +425,7 @@ function OpenCrate2() {
     } else loot = "nothing"
     history(loot)
     OverlayUpdate()
+    loot4.style.color = "black"
   }
 }
 
