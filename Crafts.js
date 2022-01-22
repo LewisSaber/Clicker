@@ -138,4 +138,35 @@ function OpenCraft() {
       resourceupdate()
     }
   }
-  
+  function craftadvancedcore()
+  {
+    let costLESwafer = 320 * tocraft
+    let costRIScopper = 10 * tocraft
+    let costBasiccore = 3000 * tocraft
+    if(game.leswafer >= costLESwafer &&
+      game.riscopper >= costRIScopper &&
+      game.basiccore >= costBasiccore)
+      {
+        game.leswafer -= costLESwafer 
+      game.riscopper -= costRIScopper 
+      game.basiccore -= costBasiccore
+      game.advancedcore += tocraft
+      resourceupdate()
+      }
+  }
+  function craftgen3()
+  {
+    let costgen2 = 10000 * tocraft
+    let costadvacedcore = 30  *tocraft
+    let costGK = 1e12 * tocraft
+    if(game.gen2 >= costgen2 &&
+      game.advancedcore >= costadvacedcore &&
+      game.GK >= costGK)
+    {
+      game.gen2 -= costgen2 
+      game.advancedcore -= costadvacedcore 
+      game.GK -= costGK
+      game.gen3 +=tocraft
+      resourceupdate()
+    }
+  }

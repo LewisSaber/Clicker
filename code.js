@@ -58,7 +58,10 @@ function reset() {
     upgrade6cost : 10,
     upgrade6effect : 1,
     lesboule : 0,
-    leswafer : 0
+    leswafer : 0,
+    advancedcore: 0,
+    gen3 : 0,
+    gen4 : 0
   }
 }
 reset()
@@ -108,6 +111,8 @@ Number.prototype.formateNumber = function(max = 1e5) {
 Counter = document.getElementById("Counter")
 gt1 = document.getElementById("gt1")
 gt2 = document.getElementById("gt2")
+gt3 = document.getElementById("gt3")
+
 key1number = document.getElementById("key1number")
 mainmenu = document.getElementById("mainmenu")
 body = document.getElementById("body")
@@ -145,6 +150,7 @@ Riscopper = document.getElementById("riscopper")
 Silicon = document.getElementById("silicon")
 LESboule = document.getElementById("lesboule")
 LESwafer = document.getElementById("leswafer")
+Advancedcore = document.getElementById("advancedcore")
 
 //
 function click1() {
@@ -168,6 +174,7 @@ function onTick() {
   game.clicks =
     game.clicks + game.gen1 * (1 + game.clickpower / 30) * game.genmult //game.clicks per second
   game.gen1 += game.gen2 * game.genmult
+  game.gen2 += game.gen3 * game.genmult * game.dragonlore
   Counter.innerText = game.clicks.formateNumber()
   key1number.innerText = game.GK.formateNumber(1e4) //export game.GK
   
@@ -175,8 +182,11 @@ function onTick() {
   Generatorshard.innerText = "Generator shards : " + game.generatorshard.formateNumber()
 
     gt1.innerText = game.gen1.formateNumber()
-  gt2.innerText = game.gen2.formateNumber()
+    gt2.innerText = game.gen2.formateNumber()
+    gt3.innerText = game.gen3.formateNumber()
+
   game.GKM = (1 + game.GKMa) * +game.upgrade3effect
+
   if (game.gen2 > 0) {
     game.atom += Math.log10(game.gen1)/Math.log10(game.upgrade5effect) / game.upgrade5effect  * game.upgrade6effect
     Atom.innerText = "Atoms : " + game.atom.formateNumber()
@@ -206,6 +216,7 @@ function resourceupdate() {
   Silicon.innerText = game.silicon.formateNumber()
   LESboule.innerText = game.lesboule.formateNumber()
   LESwafer.innerText = game.leswafer.formateNumber()
+  Advancedcore.innerText = game.advancedcore.formateNumber()
   OverlayUpdate()
  
 }
@@ -407,10 +418,10 @@ function OpenCrate1() {
   }
 }
 function OpenCrate2() {
-  if (game.atom >= 5) {
+  if (game.atom >= 5 * toopen) {
     
     drop = Math.floor(Math.random() * 100)
-    game.atom -= 5
+    game.atom -= 5 * toopen
     if (drop < 10) {
       let dropBcores = Math.floor(Math.random() * 300) * toopen
       game.basiccore += dropBcores
