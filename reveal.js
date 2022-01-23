@@ -16,11 +16,10 @@ let Partsofgame = [
   document.getElementById("craftbooster"),//14
   document.getElementById("Upgrade4"),//15
   document.getElementById("Upgrade5"),//16
-  document.getElementById("Upgrade6"),//17
-  
-
+  document.getElementById("Upgrade6"),//17 
   Dragonloreupgrade,//18
-  document.getElementById("gen3")//19
+  document.getElementById("gen3"),//19
+  document.getElementById("craftwoodorchard"),//20
 ]
 
 function revealstatus() {
@@ -44,6 +43,7 @@ function revealstatus() {
   if (tabs[17] == false && game.dragonlore> 0) tabs[17] = true
   if (tabs[18] == false && game.dragonlore> 0) tabs[18] = true
   if (tabs[19] == false && game.gen3> 0) tabs[19] = true
+  if (tabs[20] == false && game.gen3> 0) tabs[20] = true
 }
 function reveal() {
   revealstatus()

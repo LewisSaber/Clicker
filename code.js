@@ -61,7 +61,8 @@ function reset() {
     leswafer : 0,
     advancedcore: 0,
     gen3 : 0,
-    gen4 : 0
+    gen4 : 0,
+    woodorchard : 0
   }
 }
 reset()
@@ -151,6 +152,7 @@ Silicon = document.getElementById("silicon")
 LESboule = document.getElementById("lesboule")
 LESwafer = document.getElementById("leswafer")
 Advancedcore = document.getElementById("advancedcore")
+Woodorchard = document.getElementById("woodorchard")
 
 //
 function click1() {
@@ -217,6 +219,7 @@ function resourceupdate() {
   LESboule.innerText = game.lesboule.formateNumber()
   LESwafer.innerText = game.leswafer.formateNumber()
   Advancedcore.innerText = game.advancedcore.formateNumber()
+  Woodorchard.innerText = game.woodorchard.formateNumber()
   OverlayUpdate()
  
 }

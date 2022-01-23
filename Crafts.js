@@ -170,3 +170,19 @@ function OpenCraft() {
       resourceupdate()
     }
   }
+  function craftwoodorchard()
+  {
+    let costadvacedcore = 50  *tocraft
+    let costclicks = 1e34 * tocraft
+    let costLESwafer = 10000 * tocraft
+    if( game.advancedcore >= costadvacedcore &&
+      game.clicks >= costclicks &&
+      game.leswafer >= costLESwafer)
+    {
+      game.advancedcore -= costadvacedcore 
+      game.clicks -= costclicks 
+      game.leswafer -= costLESwafer
+      game.woodorchard += tocraft
+      resourceupdate()
+    }
+  }
