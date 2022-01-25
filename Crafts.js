@@ -209,3 +209,16 @@ function OpenCraft() {
       resourceupdate()
      }
   }
+  function craftt1board()
+  {
+    costwoodplanks = 40  *tocraft
+    costTreesap = 20 * tocraft
+    if(game.plank >= costwoodplanks &&
+      game.treesap >= costTreesap)
+      {
+        game.plank -= costwoodplanks 
+        game.treesap -= costTreesap
+        game.t1board += tocraft
+        resourceupdate()
+      }
+  }

@@ -73,6 +73,7 @@ function reset() {
     log: 0,
     coppercable : 0,
     treesap : 0,
+    t1board : 0,
   }
 }
 reset()
@@ -165,6 +166,7 @@ Plank = document.getElementById("plank")
 Log = document.getElementById("log")
 Coppercable =  document.getElementById("coppercable")
 Treesap = document.getElementById("treesap")
+T1board = document.getElementById("t1board")
 
 //
 function click1() {
@@ -244,6 +246,7 @@ function resourceupdate() {
   Plank.innerText ="Wood planks: " + game.plank.formateNumber()
   Coppercable.innerText = game.coppercable.formateNumber()
   Treesap.innerText = game.treesap.formateNumber()
+  T1board.innerText = game.t1board.formateNumber()
   OverlayUpdate()
 }
 function CloseMenu() {
