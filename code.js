@@ -71,6 +71,8 @@ function reset() {
     bark: 0,
     plank: 0,
     log: 0,
+    coppercable : 0,
+    treesap : 0,
   }
 }
 reset()
@@ -161,6 +163,8 @@ Woodorchard = document.getElementById("woodorchard")
 Bark = document.getElementById("bark")
 Plank = document.getElementById("plank")
 Log = document.getElementById("log")
+Coppercable =  document.getElementById("coppercable")
+Treesap = document.getElementById("treesap")
 
 //
 function click1() {
@@ -238,6 +242,8 @@ function resourceupdate() {
   Bark.innerText ="Wood barks: "+ game.bark.formateNumber()
   Log.innerText ="Wood logs: " +  game.log.formateNumber()
   Plank.innerText ="Wood planks: " + game.plank.formateNumber()
+  Coppercable.innerText = game.coppercable.formateNumber()
+  Treesap.innerText = game.treesap.formateNumber()
   OverlayUpdate()
 }
 function CloseMenu() {

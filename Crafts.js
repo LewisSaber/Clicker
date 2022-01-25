@@ -186,3 +186,26 @@ function OpenCraft() {
       resourceupdate()
     }
   }
+  function craftcoppercable()
+  {
+   let costRIScopper = 2 * tocraft
+   let costPlastic = 32 * tocraft
+    if( game.riscopper >= costRIScopper &&
+      game.rawplastic >= costPlastic)
+      {
+      game.riscopper -= costRIScopper 
+      game.rawplastic -= costPlastic
+      game.coppercable += tocraft
+      resourceupdate()
+    }
+  }
+  function craftsap()
+  {
+     let costlog = 10 * tocraft
+     if(game.log >= costlog)
+     {
+      game.log -= costlog
+      game.treesap += tocraft
+      resourceupdate()
+     }
+  }
