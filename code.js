@@ -341,11 +341,12 @@ function keydown() {
   }
 }
 
-function setcratevalue() {
+function setcratevalue() {//made by sirtage
   if (+Oa.value > 999) {
-    toopen = 999
-  } else if (+Oa.value <= 1) toopen = 1
-  else toopen = +Oa.value
+    Oa.value = 999
+  } else if (+Oa.value <= 1) Oa.value = 1
+ 
+  return Oa.value
 }
 function OpenCrate() {
   CloseMenu()
@@ -374,7 +375,10 @@ function history(loot) {
   loot3.innerText = loot4.innerText
   loot4.innerText = loot
 }
+
+
 function OpenCrate1() {
+  toopen = +setcratevalue()
   if (game.GK >= 10 * toopen) {
     drop = Math.floor(Math.random() * 100)
     loot4.style.color = "black"
@@ -422,6 +426,7 @@ function OpenCrate1() {
   }
 }
 function OpenCrate2() {
+  toopen = +setcratevalue()
   if (game.atom >= 5 * toopen) {
     drop = Math.floor(Math.random() * 100)
     game.atom -= 5 * toopen
