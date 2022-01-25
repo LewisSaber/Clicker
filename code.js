@@ -356,6 +356,7 @@ function setcratevalue() {//made by sirtage
   } else if (+Oa.value <= 1) Oa.value = 1
  
   return Oa.value
+  
 }
 function OpenCrate() {
   CloseMenu()

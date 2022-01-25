@@ -54,6 +54,7 @@ function OpenCraft() {
       {
     tocraft = +Ca.value
 }else tocraft= 1
+updateCraftButtons()
   }
   function craftscrapsorter() {
     let costBpotato = 200 * tocraft
