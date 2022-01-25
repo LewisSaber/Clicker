@@ -22,6 +22,7 @@ let Partsofgame = [
   document.getElementById("craftwoodorchard"),//20
   document.getElementById("woodmats"),//21
   document.getElementById("WoodOrchard"),//22
+  document.getElementById("craftorchard")//23
 ]
 
 function revealstatus() {
@@ -48,6 +49,8 @@ function revealstatus() {
   if (tabs[20] == false && game.gen3> 0) tabs[20] = true
   if (tabs[21] == false && game.woodorchard> 0) tabs[21] = true
   if (tabs[22] == false && game.woodorchard> 0) tabs[22] = true
+  if (tabs[21] == false && game.woodorchard> 0) tabs[21] = true
+  if (tabs[23] == false && game.woodorchard> 0) tabs[23] = true
 
 }
 function reveal() {
