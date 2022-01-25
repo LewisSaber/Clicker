@@ -112,10 +112,13 @@
      <p class="resource" id="rawcopper">Raw copper : 0 </p>
      <p class="resource" id="rawsilicon">Raw silicon : 0 </p>
      <p class="resource" id="rawplastic">Raw plastic : 0 </p>
-     <p class="resource" id="rat">Rats : 0 </p>
-    
+     <p class="resource" id="rat">Rats : 0 </p>   
 </div>
-    
+    <div id="woodmats">
+        <p class="resource" id="bark">Wood barks : 0 </p>
+        <p class="resource" id="plank">Wood planks : 0 </p>
+        <p class="resource" id="log">Wood logs : 0 </p>
+    </div>
      
     </div>
 
@@ -224,7 +227,7 @@
       
     </div>
     <div id="craftgen3" class="craft">
-        <p class="craftamount">Generator 3</p>
+        <p class="craftamount">Generator 3<p class="craftamount"></p></p>
         <ul>
             <li>10k generator 2</li>
             <li>30 advanced core</li>
@@ -253,11 +256,25 @@
 
  <div id="CraftMachines">
     <button id="ScrapSorter" class="button" onclick="OpenScrapSorting()"> Scrap sorter</button>
+    <button id="WoodOrchard" class="button" onclick="OpenWoodorchard()"> Wood orchard</button>
 </div>
   <div id="ScrapSorting">
       <button class="Closemachine" onclick="CloseMachine()">Back</button>
       <button id="TurnScrap" onclick="TurnScrap()">Turn <br> on</button>
   </div>
+  <div id="WoodOrcharddiv">
+    <button class="Closemachine" onclick="CloseMachine()">Back</button>
+    <button id="TurnWoodorchard" onclick="TurnOrchard()">Turn <br> on</button>
+    <div id="tree" onclick="cutwood()"></div>
+    <div id="productionbuttons">
+        <p id="Currproducingwood">Currently making: <br> </p>
+        <button class="woodpprduction" onclick="game.makeBark = 1 , game.makePlank = 0 , game.makeLog = 0 , Currentlymakingwood()">Make bark</button>
+        <button class="woodpprduction" onclick="game.makeBark = 0 , game.makePlank = 1 , game.makeLog = 0 , Currentlymakingwood()">Make plank</button>
+        <button class="woodpprduction" onclick="game.makeBark = 0 , game.makePlank = 0 , game.makeLog = 1 , Currentlymakingwood()">Make log</button>
+
+    </div>
+    <p id="tiptree">You can click on tree!</p>
+</div>
 </div>
 
 <div id="placeholder"></div>

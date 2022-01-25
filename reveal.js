@@ -20,6 +20,8 @@ let Partsofgame = [
   Dragonloreupgrade,//18
   document.getElementById("gen3"),//19
   document.getElementById("craftwoodorchard"),//20
+  document.getElementById("woodmats"),//21
+  document.getElementById("WoodOrchard"),//22
 ]
 
 function revealstatus() {
@@ -44,6 +46,9 @@ function revealstatus() {
   if (tabs[18] == false && game.dragonlore> 0) tabs[18] = true
   if (tabs[19] == false && game.gen3> 0) tabs[19] = true
   if (tabs[20] == false && game.gen3> 0) tabs[20] = true
+  if (tabs[21] == false && game.woodorchard> 0) tabs[21] = true
+  if (tabs[22] == false && game.woodorchard> 0) tabs[22] = true
+
 }
 function reveal() {
   revealstatus()

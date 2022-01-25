@@ -335,8 +335,19 @@
 #ScrapSorting {
   display: none;
   float: left;
-
+  border: solid 0.5vw orangered;
   width: 55%;
+  margin-top: 2%;
+}
+#WoodOrcharddiv
+{
+  display: none;
+  float: left;
+  border: solid 0.5vw orangered;
+  background-size: cover;
+  background-image: url("Woodorchardbackground.jpg");
+  width: 55%;
+  height: 50vh;
   margin-top: 2%;
 }
 .Closemachine {
@@ -359,6 +370,16 @@
   font-size: 1.8vw;
   opacity: 0.8;
 }
+#TurnWoodorchard {
+  width: 6vw;
+  height: 6vw;
+  background-size: cover;
+  background-image: url(off.jpg);
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 1.8vw;
+  opacity: 0.8;
+}
 #atom {
   display: none;
 }
@@ -372,6 +393,10 @@
   display: none;
 }
 #ScrapSorter
+{
+  display: none;
+}
+#WoodOrcharddiv
 {
   display: none;
 }
@@ -407,3 +432,42 @@
 }
 #placeholder
 {color: black;}
+#productionbuttons
+{margin-left: 3%;
+  display: block;
+  float: left;
+  width: 20%;}
+#Currproducingwood
+{
+  opacity: 0.8;
+  background: #a1a19f;
+  margin: 2%;
+  border: 1px solid black;
+  text-align: center;
+ 
+}
+.woodpprduction
+{
+  text-align: center;
+  width: 90%;
+ margin-left: 5%;
+ font-size: 1.2rem;
+}
+#tree
+{
+display: block;
+  background: url("Tree.png") ;
+float: right;
+  width: 20vw;
+  height: 43.3vh;
+}
+#tiptree
+{
+display: block;
+margin-top: 30%;
+margin-left: 2%;
+width: 30%;
+color: crimson;
+background: #a1a19f;
+
+}

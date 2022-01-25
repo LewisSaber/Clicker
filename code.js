@@ -5,6 +5,7 @@ let loot //loot from last crate
 let drop //drop chance
 
 let scraptimer
+let woodtimer 
 let tocraft = 1
 let toopen = 1
 let formatestring
@@ -51,18 +52,25 @@ function reset() {
     upgrade4cost: 100000,
     upgrade4effect: 1,
     trialmultiplier: 1,
-    upgrade5cost : 1,
-    upgrade5effect : 10,
-    silicon : 0,
-    dragonlore : 0,
-    upgrade6cost : 10,
-    upgrade6effect : 1,
-    lesboule : 0,
-    leswafer : 0,
+    upgrade5cost: 1,
+    upgrade5effect: 10,
+    silicon: 0,
+    dragonlore: 0,
+    upgrade6cost: 10,
+    upgrade6effect: 1,
+    lesboule: 0,
+    leswafer: 0,
     advancedcore: 0,
-    gen3 : 0,
-    gen4 : 0,
-    woodorchard : 0
+    gen3: 0,
+    gen4: 0,
+    woodorchard: 0,
+    iswoodorchardon: 0,
+    makeBark: 0,
+    makePlank: 0,
+    makeLog: 0,
+    bark: 0,
+    plank: 0,
+    log: 0,
   }
 }
 reset()
@@ -82,8 +90,8 @@ function load() {
 }
 load()
 tabs = []
-for (let i=0; i < 30; i ++) {
-  tabs.push(false);
+for (let i = 0; i < 30; i++) {
+  tabs.push(false)
 }
 function loadGame(loadgame) {
   //Sets each variable in 'game' to the equivalent variable in 'loadgame' (the saved file)
@@ -98,15 +106,12 @@ function loadGame(loadgame) {
     //else  Object.value(game)[i] = Object.value(game)[i]
   }
 }
-Number.prototype.formateNumber = function(max = 1e5) {
-  if( this.valueOf() > max)
-  
-    formatestring = this.valueOf().toExponential(1)
-  else formatestring = this.valueOf()>>0
+Number.prototype.formateNumber = function (max = 1e5) {
+  if (this.valueOf() > max) formatestring = this.valueOf().toExponential(1)
+  else formatestring = this.valueOf() >> 0
   return formatestring
-};
+}
 //else game[Object.keys(game)[i]] = game[i]
-
 
 //elements
 Counter = document.getElementById("Counter")
@@ -153,22 +158,25 @@ LESboule = document.getElementById("lesboule")
 LESwafer = document.getElementById("leswafer")
 Advancedcore = document.getElementById("advancedcore")
 Woodorchard = document.getElementById("woodorchard")
+Bark = document.getElementById("bark")
+Plank = document.getElementById("plank")
+Log = document.getElementById("log")
 
 //
 function click1() {
   game.clicks += game.clickpower
- 
-    Counter.innerText = game.clicks.formateNumber() //export game.clicks on counter
-  
+
+  Counter.innerText = game.clicks.formateNumber() //export game.clicks on counter
+
   if (game.legendaryclickshard + 2 > 50) {
     game.clickshard += (game.legendaryclickshard + 2) / 100
   } else {
     dropclickshard = Math.floor(Math.random() * 100)
   }
-    if (dropclickshard < game.legendaryclickshard + 3) {
-      game.clickshard++
-    }
-  
+  if (dropclickshard < game.legendaryclickshard + 3) {
+    game.clickshard++
+  }
+
   Clickshard.innerText = "Clickshards : " + game.clickshard.formateNumber(1e4)
 }
 
@@ -176,35 +184,42 @@ function onTick() {
   game.clicks =
     game.clicks + game.gen1 * (1 + game.clickpower / 30) * game.genmult //game.clicks per second
   game.gen1 += game.gen2 * game.genmult
-  game.gen2 += game.gen3 * game.genmult * game.dragonlore
+  game.gen2 += game.gen3 * game.genmult * (game.dragonlore+1)
   Counter.innerText = game.clicks.formateNumber()
   key1number.innerText = game.GK.formateNumber(1e4) //export game.GK
-  
-  game.generatorshard += game.gen1 * 0.1 * (1 + game.clickpower / 1000)
-  Generatorshard.innerText = "Generator shards : " + game.generatorshard.formateNumber()
 
-    gt1.innerText = game.gen1.formateNumber()
-    gt2.innerText = game.gen2.formateNumber()
-    gt3.innerText = game.gen3.formateNumber()
+  game.generatorshard += game.gen1 * 0.1 * (1 + game.clickpower / 1000)
+  Generatorshard.innerText =
+    "Generator shards : " + game.generatorshard.formateNumber()
+
+  gt1.innerText = game.gen1.formateNumber()
+  gt2.innerText = game.gen2.formateNumber()
+  gt3.innerText = game.gen3.formateNumber()
 
   game.GKM = (1 + game.GKMa) * +game.upgrade3effect
 
   if (game.gen2 > 0) {
-    game.atom += Math.log10(game.gen1)/Math.log10(game.upgrade5effect) / game.upgrade5effect  * game.upgrade6effect
+    game.atom +=
+      (Math.log10(game.gen1) /
+        Math.log10(game.upgrade5effect) /
+        game.upgrade5effect) *
+      game.upgrade6effect
     Atom.innerText = "Atoms : " + game.atom.formateNumber()
   }
-  document.getElementById("ClickPower").innerText = game.clickpower.formateNumber()
+  document.getElementById("ClickPower").innerText =
+    game.clickpower.formateNumber()
 }
 
 let timertick = setInterval(onTick, 1000)
 
 function resourceupdate() {
-  Clickscraft.innerText =  "Clicks : " + game.clicks.formateNumber()
-  GKcraft.innerText =  "Gold keys : " + game.GK.formateNumber()
+  Clickscraft.innerText = "Clicks : " + game.clicks.formateNumber()
+  GKcraft.innerText = "Gold keys : " + game.GK.formateNumber()
   Scrap.innerText = "Scrap : " + game.scrap.formateNumber() //export game.scrap
   Clickshard.innerText = "Click shards : " + game.clickshard.formateNumber() //export clickshards
   Basiccore.innerText = game.basiccore.formateNumber()
-  Generatorshard.innerText = "Generator shards : " + game.generatorshard.formateNumber()
+  Generatorshard.innerText =
+    "Generator shards : " + game.generatorshard.formateNumber()
   Atom.innerText = "Atoms : " + game.atom.formateNumber()
   Basedpotato.innerText = "Based potatoes : " + game.basedpotato.formateNumber()
   Scrapsorter.innerText = game.scrapsorter.formateNumber()
@@ -220,8 +235,10 @@ function resourceupdate() {
   LESwafer.innerText = game.leswafer.formateNumber()
   Advancedcore.innerText = game.advancedcore.formateNumber()
   Woodorchard.innerText = game.woodorchard.formateNumber()
+  Bark.innerText ="Wood barks: "+ game.bark.formateNumber()
+  Log.innerText ="Wood logs: " +  game.log.formateNumber()
+  Plank.innerText ="Wood planks: " + game.plank.formateNumber()
   OverlayUpdate()
- 
 }
 function CloseMenu() {
   mainmenu.style.display = "none"
@@ -235,85 +252,79 @@ function Close() {
   craftsdiv.style.display = "none"
 }
 function keytrial() {
-  if(game.decrnumber <= 1 && game.clicks >= 2000)
-  {
+  if (game.decrnumber <= 1 && game.clicks >= 2000) {
     game.GK += 1 * game.GKM * game.trialmultiplier
-    game.clicks -= 2000 
-    key1number.innerText = game.GK.formateNumber(1e4)
-
-  }
-  else{
-  numberforstop = 0
-  if (game.clicks >= 2000) {
     game.clicks -= 2000
+    key1number.innerText = game.GK.formateNumber(1e4)
+  } else {
+    numberforstop = 0
+    if (game.clicks >= 2000) {
+      game.clicks -= 2000
 
-    CloseMenu()
-    keytrialdiv.style.display = "block"
-    body.style.backgroundImage = "url(GKBackground.jpg)"
+      CloseMenu()
+      keytrialdiv.style.display = "block"
+      body.style.backgroundImage = "url(GKBackground.jpg)"
 
-    let RandomNumber =
-     
-      Math.floor(Math.random() * game.decrnumber) * 100 +
-      Math.floor(Math.random() * game.decrnumber) * 10 +
-      Math.floor(Math.random() * game.decrnumber)
-    if (RandomNumber < 100) {
-      RandomNumber = RandomNumber + (game.decrnumber - 1) * 100
-    }
+      let RandomNumber =
+        Math.floor(Math.random() * game.decrnumber) * 100 +
+        Math.floor(Math.random() * game.decrnumber) * 10 +
+        Math.floor(Math.random() * game.decrnumber)
+      if (RandomNumber < 100) {
+        RandomNumber = RandomNumber + (game.decrnumber - 1) * 100
+      }
 
-    document.getElementById("numbercode").innerText = RandomNumber
-   
+      document.getElementById("numbercode").innerText = RandomNumber
 
-    function changenumber2() {
-      if (numberforstop >= 1) {
-        clearInterval(timer2)
-      } else
-        document.getElementById("num2").innerText = Math.floor(
-          Math.random() * game.decrnumber
-        )
-    }
-    let timer2 = setInterval(changenumber2, 900)
-    function changenumber3() {
-      if (numberforstop >= 2) {
-        clearInterval(timer3)
-      } else
-        document.getElementById("num3").innerText = Math.floor(
-          Math.random() * game.decrnumber
-        )
-    }
-    let timer3 = setInterval(changenumber3, 900)
-    function changenumber4() {
-      if (numberforstop >= 3) {
-        let guessednumber = Number(
-         
+      function changenumber2() {
+        if (numberforstop >= 1) {
+          clearInterval(timer2)
+        } else
+          document.getElementById("num2").innerText = Math.floor(
+            Math.random() * game.decrnumber
+          )
+      }
+      let timer2 = setInterval(changenumber2, 900)
+      function changenumber3() {
+        if (numberforstop >= 2) {
+          clearInterval(timer3)
+        } else
+          document.getElementById("num3").innerText = Math.floor(
+            Math.random() * game.decrnumber
+          )
+      }
+      let timer3 = setInterval(changenumber3, 900)
+      function changenumber4() {
+        if (numberforstop >= 3) {
+          let guessednumber = Number(
             document.getElementById("num2").innerText +
-            document.getElementById("num3").innerText +
-            document.getElementById("num4").innerText
-        )
+              document.getElementById("num3").innerText +
+              document.getElementById("num4").innerText
+          )
 
-        if (guessednumber == RandomNumber) {
-          document.getElementById("trialtip").innerText = "Correct!"
-          document.getElementById("trialtip").style.color = "green"
-          game.GK += 1 * game.GKM * game.trialmultiplier
-        } else {
-          trialtip.innerText = "Wrong"
-          trialtip.style.color = "red"
-        }
-        clearInterval(timer4)
-        setTimeout(function () {
-          mainmenu.style.display = "block"
-          keytrialdiv.style.display = "none"
-          body.style.backgroundImage = "url(MAinBackground.jpg)"
-          trialtip.innerHTML = "Use W to stop number <br> Or click"
-          trialtip.style.color = "black"
-        }, 1000)
-      } else
-        document.getElementById("num4").innerText = Math.floor(
-          Math.random() * game.decrnumber
-        )
+          if (guessednumber == RandomNumber) {
+            document.getElementById("trialtip").innerText = "Correct!"
+            document.getElementById("trialtip").style.color = "green"
+            game.GK += 1 * game.GKM * game.trialmultiplier
+          } else {
+            trialtip.innerText = "Wrong"
+            trialtip.style.color = "red"
+          }
+          clearInterval(timer4)
+          setTimeout(function () {
+            mainmenu.style.display = "block"
+            keytrialdiv.style.display = "none"
+            body.style.backgroundImage = "url(MAinBackground.jpg)"
+            trialtip.innerHTML = "Use W to stop number <br> Or click"
+            trialtip.style.color = "black"
+          }, 1000)
+        } else
+          document.getElementById("num4").innerText = Math.floor(
+            Math.random() * game.decrnumber
+          )
+      }
+      let timer4 = setInterval(changenumber4, 900)
     }
-    let timer4 = setInterval(changenumber4, 900)
   }
-}
 }
 
 function Buygen1() {
@@ -333,18 +344,17 @@ function keydown() {
 function setcratevalue() {
   if (+Oa.value > 999) {
     toopen = 999
-  } else if(+Oa.value <=1) toopen = 1
+  } else if (+Oa.value <= 1) toopen = 1
   else toopen = +Oa.value
 }
 function OpenCrate() {
-  
   CloseMenu()
   cratesdiv.style.display = "block"
   body.style.backgroundImage = "url(CratesBackground.png)"
   OverlayUpdate()
 }
 function history(loot) {
-/*  if( loot2.style.color == "red")
+  /*  if( loot2.style.color == "red")
   loot1.style.color = "red"
   else  loot1.style.color = "black"
   if( loot3.style.color == "red")
@@ -355,14 +365,10 @@ function history(loot) {
   else  loot3.style.color = "black"*/
   loot1.style.color = loot2.style.color
   loot2.style.color = loot3.style.color
-  if( placeholder.style.color == "black")
-  loot3.style.color = "black"
-  else
-  loot3.style.color = "red"
+  if (placeholder.style.color == "black") loot3.style.color = "black"
+  else loot3.style.color = "red"
   placeholder.style.color = loot4.style.color
-  
- 
- 
+
   loot1.innerText = loot2.innerText
   loot2.innerText = loot3.innerText
   loot3.innerText = loot4.innerText
@@ -391,7 +397,6 @@ function OpenCrate1() {
       dropclickpower = (Math.floor(Math.random() * 6) + 1) * toopen
       game.clickpower += dropclickpower
       loot = "+ " + dropclickpower.formateNumber() + " clickpower"
-      
     } else if (drop > 34 && drop < 38) {
       game.upgrade3costreducer += 10 * toopen
       loot = "Upgrade 3 cost reduced!(half WIP)"
@@ -402,27 +407,22 @@ function OpenCrate1() {
     } else if (drop > 42 && drop < 45) {
       game.legendaryclickshard += toopen
       loot = "legendary clickshard!"
-    } else 
-    if (drop == 45)
-    {
-      let dropdragonlore = Math.floor(Math.random()*10)
-      if(dropdragonlore == 1)
-      {
-      game.dragonlore += Math.floor(Math.sqrt(toopen))
-      loot = " + " + Math.floor(Math.sqrt(toopen)) + " Dragonlore"
-      loot4.style.color = "red"
+    } else if (drop == 45) {
+      let dropdragonlore = Math.floor(Math.random() * 10)
+      if (dropdragonlore == 1) {
+        game.dragonlore += Math.floor(Math.sqrt(toopen))
+        loot = " + " + Math.floor(Math.sqrt(toopen)) + " Dragonlore"
+        loot4.style.color = "red"
       }
-    }else
-    loot = "nothing"
+    } else loot = "nothing"
 
     history(loot)
-   
+
     OverlayUpdate()
   }
 }
 function OpenCrate2() {
   if (game.atom >= 5 * toopen) {
-    
     drop = Math.floor(Math.random() * 100)
     game.atom -= 5 * toopen
     if (drop < 10) {
@@ -452,12 +452,22 @@ function OpenCrate2() {
 }
 
 function OpenScrapSorting() {
+  CloseMachine()
   document.getElementById("crafts").style.display = "none"
+
   document.getElementById("ScrapSorting").style.display = "block"
 }
+function OpenWoodorchard() {
+  CloseMachine()
+  Currentlymakingwood()
+  document.getElementById("crafts").style.display = "none"
+  document.getElementById("WoodOrcharddiv").style.display = "block"
+}
+
 function CloseMachine() {
   document.getElementById("ScrapSorting").style.display = "none"
   document.getElementById("crafts").style.display = "block"
+  document.getElementById("WoodOrcharddiv").style.display = "none"
 }
 function TurnScrap() {
   if (game.isScrapOn == 1) {
@@ -472,6 +482,22 @@ function TurnScrap() {
     document.getElementById("TurnScrap").innerHTML = "Turn  <br> off"
   }
 }
+function TurnOrchard() {
+  if (game.iswoodorchardon == 1) {
+    document.getElementById("TurnWoodorchard").style.backgroundImage =
+      "url(off.jpg)"
+    game.iswoodorchardon = 0
+    clearInterval(scraptimer)
+    document.getElementById("TurnWoodorchard").innerHTML = "Turn  <br> on"
+  } else {
+    document.getElementById("TurnWoodorchard").style.backgroundImage =
+      "url(on.jpg)"
+    game.iswoodorchardon = 1
+    woodtimer = setInterval(cutwood, 1000)
+    document.getElementById("TurnWoodorchard").innerHTML = "Turn  <br> off"
+  }
+}
+
 function sortscrap() {
   if (game.scrap >= game.scrapsorter) {
     game.scrap -= game.scrapsorter
@@ -494,6 +520,28 @@ function sortscrap() {
     }
     resourceupdate()
   } else TurnScrap()
+}
+function Currentlymakingwood() {
+  let currwood = document.getElementById("Currproducingwood")
+  if (game.makeBark == 1) currwood.innerHTML = "Currently making: <br> Bark"
+  else if (game.makePlank == 1)
+    currwood.innerHTML = "Currently making: <br> Plank"
+  else currwood.innerHTML = "Currently making: <br> Log"
+}
+function cutwood() {
+  if (game.makeBark >0 ) {
+    game.bark += 4 * game.woodorchard
+    Bark.innerText ="Wood barks: "+ game.bark.formateNumber()
+  }
+    if (game.makeLog > 0) {
+      game.log += 1 * game.woodorchard
+      Log.innerText = "Wood logs: " +game.log.formateNumber()
+    }
+    if (game.makePlank > 0) {
+      game.plank += 2 * game.woodorchard
+      Plank.innerText = "Wood planks : "  + game.plank.formateNumber()
+    }
+  
 }
 
 //OpenCraft()
