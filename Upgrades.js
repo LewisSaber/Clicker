@@ -16,12 +16,11 @@ function BuyUpgrade1() {
       effect +
       1 * (effect / 7 + 1)
     ).formateNumber()
-    document.getElementById("upgrade1cost").innerText = cost.formateNumber()
-
-    document.getElementById("ClickPower").innerText = game.clickpower
-    game.upgrade1cost = cost
-    game.upgrade1effect = effect + 1 * (effect / 7 + 1)
+  
+    game.upgrade.upgrade1cost = cost
+    game.upgrade.upgrade1effect = effect + 1 * (effect / 7 + 1)
   }
+  updateupgrades()
   OverlayUpdate()
 }
 function BuyUpgrade2() {
@@ -33,12 +32,11 @@ function BuyUpgrade2() {
 
     document.getElementById("upgrade2cost").innerText = cost
     document.getElementById("upgrade2effect").innerText = effect + 1
-    game.upgrade2cost = cost
-    game.upgrade2effect = effect + 1
+    game.upgrade.upgrade2cost = cost
+    game.upgrade.upgrade2effect = effect + 1
   }
   if (game.decrnumber == 1) {
-    document.getElementById("Upgrade2").disabled = true
-    document.getElementById("Upgrade2").innerText = "MAXED!"
+    updateupgrades()
   }
   OverlayUpdate()
 }
@@ -57,88 +55,100 @@ function BuyUpgrade3() {
         Math.floor(Math.log10(cost)) *
           (Math.log(game.upgrade3costreducer) / Math.log(x))
     )
-    document.getElementById("upgrade3cost").innerText = cost.formateNumber()
-    document.getElementById("upgrade3effect").innerText = (
-      effect * 3
-    ).formateNumber()
-    game.upgrade3cost = cost
-    game.upgrade3effect = effect * 3
+    
+    game.upgrade.upgrade3cost = cost
+    game.upgrade.upgrade3effect = effect * 3
   }
+  updateupgrades()
   OverlayUpdate()
 }
 function BuyUpgrade4() {
-  let cost = game.upgrade4cost
-  let effect = game.upgrade4effect
+  let cost = game.upgrade.upgrade4cost
+  let effect = game.upgrade.upgrade4effect
   if (game.clicks >= cost) {
     game.clicks -= cost
     game.trialmultiplier++
-    document.getElementById("upgrade4cost").innerText = (
-      cost * 3
-    ).formateNumber()
-    document.getElementById("upgrade4effect").innerText = effect + 1
-    game.upgrade4cost = cost * 3
-    game.upgrade4effect = effect + 1
+  
+    game.upgrade.upgrade4cost = cost * 3
+    game.upgrade.upgrade4effect = effect + 1
+
   }
+  updateupgrades()
   OverlayUpdate()
 }
 function BuyUpgrade5() {
-  if (game.upgrade5effect <= 0.1) {
+  if (game.upgrade.upgrade5effect <= 0.1) {
     document.getElementById("Upgrade5").disabled = true
     document.getElementById("Upgrade5").innerText = "MAXED!"
   } else {
-    if (game.riscopper >= game.upgrade5cost) {
-      game.riscopper -= game.upgrade5cost
-      if (game.upgrade5effect == 10) {
-        game.upgrade5effect = 5
-      } else if (game.upgrade5effect <= 2) game.upgrade5effect -= 0.1
-      else game.upgrade5effect -= 1
+    if (game.riscopper >= game.upgrade.upgrade5cost) {
+      game.riscopper -= game.upgrade.upgrade5cost
+      if (game.upgrade.upgrade5effect == 10) {
+        game.upgrade.upgrade5effect = 5
+      } else if (game.upgrade.upgrade5effect <= 2) game.upgrade.upgrade5effect -= 0.1
+      else game.upgrade.upgrade5effect -= 1
 
-      game.upgrade5cost *= 100
-      document.getElementById("upgrade5cost").innerText =
-        game.upgrade5cost.formateNumber()
+      game.upgrade.upgrade5cost *= 100
+      updateupgrades()
+      OverlayUpdate()
     }
   }
 }
 function BuyUpgrade6() {
-  if (game.dragonlore >= game.upgrade6cost) {
-    game.dragonlore -= game.upgrade6cost
+  if (game.dragonlore >= game.upgrade.upgrade6cost) {
+    game.dragonlore -= game.upgrade.upgrade6cost
 
-    game.upgrade6cost *= 30
-    game.upgrade6effect *=2
-    document.getElementById("upgrade6cost").innerText =
-      game.upgrade6cost.formateNumber()
-    document.getElementById("upgrade6effect").innerText =
-      game.upgrade6effect.formateNumber()
+    game.upgrade.upgrade6cost *= 30
+    game.upgrade.upgrade6effect *=2
+    updateupgrades()
+    OverlayUpdate()
+  }
+}
+function BuyUpgrade7() {
+  if (game. advancedcore >= game.upgrade.upgrade7cost) {
+    game. advancedcore -= game.upgrade.upgrade7cost
+    
+    game.upgrade.upgrade7cost *= 5
+    game.upgrade.upgrade7effect *=2
+    updateupgrades()
     OverlayUpdate()
   }
 }
 
+
+let upgradeelements = document.querySelectorAll(".cost")
+
 function updateupgrades() {
-  document.getElementById("ClickPower").innerText =
+ document.getElementById("ClickPower").innerText =
     game.clickpower.formateNumber() //updates clickpower showcase
-  document.getElementById("upgrade1cost").innerText =
-    game.upgrade1cost.formateNumber()
+ /*  document.getElementById("upgrade1cost").innerText =
+    game.upgrade.upgrade1cost.formateNumber()
   document.getElementById("upgrade1effect").innerText =
-    game.upgrade1effect.formateNumber()
+    game.upgrade.upgrade1effect.formateNumber()
   document.getElementById("upgrade2cost").innerText =
-    game.upgrade2cost.formateNumber()
+    game.upgrade.upgrade2cost.formateNumber()
   document.getElementById("upgrade3cost").innerText =
-    game.upgrade3cost.formateNumber()
+    game.upgrade.upgrade3cost.formateNumber()
   document.getElementById("upgrade2effect").innerText =
-    game.upgrade2effect.formateNumber()
+    game.upgrade.upgrade2effect.formateNumber()
   document.getElementById("upgrade3effect").innerText =
-    game.upgrade3effect.formateNumber()
+    game.upgrade.upgrade3effect.formateNumber()
   document.getElementById("upgrade4cost").innerText =
-    game.upgrade4cost.formateNumber()
+    game.upgrade.upgrade4cost.formateNumber()
   document.getElementById("upgrade4effect").innerText =
-    game.upgrade4effect.formateNumber()
+    game.upgrade.upgrade4effect.formateNumber()
   document.getElementById("upgrade5cost").innerText =
-    game.upgrade5cost.formateNumber()
+    game.upgrade.upgrade5cost.formateNumber()
     document.getElementById("upgrade6cost").innerText =
-    game.upgrade6cost.formateNumber()
+    game.upgrade.upgrade6cost.formateNumber()
   document.getElementById("upgrade6effect").innerText =
-    game.upgrade6effect.formateNumber()
-  if (game.upgrade5effect <= 0.1) {
+    game.upgrade.upgrade6effect.formateNumber()*/
+  for (let i = 0; i < upgradeelements.length; i++) {
+    upgradeelements[i].innerText = Object.values(game.upgrade)[i].formateNumber()
+    
+  }
+
+  if (game.upgrade.upgrade5effect <= 0.1) {
     document.getElementById("Upgrade5").disabled = true
     document.getElementById("Upgrade5").innerText = "MAXED!"
   }

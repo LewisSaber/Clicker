@@ -24,12 +24,7 @@ function reset() {
     upgrade3costreducer: 1,
     genmult: 1,
     upgrades1: 0,
-    upgrade1cost: 1,
-    upgrade1effect: 0,
-    upgrade2cost: 1,
-    upgrade3cost: 10,
-    upgrade2effect: 0,
-    upgrade3effect: 1,
+    
     legendaryclickshard: 0,
     isScrapOn: 0,
     scrap: 0,
@@ -49,15 +44,12 @@ function reset() {
     riscopper: 0,
     gen1: 0,
     gen2: 0,
-    upgrade4cost: 100000,
-    upgrade4effect: 1,
+   
     trialmultiplier: 1,
-    upgrade5cost: 1,
-    upgrade5effect: 10,
+   
     silicon: 0,
     dragonlore: 0,
-    upgrade6cost: 10,
-    upgrade6effect: 1,
+  
     lesboule: 0,
     leswafer: 0,
     advancedcore: 0,
@@ -74,6 +66,23 @@ function reset() {
     coppercable : 0,
     treesap : 0,
     t1board : 0,
+   
+    upgrade : {
+      upgrade1cost: 1,
+      upgrade1effect: 0,
+      upgrade2cost: 1,
+      upgrade2effect: 0,
+      upgrade3cost: 10,
+      upgrade3effect: 1,
+      upgrade4cost: 10000,
+      upgrade4effect: 1,
+      upgrade5cost: 1,
+      upgrade5effect: 10,
+      upgrade6cost: 10,
+      upgrade6effect: 1,
+      upgrade7cost: 2,
+      upgrade7effect: 1,
+    }
   }
 }
 reset()
@@ -207,14 +216,14 @@ function onTick() {
   gt2.innerText = game.gen2.formateNumber()
   gt3.innerText = game.gen3.formateNumber()
 
-  game.GKM = (1 + game.GKMa) * +game.upgrade3effect
+  game.GKM = (1 + game.GKMa) * +game.upgrade.upgrade3effect
 
   if (game.gen2 > 0) {
     game.atom +=
       (Math.log10(game.gen1) /
-        Math.log10(game.upgrade5effect) /
-        game.upgrade5effect) *
-      game.upgrade6effect
+        Math.log10(game.upgrade.upgrade5effect) /
+        game.upgrade.upgrade5effect) *
+      game.upgrade.upgrade6effect
     Atom.innerText = "Atoms : " + game.atom.formateNumber()
   }
   document.getElementById("ClickPower").innerText =
@@ -409,7 +418,7 @@ function OpenCrate1() {
       game.clickpower += dropclickpower
       loot = "+ " + dropclickpower.formateNumber() + " clickpower"
     } else if (drop > 34 && drop < 38) {
-      game.upgrade3costreducer += 10 * toopen
+      game.upgrade.upgrade3costreducer += 10 * toopen
       loot = "Upgrade 3 cost reduced!(half WIP)"
     } else if (drop > 37 && drop < 43) {
       let dropgenM = Math.floor(Math.random() * 10) * toopen
@@ -450,7 +459,7 @@ function OpenCrate2() {
       game.genmult += dropgenM
       loot = "+ " + dropgenM.formateNumber() + " Generator multiplier"
     } else if (drop > 24 && drop < 33) {
-      let dropBpotato = (Math.floor(Math.random() * 3) + 10) * toopen
+      let dropBpotato = (Math.floor(Math.random() * 3) + 10) * toopen * game.upgrade.upgrade7effect
       game.basedpotato += dropBpotato
       loot = "+ " + dropBpotato.formateNumber() + " Based potatoes"
     } else if (drop > 32 && drop < 34) {

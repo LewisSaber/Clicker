@@ -1,5 +1,6 @@
 let buttons = document.getElementsByClassName("craftbutton")
 let amounts = []
+let craftmaterials = []
 for (let i = 0; i < buttons.length; i++) {
    amounts[i] = 1
     
@@ -21,7 +22,9 @@ function updateCraftButtons()
     }
     for(let i = 0; i < materials.length;i++)
     {
-        materials[i].innerText = (mats[i]*tocraft).formateNumber()
+        craftmaterials[i+1] = mats[i]*tocraft
+        materials[i].innerText = craftmaterials[i+1].formateNumber()
+       
     }
 }
 updateCraftButtons()

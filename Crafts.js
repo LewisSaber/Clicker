@@ -10,6 +10,14 @@
 
 
 */
+function setcraftvalue() {
+  if(+Ca.value >=1)
+  {
+tocraft = +Ca.value
+}else tocraft= 1
+updateCraftButtons()
+}
+
 function OpenCraft() {
     CloseMenu()
     craftsdiv.style.display = "block"
@@ -18,100 +26,84 @@ function OpenCraft() {
     
   }
   function craftbasiccore() {
-    let costscrap = 100 * tocraft
-    let costCshards = 50 * tocraft
-    let costclicks = 5e12 * tocraft
+
+   
     if (
-      costscrap <= game.scrap &&
-      costCshards <= game.clickshard &&
-      costclicks <= game.clicks
+       craftmaterials[1] <= game.scrap &&
+      craftmaterials[2] <= game.clickshard &&
+      craftmaterials[3] <= game.clicks
     ) {
       game.basiccore += tocraft
-      game.scrap -= costscrap
-      game.clickshard -= costCshards
-      game.clicks -= costclicks
+      game.scrap -=   craftmaterials[1]
+      game.clickshard -= craftmaterials[2]
+      game.clicks -= craftmaterials[3]
       resourceupdate()
     }
   }
   function craftgenerator2() {
-    let costGK = 1e8 * tocraft
-    let costGshards = 3e7 * tocraft
-    let costBcores = 20 * tocraft
     if (
-      costGK <= game.GK &&
-      costGshards <= game.generatorshard &&
-      costBcores <= game.basiccore
+      craftmaterials[4] <= game.GK &&
+      craftmaterials[5] <= game.generatorshard &&
+      craftmaterials[6] <= game.basiccore
     ) {
       game.gen2 += tocraft
-      game.GK -= costGK
-      game.generatorshard -= costGshards
-      game.basiccore -= costBcores
+      game.GK -= craftmaterials[4]
+      game.generatorshard -= craftmaterials[5]
+      game.basiccore -= craftmaterials[6]
       resourceupdate()
     }
   }
-  function setcraftvalue() {
-      if(+Ca.value >=1)
-      {
-    tocraft = +Ca.value
-}else tocraft= 1
-updateCraftButtons()
-  }
+ 
   function craftscrapsorter() {
-    let costBpotato = 200 * tocraft
-    let costAtoms = 100 * tocraft
-    let costBcores = 1000 * tocraft
-    if (
-      costBpotato <= game.basedpotato &&
-      costBcores <= game.basiccore &&
-      costAtoms <= game.atom
+
+    if (craftmaterials[7] <= game.atom &&
+      craftmaterials[8] <= game.basiccore &&
+      craftmaterials[9] <= game.basedpotato
+      
     ) {
-      game.atom -= costAtoms
-      game.basedpotato -= costBpotato
-      game.basiccore -= costBcores
+      game.basedpotato -=  craftmaterials[9]
+      game.basiccore -= craftmaterials[8]
+       game.atom -= craftmaterials[7]
+
       game.scrapsorter += tocraft
       resourceupdate()
     }
   }
   function craftatomizedcopper() {
-    let costRawcopper = 2 * tocraft
-    let costAtoms = 200 * tocraft
-    let costClicks = 1e26 * tocraft
+   
     if (
-      game.rawcopper >= costRawcopper &&
-      game.atom >= costAtoms &&
-      game.clicks >= costClicks
+      game.rawcopper >= craftmaterials[10] &&
+      game.atom >= craftmaterials[11] &&
+      game.clicks >= craftmaterials[12]
     ) {
-      game.rawcopper -= costRawcopper
-      game.atom -= costAtoms
-      game.clicks -= costClicks
+      game.rawcopper -=craftmaterials[10]
+      game.atom -= craftmaterials[11]
+      game.clicks -= craftmaterials[12]
       game.atomizedcopper += tocraft
       resourceupdate()
     }
   }
   function craftriscopper() {
-    let costRat = 3 * tocraft
-    let costatomizedcopper = 5 * tocraft
-    let costclickshards = 1000 * tocraft
     if (
-      game.rat >= costRat &&
-      game.atomizedcopper >= costatomizedcopper &&
-      game.clickshard >= costclickshards
+      game.rat >= craftmaterials[13] &&
+      game.atomizedcopper >= craftmaterials[14] &&
+      game.clickshard >= craftmaterials[15]
     ) {
-      game.rat -= costRat
-      game.atomizedcopper -= costatomizedcopper
-      game.clickshard -= costclickshards
+      game.rat -= craftmaterials[13]
+      game.atomizedcopper -= craftmaterials[14]
+      game.clickshard -= craftmaterials[15]
       game.riscopper += 2 * tocraft
   
       resourceupdate()
     }
   }
   function craftsilicon() {
-    let costRawsilicon = 1 * tocraft
+   
     
     if (
-      game.rawsilicon >= costRawsilicon
+      game.rawsilicon >= craftmaterials[16]
     ) {
-        game.rawsilicon -= costRawsilicon
+        game.rawsilicon -= craftmaterials[16]
         game.silicon += tocraft
   
       resourceupdate()
@@ -120,37 +112,33 @@ updateCraftButtons()
   function craftleswafer()
   {
     let costlesboule = 1 * tocraft
-    if(game.lesboule >= costlesboule)
+    if(game.lesboule >= craftmaterials[19])
     {
       game.leswafer += 32 * tocraft
-      game.lesboule -= costlesboule
+      game.lesboule -= craftmaterials[19]
       resourceupdate()
     }
   }
   function craftlesboule()
   {
-    let costsilicon = 64 * tocraft
-    let costrawplastic = 32 * tocraft
-    if(game.silicon >= costsilicon && game.rawplastic >= costrawplastic )
+  
+    if(game.silicon >= craftmaterials[17] && game.rawplastic >= craftmaterials[18] )
     {
       game.lesboule += 1 * tocraft
-      game.silicon -= costsilicon
-      game.rawplastic -= costrawplastic
+      game.silicon -= craftmaterials[17]
+      game.rawplastic -= craftmaterials[18]
       resourceupdate()
     }
   }
   function craftadvancedcore()
   {
-    let costLESwafer = 320 * tocraft
-    let costRIScopper = 10 * tocraft
-    let costBasiccore = 3000 * tocraft
-    if(game.leswafer >= costLESwafer &&
-      game.riscopper >= costRIScopper &&
-      game.basiccore >= costBasiccore)
+    if(game.leswafer >= craftmaterial[20] &&
+      game.riscopper >= craftmaterial[21] &&
+      game.basiccore >= craftmaterial[22])
       {
-        game.leswafer -= costLESwafer 
-      game.riscopper -= costRIScopper 
-      game.basiccore -= costBasiccore
+        game.leswafer -= craftmaterial[20] 
+      game.riscopper -= craftmaterial[21]
+      game.basiccore -= craftmaterial[22]
       game.advancedcore += tocraft
       resourceupdate()
       }
@@ -159,66 +147,62 @@ updateCraftButtons()
   {
     let costgen2 = 10000 * tocraft
     let costadvacedcore = 30  *tocraft
-    let costGK = 1e12 * tocraft
-    if(game.gen2 >= costgen2 &&
-      game.advancedcore >= costadvacedcore &&
-      game.GK >= costGK)
+   
+    if(game.gen2 >= craftmaterial[23] &&
+      game.advancedcore >= craftmaterial[24] &&
+      game.GK >= craftmaterial[25])
     {
-      game.gen2 -= costgen2 
-      game.advancedcore -= costadvacedcore 
-      game.GK -= costGK
+      game.gen2 -= craftmaterial[23]
+      game.advancedcore -= craftmaterial[24]
+      game.GK -= craftmaterial[25]
       game.gen3 +=tocraft
       resourceupdate()
     }
   }
   function craftwoodorchard()
   {
-    let costadvacedcore = 50  *tocraft
-    let costclicks = 1e34 * tocraft
-    let costLESwafer = 10000 * tocraft
-    if( game.advancedcore >= costadvacedcore &&
-      game.clicks >= costclicks &&
-      game.leswafer >= costLESwafer)
+  
+    if( game.advancedcore >= craftmaterial[26] &&
+      game.clicks >=craftmaterial[27] &&
+      game.leswafer >= craftmaterial[28])
     {
-      game.advancedcore -= costadvacedcore 
-      game.clicks -= costclicks 
-      game.leswafer -= costLESwafer
+      game.advancedcore -= craftmaterial[26] 
+      game.clicks -= craftmaterials[27] 
+      game.leswafer -= craftmaterial[28]
       game.woodorchard += tocraft
       resourceupdate()
     }
   }
   function craftcoppercable()
   {
-   let costRIScopper = 2 * tocraft
-   let costPlastic = 32 * tocraft
-    if( game.riscopper >= costRIScopper &&
-      game.rawplastic >= costPlastic)
+ 
+    if( game.riscopper >=craftmaterial[29] &&
+      game.rawplastic >= craftmaterial[30])
       {
-      game.riscopper -= costRIScopper 
-      game.rawplastic -= costPlastic
+      game.riscopper -=craftmaterial[29]
+      game.rawplastic -= craftmaterial[30]
       game.coppercable += tocraft
       resourceupdate()
     }
   }
   function craftsap()
   {
-     let costlog = 10 * tocraft
-     if(game.log >= costlog)
+    
+     if(game.log >= craftmaterial[31])
      {
-      game.log -= costlog
+      game.log -= craftmaterial[31]
       game.treesap += tocraft
       resourceupdate()
      }
   }
   function craftt1board()
   {
-    costwoodplanks = 40  *tocraft
-    costTreesap = 20 * tocraft
-    if(game.plank >= costwoodplanks &&
-      game.treesap >= costTreesap)
+    
+    if(game.plank >= craftmaterial[32] &&
+      game.treesap >= craftmaterial[33])
       {
-        game.plank -= costwoodplanks 
-        game.treesap -= costTreesap
+        game.plank -= craftmaterial[32]
+        game.treesap -= craftmaterial[33]
         game.t1board += tocraft
         resourceupdate()
       }

@@ -78,8 +78,21 @@ reveal()
 let timerreveal = setInterval(reveal, 5000)
 function GameStage1()
 {
-  reset()
-  game.decrnumber = 1
-  game.clicks = 1e6
+  game.upgrade = {
+    upgrade1cost: 1,
+    upgrade1effect: 0,
+    upgrade2cost: 1,
+    upgrade2effect: 0,
+    upgrade3cost: 10,
+    upgrade3effect: 1,
+    upgrade4cost: 10000,
+    upgrade4effect: 1,
+    upgrade5cost: 1,
+    upgrade5effect: 10,
+    upgrade6cost: 10,
+    upgrade6effect: 1,
+    upgrade7cost: 2,
+    upgrade7effect: 1,
+  }
 }
 
