@@ -3,7 +3,7 @@ let numberforstop = 0 //numeer used to stop key trial
 //game.clicks
 let loot //loot from last crate
 let drop //drop chance
-let enumber
+
 let scraptimer
 let woodtimer 
 let tocraft = 1
