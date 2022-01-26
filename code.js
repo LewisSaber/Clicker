@@ -444,11 +444,11 @@ function OpenCrate2() {
       let dropgenM = (Math.floor(Math.random() * 1000) + 1000) * toopen
       game.genmult += dropgenM
       loot = "+ " + dropgenM.formateNumber() + " Generator multiplier"
-    } else if (drop > 24 && drop < 28) {
-      let dropBpotato = Math.floor(Math.random() * 3) + 1 * toopen
+    } else if (drop > 24 && drop < 33) {
+      let dropBpotato = Math.floor(Math.random() * 3) + 10 * toopen
       game.basedpotato += dropBpotato
       loot = "+ " + dropBpotato.formateNumber() + " Based potatoes"
-    } else if (drop > 27 && drop < 32) {
+    } else if (drop > 32 && drop < 34) {
       game.boostercore += toopen
       loot = " + " + toopen + " booster core"
     } else loot = "nothing"
