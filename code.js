@@ -3,7 +3,7 @@ let numberforstop = 0 //numeer used to stop key trial
 //game.clicks
 let loot //loot from last crate
 let drop //drop chance
-
+let enumber
 let scraptimer
 let woodtimer 
 let tocraft = 1
@@ -110,7 +110,12 @@ function loadGame(loadgame) {
   }
 }
 Number.prototype.formateNumber = function (max = 1e5) {
-  if (this.valueOf() > max) formatestring = this.valueOf().toExponential(1)
+  if (this.valueOf() > max) 
+ 
+
+  {
+   formatestring = this.valueOf().toExponential(1).replace("+", "")
+  }
   else formatestring = this.valueOf() >> 0
   return formatestring
 }
