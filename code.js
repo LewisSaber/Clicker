@@ -365,15 +365,7 @@ function OpenCrate() {
   OverlayUpdate()
 }
 function history(loot) {
-  /*  if( loot2.style.color == "red")
-  loot1.style.color = "red"
-  else  loot1.style.color = "black"
-  if( loot3.style.color == "red")
-  loot2.style.color = "red"
-  else  loot2.style.color = "black"
-  if( loot4.style.color == "red")
-  loot3.style.color = "red"
-  else  loot3.style.color = "black"*/
+
   loot1.style.color = loot2.style.color
   loot2.style.color = loot3.style.color
   if (placeholder.style.color == "black") loot3.style.color = "black"
