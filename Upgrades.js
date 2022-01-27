@@ -119,7 +119,7 @@ if(  game.upgrade.upgrade8effect >10 ||  game.upgrade.upgrade8effect == 0){
   if (game.autoclickerfragments >= game.upgrade.upgrade8cost) {
     game.autoclickerfragments -= game.upgrade.upgrade8cost
     
-    game.upgrade.upgrade8cost *= 2
+    game.upgrade.upgrade8cost *= 3
     if(game.upgrade.upgrade8effect == 0)
     {
     game.upgrade.upgrade8effect = 1000

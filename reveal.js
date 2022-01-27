@@ -26,6 +26,8 @@ let Partsofgame = [
   RIScopperupgrade,//24
   Advcoreupgrade,//25
   document.getElementById("Upgrade7"),//26
+  document.getElementById("Upgrade8"),//27
+  Autoclickfragsupgrade,//28
 ]
 
 function revealstatus() {
@@ -57,6 +59,8 @@ function revealstatus() {
   if (tabs[24] == false && game.scrapsorter > 0) tabs[24] = true
   if (tabs[25] == false && game.scrapsorter > 0) tabs[25] = true
   if (tabs[26] == false && game.scrapsorter > 0) tabs[26] = true
+  if (tabs[27] == false && game.autoclickerfragments > 0 &&(game.upgrade.upgrade8effect >10 || game.upgrade.upgrade8effect == 0)) tabs[27] = true
+  if (tabs[28] == false && game.autoclickerfragments > 0 &&( game.upgrade.upgrade8effect >10 || game.upgrade.upgrade8effect == 0)) tabs[28] = true
 
 }
 function reveal() {
@@ -99,6 +103,9 @@ function GameStage1()
     upgrade6effect: 1,
     upgrade7cost: 2,
     upgrade7effect: 1,
+    upgrade8cost: 1,
+    upgrade8effect: 0,
   }
+  save()
 }
 

@@ -447,7 +447,22 @@ function OpenCrate1() {
         loot = " + " + Math.floor(Math.sqrt(toopen)) + " Dragonlore"
         loot4.style.color = "red"
       }
-    } else loot = "nothing"
+    } else
+    if(drop == 46 && toopen >900)
+    {
+      loot4.style.color = "blue"
+      if(game.upgrade.upgrade8effect == 0)
+      {
+    game.autoclickerfragments += 1
+    loot = "+1 autoclicker fragment "
+      }
+    else
+    {
+      game.autoclickerfragments += Math.floor(20000 / game.upgrade.upgrade8effect)
+      loot = "+ " + Math.floor(20000 / game.upgrade.upgrade8effect) + " Autoclicker frags"
+    }
+
+    }else loot = "nothing"
 
     history(loot)
 
