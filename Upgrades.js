@@ -138,7 +138,16 @@ if(  game.upgrade.upgrade8effect >10 ||  game.upgrade.upgrade8effect == 0){
 }
 else document.getElementById("Upgrade8").innerText = "maxed"
 }
-
+function BuyUpgrade9() {
+  if (game.clicks >= game.upgrade.upgrade9cost) {
+    game.clicks -= game.upgrade.upgrade9cost
+    
+    game.upgrade.upgrade9cost *= 1e5
+    game.upgrade.upgrade9effect *=2
+    updateupgrades()
+    OverlayUpdate()
+  }
+}
 
 let upgradeelements = document.querySelectorAll(".cost")
 

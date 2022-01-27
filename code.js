@@ -83,6 +83,8 @@ function reset() {
       upgrade7effect: 1,
       upgrade8cost: 1,
       upgrade8effect: 0,
+      upgrade9cost : 1e30,
+      upgrade9effect : 1,
     },
     autoclickerfragments : 0,
   }
@@ -92,7 +94,7 @@ reset()
 function save() {
   localStorage.setItem("theClickerSave", JSON.stringify(game))
 }
-setInterval(save, 5000)
+//setInterval(save, 5000)
 function load() {
   reset()
   let loadgame = JSON.parse(localStorage.getItem("theClickerSave"))
@@ -103,6 +105,7 @@ function load() {
   //Keys,generators,upgrades,crates,crafts,upgrade2,upgrade3
 }
 load()
+
 tabs = []
 for (let i = 0; i < 30; i++) {
   tabs.push(false)
@@ -116,17 +119,20 @@ function loadGame(loadgame) {
        if(Object.keys(loadgame)[i] == 'upgrade')
        {
         for (j = 0; j < Object.keys(game.upgrade).length; j++) {
-          console.log("loading")
-          if (loadgame.upgrade[Object.keys(game.upgrade)[j]] == "undefined") {
-            
+         
+          if (loadgame.upgrade[Object.keys(game.upgrade)[j]] == null) {
+           
             loadgame.upgrade[Object.keys(game.upgrade)[j]] = game.upgrade[Object.keys(game.upgrade)[j]]
           }
-          else game.upgrade[Object.keys(game.upgrade)[j]] = loadgame.upgrade[Object.keys(game.upgrade)[j]]
+          else
+          {
+            console.log("loading")
+            game.upgrade[Object.keys(game.upgrade)[j]] = loadgame.upgrade[Object.keys(game.upgrade)[j]]}
        }}
-       else  
-       if (typeof loadgame[Object.keys(loadgame)[i]] == "string") {
+       else   if (typeof loadgame[Object.keys(loadgame)[i]] == "string") {
         game[Object.keys(loadgame)[i]] = loadgame[Object.keys(loadgame)[i]]
-      } else {
+      } else
+       {
         game[Object.keys(game)[i]] = loadgame[Object.keys(loadgame)[i]]
       }
     } 
@@ -236,7 +242,7 @@ function onTick() {
       (Math.log10(game.gen1) /
         Math.log10(game.upgrade.upgrade5effect) /
         game.upgrade.upgrade5effect) *
-      game.upgrade.upgrade6effect
+      game.upgrade.upgrade6effect * game.upgrade.upgrade9effect
     Atom.innerText = "Atoms : " + game.atom.formateNumber()
   }
   document.getElementById("ClickPower").innerText =
