@@ -22,7 +22,10 @@ let Partsofgame = [
   document.getElementById("craftwoodorchard"),//20
   document.getElementById("woodmats"),//21
   document.getElementById("WoodOrchard"),//22
-  document.getElementById("craftorchard")//23
+  document.getElementById("craftorchard"),//23
+  RIScopperupgrade,//24
+  Advcoreupgrade,//25
+  document.getElementById("Upgrade7"),//26
 ]
 
 function revealstatus() {
@@ -51,6 +54,9 @@ function revealstatus() {
   if (tabs[22] == false && game.woodorchard> 0) tabs[22] = true
   if (tabs[21] == false && game.woodorchard> 0) tabs[21] = true
   if (tabs[23] == false && game.woodorchard> 0) tabs[23] = true
+  if (tabs[24] == false && game.scrapsorter > 0) tabs[24] = true
+  if (tabs[25] == false && game.scrapsorter > 0) tabs[25] = true
+  if (tabs[26] == false && game.scrapsorter > 0) tabs[26] = true
 
 }
 function reveal() {

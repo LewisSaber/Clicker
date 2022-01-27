@@ -4,9 +4,11 @@ Clicksupgrade = document.getElementById("clicksupgrade")
 GKupgrade = document.getElementById("GKupgrade")
 RIScopperupgrade = document.getElementById("RIScopperupgrade")
 Dragonloreupgrade = document.getElementById("Dragonloreupgrade")
+Advcoreupgrade = document.getElementById("Advcoreupgrade")
 //crates
 GKcrates = document.getElementById("GKcrates")
 Atomcrates = document.getElementById("Atomcrates")
+
 function OverlayUpdate()
 {
     Clicksupgrade.innerText = "Clicks : " + game.clicks.formateNumber()
@@ -14,4 +16,5 @@ function OverlayUpdate()
     Atomcrates.innerText = "Atoms: " + game.atom.formateNumber()
     RIScopperupgrade.innerText = "RIS copper: "+ game.riscopper.formateNumber()
     Dragonloreupgrade.innerText = "Dragonlore: "+ game.dragonlore.formateNumber()
+    Advcoreupgrade.innerText = "Adv cores: "+ game.advancedcore.formateNumber()
 }

@@ -419,11 +419,14 @@
   background: #a1a19f;
   border: 10px solid black;
   padding: 1vh;
+  float: left;
+  display: block;
 }
 .overlayresource
 {
-  width: 100%;
+ 
   display: inline;
+  float: left;
   margin: 0px;
   margin-left: 1vw;
  
