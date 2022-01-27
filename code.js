@@ -469,6 +469,7 @@ function OpenCrate1() {
   }
 }
 function OpenCrate2() {
+  loot4.style.color = "black"
   toopen = +setcratevalue()
   if (game.atom >= 5 * toopen) {
     drop = Math.floor(Math.random() * 100)
@@ -493,7 +494,7 @@ function OpenCrate2() {
       game.basedpotato += dropBpotato
       loot = "+ " + dropBpotato.formateNumber() + " Based potatoes"
     } else if (drop > 32 && drop < 34 && game.gen3 > 0) {
-      loot4.style.color = "red"
+      loot4.style.color = "yellow"
       game.boostercore += Math.floor(Math.sqrt(toopen))
       loot = " + " + Math.floor(Math.sqrt(toopen)) + " booster core"
     } else if (drop == 34) {
@@ -520,10 +521,17 @@ function OpenCrate2() {
     }
     }
     else
+    if(drop==36 && toopen > 9){
+      console.log("dragonlore dropped ewww")
+      game.dragonlore += game.basedatom *Math.floor( Math.sqrt(toopen * 10)) * 5
+      loot = "+ " + game.basedatom *Math.floor( Math.sqrt(toopen * 10)) * 5 + " Dragonlores"
+      loot4.style.color = "red"
+    }
+    else
     loot = "nothing"
     history(loot)
     OverlayUpdate()
-    loot4.style.color = "black"
+   
   }
 }
 
