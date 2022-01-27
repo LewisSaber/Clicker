@@ -88,6 +88,7 @@ function reset() {
     },
     autoclickerfragments: 0,
     basedatom: 1,
+    advancedscrap: 1,
   }
 }
 reset()
@@ -419,7 +420,7 @@ function OpenCrate1() {
       game.GK += game.GKM * 3 * toopen
       loot = "+ " + (3 * game.GKM * toopen).formateNumber() + " Gold keys"
     } else if (drop > 19 && drop < 25) {
-      let scrapdropped = (Math.floor(Math.random() * 25) + 1) * toopen
+      let scrapdropped = (Math.floor(Math.random() * 25) + 1) * toopen * game.advancedscrap
       game.scrap += scrapdropped
       loot = "+ " + scrapdropped.formateNumber() + " Scrap"
     } else if (drop == 25) {
@@ -461,7 +462,16 @@ function OpenCrate1() {
           Math.floor(20000 / game.upgrade.upgrade8effect) +
           " Autoclicker frags"
       }
-    } else loot = "nothing"
+    } else
+    if( drop == 47 && toopen<101)
+    {
+      let dropadvscrap = Math.floor(Math.random() * 2)+1 * game.basedatom
+      game.advancedscrap += dropadvscrap
+      loot = "+ "+ dropadvscrap + " Adv scrap"
+      loot4.style.color = "green"
+    }
+    else
+     loot = "nothing"
 
     history(loot)
 
@@ -469,9 +479,10 @@ function OpenCrate1() {
   }
 }
 function OpenCrate2() {
-  loot4.style.color = "black"
+ 
   toopen = +setcratevalue()
   if (game.atom >= 5 * toopen) {
+    loot4.style.color = "black"
     drop = Math.floor(Math.random() * 100)
     game.atom -= 5 * toopen
     if (drop < 10) {
