@@ -94,7 +94,7 @@ reset()
 function save() {
   localStorage.setItem("theClickerSave", JSON.stringify(game))
 }
-//setInterval(save, 5000)
+setInterval(save, 5000)
 function load() {
   reset()
   let loadgame = JSON.parse(localStorage.getItem("theClickerSave"))
