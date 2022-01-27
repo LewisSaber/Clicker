@@ -132,29 +132,28 @@ function OpenCraft() {
   }
   function craftadvancedcore()
   {
-    if(game.leswafer >= craftmaterial[20] &&
-      game.riscopper >= craftmaterial[21] &&
-      game.basiccore >= craftmaterial[22])
+    if(game.leswafer >= craftmaterials[20] &&
+      game.riscopper >= craftmaterials[21] &&
+      game.basiccore >= craftmaterials[22])
       {
-        game.leswafer -= craftmaterial[20] 
-      game.riscopper -= craftmaterial[21]
-      game.basiccore -= craftmaterial[22]
+        game.leswafer -= craftmaterials[20] 
+      game.riscopper -= craftmaterials[21]
+      game.basiccore -= craftmaterials[22]
       game.advancedcore += tocraft
       resourceupdate()
       }
   }
   function craftgen3()
   {
-    let costgen2 = 10000 * tocraft
-    let costadvacedcore = 30  *tocraft
+  
    
-    if(game.gen2 >= craftmaterial[23] &&
-      game.advancedcore >= craftmaterial[24] &&
-      game.GK >= craftmaterial[25])
+    if(game.gen2 >= craftmaterials[23] &&
+      game.advancedcore >= craftmaterials[24] &&
+      game.GK >= craftmaterials[25])
     {
-      game.gen2 -= craftmaterial[23]
-      game.advancedcore -= craftmaterial[24]
-      game.GK -= craftmaterial[25]
+      game.gen2 -= craftmaterials[23]
+      game.advancedcore -= craftmaterials[24]
+      game.GK -= craftmaterials[25]
       game.gen3 +=tocraft
       resourceupdate()
     }
@@ -162,13 +161,13 @@ function OpenCraft() {
   function craftwoodorchard()
   {
   
-    if( game.advancedcore >= craftmaterial[26] &&
-      game.clicks >=craftmaterial[27] &&
-      game.leswafer >= craftmaterial[28])
+    if( game.advancedcore >= craftmaterials[26] &&
+      game.clicks >=craftmaterials[27] &&
+      game.leswafer >= craftmaterials[28])
     {
-      game.advancedcore -= craftmaterial[26] 
-      game.clicks -= craftmaterials[27] 
-      game.leswafer -= craftmaterial[28]
+      game.advancedcore -= craftmaterials[26] 
+      game.clicks -= craftmaterialss[27] 
+      game.leswafer -= craftmaterials[28]
       game.woodorchard += tocraft
       resourceupdate()
     }
@@ -176,11 +175,11 @@ function OpenCraft() {
   function craftcoppercable()
   {
  
-    if( game.riscopper >=craftmaterial[29] &&
-      game.rawplastic >= craftmaterial[30])
+    if( game.riscopper >=craftmaterials[29] &&
+      game.rawplastic >= craftmaterials[30])
       {
-      game.riscopper -=craftmaterial[29]
-      game.rawplastic -= craftmaterial[30]
+      game.riscopper -=craftmaterials[29]
+      game.rawplastic -= craftmaterials[30]
       game.coppercable += tocraft
       resourceupdate()
     }
@@ -188,9 +187,9 @@ function OpenCraft() {
   function craftsap()
   {
     
-     if(game.log >= craftmaterial[31])
+     if(game.log >= craftmaterials[31])
      {
-      game.log -= craftmaterial[31]
+      game.log -= craftmaterials[31]
       game.treesap += tocraft
       resourceupdate()
      }
