@@ -499,7 +499,7 @@ function OpenCrate2() {
     } else if (drop > 32 && drop < 34 && game.gen3 > 0) {
       game.boostercore += toopen
       loot = " + " + toopen + " booster core"
-    }if(drop == 34 )
+    }else if(drop == 34 )
     {
       loot4.style.color = "blue"
       if(game.upgrade.upgrade8effect == 0)
