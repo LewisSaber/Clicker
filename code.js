@@ -249,7 +249,7 @@ function resourceupdate() {
   Clickscraft.innerText = "Clicks : " + game.clicks.formateNumber()
   GKcraft.innerText = "Gold keys : " + game.GK.formateNumber()
   Scrap.innerText = "Scrap : " + game.scrap.formateNumber() //export game.scrap
-  Clickshard.innerText = "Click shards : " + game.clickshard.formateNumber() //export clickshards
+  Clickshard.innerText = "Click shards : " + game.clickshard.formateNumber(1e4) //export clickshards
   Basiccore.innerText = game.basiccore.formateNumber()
   Generatorshard.innerText =
     "Generator shards : " + game.generatorshard.formateNumber()
