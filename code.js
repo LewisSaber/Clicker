@@ -490,10 +490,24 @@ function OpenCrate2() {
       let dropBpotato = (Math.floor(Math.random() * 3) + 10) * toopen * game.upgrade.upgrade7effect
       game.basedpotato += dropBpotato
       loot = "+ " + dropBpotato.formateNumber() + " Based potatoes"
-    } else if (drop > 32 && drop < 34) {
+    } else if (drop > 32 && drop < 34 && game.gen3 > 0) {
       game.boostercore += toopen
       loot = " + " + toopen + " booster core"
-    } else loot = "nothing"
+    }if(drop == 34 )
+    {
+      loot4.style.color = "blue"
+      if(game.upgrade.upgrade8effect == 0)
+      {
+    game.autoclickerfragments += 1*10
+    loot = "+1 autoclicker fragment "
+      }
+    else
+    {
+      game.autoclickerfragments += Math.floor(20000 / game.upgrade.upgrade8effect)*10
+      loot = "+ " + Math.floor(20000 / game.upgrade.upgrade8effect)*10 + " Autoclicker frags"
+    }
+
+    }else loot = "nothing"
     history(loot)
     OverlayUpdate()
     loot4.style.color = "black"
