@@ -396,7 +396,7 @@ function history(loot) {
   loot1.style.color = loot2.style.color
   loot2.style.color = loot3.style.color
   if (placeholder.style.color == "black") loot3.style.color = "black"
-  else loot3.style.color = "red"
+  else loot3.style.color = placeholder.style.color
   placeholder.style.color = loot4.style.color
 
   loot1.innerText = loot2.innerText
