@@ -28,6 +28,7 @@ let Partsofgame = [
   document.getElementById("Upgrade7"),//26
   document.getElementById("Upgrade8"),//27
   Autoclickfragsupgrade,//28
+  document.getElementById("Upgrade9"),//29
 ]
 
 function revealstatus() {
@@ -61,7 +62,7 @@ function revealstatus() {
   if (tabs[26] == false && game.scrapsorter > 0) tabs[26] = true
   if (tabs[27] == false && game.autoclickerfragments > 0 &&(game.upgrade.upgrade8effect >10 || game.upgrade.upgrade8effect == 0)) tabs[27] = true
   if (tabs[28] == false && game.autoclickerfragments > 0 &&( game.upgrade.upgrade8effect >10 || game.upgrade.upgrade8effect == 0)) tabs[28] = true
-
+  if (tabs[29] == false && game.gen2 > 0 ) tabs[29] = true
 }
 function reveal() {
   revealstatus()
