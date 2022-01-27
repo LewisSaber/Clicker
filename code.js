@@ -23,8 +23,7 @@ function reset() {
     decrnumber: 7,
     upgrade3costreducer: 1,
     genmult: 1,
-    upgrades1: 0,
-    
+    upgrades1: 0,  
     legendaryclickshard: 0,
     isScrapOn: 0,
     scrap: 0,
@@ -66,7 +65,7 @@ function reset() {
     coppercable : 0,
     treesap : 0,
     t1board : 0,
-   
+ 
     upgrade : {
       upgrade1cost: 1,
       upgrade1effect: 0,
@@ -82,6 +81,8 @@ function reset() {
       upgrade6effect: 1,
       upgrade7cost: 2,
       upgrade7effect: 1,
+      upgrade8cost: 1,
+      upgrade8effect: 5000,
     }
   }
 }
@@ -106,22 +107,32 @@ for (let i = 0; i < 30; i++) {
   tabs.push(false)
 }
 function loadGame(loadgame) {
+ 
   //Sets each variable in 'game' to the equivalent variable in 'loadgame' (the saved file)
-  for (i = 0; i < Object.keys(loadgame).length; i++) {
+ for (i = 0; i < Object.keys(loadgame).length; i++) {
     if (loadgame[Object.keys(loadgame)[i]] != "undefined") {
-      if (typeof loadgame[Object.keys(loadgame)[i]] == "string") {
+       
+       if(Object.keys(loadgame)[i] == 'upgrade')
+       {
+        for (j = 0; j < Object.keys(game.upgrade).length; j++) {
+        
+          if (loadgame.upgrade[Object.keys(game.upgrade)[j]] == "undefined") {
+             
+            loadgame.upgrade[Object.keys(game.upgrade)[j]] = game.upgrade[Object.keys(game.upgrade)[j]]
+          }
+       }}
+       else  
+       if (typeof loadgame[Object.keys(loadgame)[i]] == "string") {
         game[Object.keys(loadgame)[i]] = loadgame[Object.keys(loadgame)[i]]
       } else {
         game[Object.keys(game)[i]] = loadgame[Object.keys(loadgame)[i]]
       }
-    }
-    //else  Object.value(game)[i] = Object.value(game)[i]
+    } 
   }
-}
+  }
+
 Number.prototype.formateNumber = function (max = 1e5) {
   if (this.valueOf() > max) 
- 
-
   {
    formatestring = this.valueOf().toExponential(1).replace("+", "")
   }
