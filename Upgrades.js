@@ -114,6 +114,30 @@ function BuyUpgrade7() {
     OverlayUpdate()
   }
 }
+function BuyUpgrade8() {
+if(  game.upgrade.upgrade8effect >10 ||  game.upgrade.upgrade8effect == 0){
+  if (game.autoclickerfragments >= game.upgrade.upgrade8cost) {
+    game.autoclickerfragments -= game.upgrade.upgrade8cost
+    
+    game.upgrade.upgrade8cost *= 2
+    if(game.upgrade.upgrade8effect == 0)
+    {
+    game.upgrade.upgrade8effect = 1000
+    
+    }
+    else
+    if(game.upgrade.upgrade8effect <=100)
+    game.upgrade.upgrade8effect -=10
+    else
+   
+    game.upgrade.upgrade8effect -=100
+    setInterval(click1,game.upgrade.upgrade8effect)
+    updateupgrades()
+    OverlayUpdate()
+  }
+}
+else document.getElementById("Upgrade8").innerText = "maxed"
+}
 
 
 let upgradeelements = document.querySelectorAll(".cost")

@@ -82,8 +82,9 @@ function reset() {
       upgrade7cost: 2,
       upgrade7effect: 1,
       upgrade8cost: 1,
-      upgrade8effect: 5000,
-    }
+      upgrade8effect: 0,
+    },
+    autoclickerfragments : 0,
   }
 }
 reset()
@@ -115,11 +116,12 @@ function loadGame(loadgame) {
        if(Object.keys(loadgame)[i] == 'upgrade')
        {
         for (j = 0; j < Object.keys(game.upgrade).length; j++) {
-        
+          console.log("loading")
           if (loadgame.upgrade[Object.keys(game.upgrade)[j]] == "undefined") {
-             
+            
             loadgame.upgrade[Object.keys(game.upgrade)[j]] = game.upgrade[Object.keys(game.upgrade)[j]]
           }
+          else game.upgrade[Object.keys(game.upgrade)[j]] = loadgame.upgrade[Object.keys(game.upgrade)[j]]
        }}
        else  
        if (typeof loadgame[Object.keys(loadgame)[i]] == "string") {
