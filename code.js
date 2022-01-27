@@ -425,7 +425,7 @@ function OpenCrate1() {
       game.GK += game.GKM * 3 * toopen
       loot = "+ " + (3 * game.GKM * toopen).formateNumber() + " Gold keys"
     } else if (drop > 19 && drop < 25) {
-      let scrapdropped = Math.floor(Math.random() * 25) * toopen
+      let scrapdropped = (Math.floor(Math.random() * 25)+1) * toopen
       game.scrap += scrapdropped
       loot = "+ " + scrapdropped.formateNumber() + " Scrap"
     } else if (drop == 25) {
@@ -440,7 +440,7 @@ function OpenCrate1() {
       game.upgrade.upgrade3costreducer += 10 * toopen
       loot = "Upgrade 3 cost reduced!(half WIP)"
     } else if (drop > 37 && drop < 43) {
-      let dropgenM = Math.floor(Math.random() * 10) * toopen
+      let dropgenM = (Math.floor(Math.random() * 10 )+1) * toopen
       game.genmult += dropgenM
       loot = "+ " + dropgenM + " Generator multiplier"
     } else if (drop > 42 && drop < 45) {
@@ -497,15 +497,16 @@ function OpenCrate2() {
       game.basedpotato += dropBpotato
       loot = "+ " + dropBpotato.formateNumber() + " Based potatoes"
     } else if (drop > 32 && drop < 34 && game.gen3 > 0) {
-      game.boostercore += toopen
-      loot = " + " + toopen + " booster core"
+      loot4.style.color = "red"
+      game.boostercore +=  Math.floor(Math.sqrt(toopen))
+      loot = " + " +  Math.floor(Math.sqrt(toopen)) + " booster core"
     }else if(drop == 34 )
     {
       loot4.style.color = "blue"
       if(game.upgrade.upgrade8effect == 0)
       {
     game.autoclickerfragments += 1*10
-    loot = "+1 autoclicker fragment "
+    loot = "+10 autoclicker fragment "
       }
     else
     {
