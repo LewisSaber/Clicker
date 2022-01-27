@@ -5,7 +5,7 @@ let loot //loot from last crate
 let drop //drop chance
 
 let scraptimer
-let woodtimer 
+let woodtimer
 let tocraft = 1
 let toopen = 1
 let formatestring
@@ -23,7 +23,7 @@ function reset() {
     decrnumber: 7,
     upgrade3costreducer: 1,
     genmult: 1,
-    upgrades1: 0,  
+    upgrades1: 0,
     legendaryclickshard: 0,
     isScrapOn: 0,
     scrap: 0,
@@ -43,12 +43,12 @@ function reset() {
     riscopper: 0,
     gen1: 0,
     gen2: 0,
-   
+
     trialmultiplier: 1,
-   
+
     silicon: 0,
     dragonlore: 0,
-  
+
     lesboule: 0,
     leswafer: 0,
     advancedcore: 0,
@@ -62,11 +62,11 @@ function reset() {
     bark: 0,
     plank: 0,
     log: 0,
-    coppercable : 0,
-    treesap : 0,
-    t1board : 0,
- 
-    upgrade : {
+    coppercable: 0,
+    treesap: 0,
+    t1board: 0,
+
+    upgrade: {
       upgrade1cost: 1,
       upgrade1effect: 0,
       upgrade2cost: 1,
@@ -83,10 +83,11 @@ function reset() {
       upgrade7effect: 1,
       upgrade8cost: 1,
       upgrade8effect: 0,
-      upgrade9cost : 1e30,
-      upgrade9effect : 1,
+      upgrade9cost: 1e30,
+      upgrade9effect: 1,
     },
-    autoclickerfragments : 0,
+    autoclickerfragments: 0,
+    basedatom: 1,
   }
 }
 reset()
@@ -111,40 +112,33 @@ for (let i = 0; i < 30; i++) {
   tabs.push(false)
 }
 function loadGame(loadgame) {
- 
   //Sets each variable in 'game' to the equivalent variable in 'loadgame' (the saved file)
- for (i = 0; i < Object.keys(loadgame).length; i++) {
+  for (i = 0; i < Object.keys(loadgame).length; i++) {
     if (loadgame[Object.keys(loadgame)[i]] != "undefined") {
-       
-       if(Object.keys(loadgame)[i] == 'upgrade')
-       {
+      if (Object.keys(loadgame)[i] == "upgrade") {
         for (j = 0; j < Object.keys(game.upgrade).length; j++) {
-         
           if (loadgame.upgrade[Object.keys(game.upgrade)[j]] == null) {
-           
-            loadgame.upgrade[Object.keys(game.upgrade)[j]] = game.upgrade[Object.keys(game.upgrade)[j]]
-          }
-          else
-          {
+            loadgame.upgrade[Object.keys(game.upgrade)[j]] =
+              game.upgrade[Object.keys(game.upgrade)[j]]
+          } else {
             console.log("loading")
-            game.upgrade[Object.keys(game.upgrade)[j]] = loadgame.upgrade[Object.keys(game.upgrade)[j]]}
-       }}
-       else   if (typeof loadgame[Object.keys(loadgame)[i]] == "string") {
+            game.upgrade[Object.keys(game.upgrade)[j]] =
+              loadgame.upgrade[Object.keys(game.upgrade)[j]]
+          }
+        }
+      } else if (typeof loadgame[Object.keys(loadgame)[i]] == "string") {
         game[Object.keys(loadgame)[i]] = loadgame[Object.keys(loadgame)[i]]
-      } else
-       {
+      } else {
         game[Object.keys(game)[i]] = loadgame[Object.keys(loadgame)[i]]
       }
-    } 
+    }
   }
-  }
+}
 
 Number.prototype.formateNumber = function (max = 1e5) {
-  if (this.valueOf() > max) 
-  {
-   formatestring = this.valueOf().toExponential(1).replace("+", "")
-  }
-  else formatestring = this.valueOf() >> 0
+  if (this.valueOf() > max) {
+    formatestring = this.valueOf().toExponential(1).replace("+", "")
+  } else formatestring = this.valueOf() >> 0
   return formatestring
 }
 //else game[Object.keys(game)[i]] = game[i]
@@ -197,7 +191,7 @@ Woodorchard = document.getElementById("woodorchard")
 Bark = document.getElementById("bark")
 Plank = document.getElementById("plank")
 Log = document.getElementById("log")
-Coppercable =  document.getElementById("coppercable")
+Coppercable = document.getElementById("coppercable")
 Treesap = document.getElementById("treesap")
 T1board = document.getElementById("t1board")
 
@@ -223,7 +217,7 @@ function onTick() {
   game.clicks =
     game.clicks + game.gen1 * (1 + game.clickpower / 30) * game.genmult //game.clicks per second
   game.gen1 += game.gen2 * game.genmult
-  game.gen2 += game.gen3 * game.genmult * (game.dragonlore+1)
+  game.gen2 += game.gen3 * game.genmult * (game.dragonlore + 1)
   Counter.innerText = game.clicks.formateNumber()
   key1number.innerText = game.GK.formateNumber(1e4) //export game.GK
 
@@ -242,7 +236,9 @@ function onTick() {
       (Math.log10(game.gen1) /
         Math.log10(game.upgrade.upgrade5effect) /
         game.upgrade.upgrade5effect) *
-      game.upgrade.upgrade6effect * game.upgrade.upgrade9effect
+      game.upgrade.upgrade6effect *
+      game.upgrade.upgrade9effect *
+      game.basedatom
     Atom.innerText = "Atoms : " + game.atom.formateNumber()
   }
   document.getElementById("ClickPower").innerText =
@@ -274,9 +270,9 @@ function resourceupdate() {
   LESwafer.innerText = game.leswafer.formateNumber()
   Advancedcore.innerText = game.advancedcore.formateNumber()
   Woodorchard.innerText = game.woodorchard.formateNumber()
-  Bark.innerText ="Wood barks: "+ game.bark.formateNumber()
-  Log.innerText ="Wood logs: " +  game.log.formateNumber()
-  Plank.innerText ="Wood planks: " + game.plank.formateNumber()
+  Bark.innerText = "Wood barks: " + game.bark.formateNumber()
+  Log.innerText = "Wood logs: " + game.log.formateNumber()
+  Plank.innerText = "Wood planks: " + game.plank.formateNumber()
   Coppercable.innerText = game.coppercable.formateNumber()
   Treesap.innerText = game.treesap.formateNumber()
   T1board.innerText = game.t1board.formateNumber()
@@ -383,13 +379,13 @@ function keydown() {
   }
 }
 
-function setcratevalue() {//made by sirtage
+function setcratevalue() {
+  //made by sirtage
   if (+Oa.value > 999) {
     Oa.value = 999
   } else if (+Oa.value <= 1) Oa.value = 1
- 
+
   return Oa.value
-  
 }
 function OpenCrate() {
   CloseMenu()
@@ -398,7 +394,6 @@ function OpenCrate() {
   OverlayUpdate()
 }
 function history(loot) {
-
   loot1.style.color = loot2.style.color
   loot2.style.color = loot3.style.color
   if (placeholder.style.color == "black") loot3.style.color = "black"
@@ -410,7 +405,6 @@ function history(loot) {
   loot3.innerText = loot4.innerText
   loot4.innerText = loot
 }
-
 
 function OpenCrate1() {
   toopen = +setcratevalue()
@@ -425,7 +419,7 @@ function OpenCrate1() {
       game.GK += game.GKM * 3 * toopen
       loot = "+ " + (3 * game.GKM * toopen).formateNumber() + " Gold keys"
     } else if (drop > 19 && drop < 25) {
-      let scrapdropped = (Math.floor(Math.random() * 25)+1) * toopen
+      let scrapdropped = (Math.floor(Math.random() * 25) + 1) * toopen
       game.scrap += scrapdropped
       loot = "+ " + scrapdropped.formateNumber() + " Scrap"
     } else if (drop == 25) {
@@ -440,7 +434,7 @@ function OpenCrate1() {
       game.upgrade.upgrade3costreducer += 10 * toopen
       loot = "Upgrade 3 cost reduced!(half WIP)"
     } else if (drop > 37 && drop < 43) {
-      let dropgenM = (Math.floor(Math.random() * 10 )+1) * toopen
+      let dropgenM = (Math.floor(Math.random() * 10) + 1) * toopen
       game.genmult += dropgenM
       loot = "+ " + dropgenM + " Generator multiplier"
     } else if (drop > 42 && drop < 45) {
@@ -453,22 +447,21 @@ function OpenCrate1() {
         loot = " + " + Math.floor(Math.sqrt(toopen)) + " Dragonlore"
         loot4.style.color = "red"
       }
-    } else
-    if(drop == 46 && toopen >900)
-    {
+    } else if (drop == 46 && toopen > 900) {
       loot4.style.color = "blue"
-      if(game.upgrade.upgrade8effect == 0)
-      {
-    game.autoclickerfragments += 1
-    loot = "+1 autoclicker fragment "
+      if (game.upgrade.upgrade8effect == 0) {
+        game.autoclickerfragments += 1
+        loot = "+1 autoclicker fragment "
+      } else {
+        game.autoclickerfragments += Math.floor(
+          20000 / game.upgrade.upgrade8effect
+        )
+        loot =
+          "+ " +
+          Math.floor(20000 / game.upgrade.upgrade8effect) +
+          " Autoclicker frags"
       }
-    else
-    {
-      game.autoclickerfragments += Math.floor(20000 / game.upgrade.upgrade8effect)
-      loot = "+ " + Math.floor(20000 / game.upgrade.upgrade8effect) + " Autoclicker frags"
-    }
-
-    }else loot = "nothing"
+    } else loot = "nothing"
 
     history(loot)
 
@@ -493,28 +486,41 @@ function OpenCrate2() {
       game.genmult += dropgenM
       loot = "+ " + dropgenM.formateNumber() + " Generator multiplier"
     } else if (drop > 24 && drop < 33) {
-      let dropBpotato = (Math.floor(Math.random() * 3) + 10) * toopen * game.upgrade.upgrade7effect
+      let dropBpotato =
+        (Math.floor(Math.random() * 3) + 10) *
+        toopen *
+        game.upgrade.upgrade7effect
       game.basedpotato += dropBpotato
       loot = "+ " + dropBpotato.formateNumber() + " Based potatoes"
     } else if (drop > 32 && drop < 34 && game.gen3 > 0) {
       loot4.style.color = "red"
-      game.boostercore +=  Math.floor(Math.sqrt(toopen))
-      loot = " + " +  Math.floor(Math.sqrt(toopen)) + " booster core"
-    }else if(drop == 34 )
-    {
+      game.boostercore += Math.floor(Math.sqrt(toopen))
+      loot = " + " + Math.floor(Math.sqrt(toopen)) + " booster core"
+    } else if (drop == 34) {
       loot4.style.color = "blue"
-      if(game.upgrade.upgrade8effect == 0)
-      {
-    game.autoclickerfragments += 1*10
-    loot = "+10 autoclicker fragment "
+      if (game.upgrade.upgrade8effect == 0) {
+        game.autoclickerfragments += 1 * 10
+        loot = "+10 autoclicker fragment "
+      } else {
+        game.autoclickerfragments +=
+          Math.floor(20000 / game.upgrade.upgrade8effect) * 10
+        loot =
+          "+ " +
+          Math.floor(20000 / game.upgrade.upgrade8effect) * 10 +
+          " Autoclicker frags"
       }
-    else
-    {
-      game.autoclickerfragments += Math.floor(20000 / game.upgrade.upgrade8effect)*10
-      loot = "+ " + Math.floor(20000 / game.upgrade.upgrade8effect)*10 + " Autoclicker frags"
+    } else if(drop == 35 && toopen > 1)
+    { 
+     
+      if(Math.floor(Math.random() * 2) == 1)
+      {
+      game.basedatom++
+      loot = " + 1 based atom"
+      loot4.style.color = "green"
     }
-
-    }else loot = "nothing"
+    }
+    else
+    loot = "nothing"
     history(loot)
     OverlayUpdate()
     loot4.style.color = "black"
@@ -599,19 +605,18 @@ function Currentlymakingwood() {
   else currwood.innerHTML = "Currently making: <br> Log"
 }
 function cutwood() {
-  if (game.makeBark >0 ) {
+  if (game.makeBark > 0) {
     game.bark += 4 * game.woodorchard
-    Bark.innerText ="Wood barks: "+ game.bark.formateNumber()
+    Bark.innerText = "Wood barks: " + game.bark.formateNumber()
   }
-    if (game.makeLog > 0) {
-      game.log += 1 * game.woodorchard
-      Log.innerText = "Wood logs: " +game.log.formateNumber()
-    }
-    if (game.makePlank > 0) {
-      game.plank += 2 * game.woodorchard
-      Plank.innerText = "Wood planks : "  + game.plank.formateNumber()
-    }
-  
+  if (game.makeLog > 0) {
+    game.log += 1 * game.woodorchard
+    Log.innerText = "Wood logs: " + game.log.formateNumber()
+  }
+  if (game.makePlank > 0) {
+    game.plank += 2 * game.woodorchard
+    Plank.innerText = "Wood planks : " + game.plank.formateNumber()
+  }
 }
 
 //OpenCraft()
