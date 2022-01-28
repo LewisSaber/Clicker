@@ -166,7 +166,7 @@ function OpenCraft() {
       game.leswafer >= craftmaterials[28])
     {
       game.advancedcore -= craftmaterials[26] 
-      game.clicks -= craftmaterialss[27] 
+      game.clicks -= craftmaterials[27] 
       game.leswafer -= craftmaterials[28]
       game.woodorchard += tocraft
       resourceupdate()
@@ -197,11 +197,11 @@ function OpenCraft() {
   function craftt1board()
   {
     
-    if(game.plank >= craftmaterial[32] &&
-      game.treesap >= craftmaterial[33])
+    if(game.plank >= craftmaterials[32] &&
+      game.treesap >= craftmaterials[33])
       {
-        game.plank -= craftmaterial[32]
-        game.treesap -= craftmaterial[33]
+        game.plank -= craftmaterials[32]
+        game.treesap -= craftmaterials[33]
         game.t1board += tocraft
         resourceupdate()
       }
