@@ -634,7 +634,7 @@ function cutwood() {
   }
   if (game.makePlank > 0) {
     game.plank += 2 * game.woodorchard
-    Plank.innerText = "Wood planks : " + game.plank.formateNumber()
+    Plank.innerText = "Wood planks: " + game.plank.formateNumber()
   }
 }
 
