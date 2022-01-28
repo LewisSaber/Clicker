@@ -582,7 +582,7 @@ function TurnOrchard() {
     document.getElementById("TurnWoodorchard").style.backgroundImage =
       "url(off.jpg)"
     game.iswoodorchardon = 0
-    clearInterval(scraptimer)
+    clearInterval(woodtimer)
     document.getElementById("TurnWoodorchard").innerHTML = "Turn  <br> on"
   } else {
     document.getElementById("TurnWoodorchard").style.backgroundImage =
