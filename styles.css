@@ -20,7 +20,7 @@
   font-size: 2.5vw;
   width: 22.9%;
   height: 45%;
-
+  box-shadow: none;
   background: transparent;
   border: transparent;
 }
@@ -54,6 +54,8 @@
   display: block;
   float: right;
   font-size: 0.8vw;
+  border-radius: 0px;
+  box-shadow: none;
 }
 #generator {
   background: #c2bebe;
@@ -81,10 +83,16 @@
   display: inline;
 }
 .button {
-  border: solid #32a1ce;
+  box-shadow: 3px 5px 10px 3px #9e9999;
+  border: 0.2vh solid #9e9999;
+  border-radius: 20px;
   background-color: #768279;
   font-size: 1.6vw;
   opacity: 1;
+  
+}
+.button:hover {
+  background: #8a918c;
 }
 #UpgradesButton {
   display: none;
@@ -92,7 +100,7 @@
   top: 5.55vh;
   left: 20vw;
 
-  border: 0.3vw solid #db7d1f;
+  
   padding: 1px;
   width: 10vw;
 }
@@ -101,10 +109,10 @@
   position: absolute;
   top: 16.666vh;
   left: 20vw;
-
-  border: 0.3vw solid #db7d1f;
   padding: 1px;
   width: 10vw;
+  
+  
 }
 #upgradesdiv {
   display: none;
@@ -112,12 +120,17 @@
   height: 1000px;
 }
 .close {
-  border: solid #32a1ce;
+  border: outset 7px #bd3020;
+  border-radius: 20px;
   background-color: #768279;
   width: 100%;
   font-size: 3vw;
   background-color: #f04735;
   display: block;
+}
+.close:hover
+{
+  background-color: #e9331f;
 }
 #body {
   height: 100vh;
@@ -144,13 +157,14 @@
   float: left;
   background: #c2bebe;
   opacity: 0.9;
-  border: 2px solid #9e9999;
+  box-shadow: 3px 5px 10px 3px #9e9999;
+  border: 0.2vh solid #9e9999;
   width: 300px;
   height: 150px;
   margin: 20px;
   font-size: 20px;
   border-radius: 40px;
-  box-shadow: 3px 5px 10px 3px #9e9999;
+ 
 }
 .cost {
   display: inline;
@@ -163,7 +177,7 @@
   top: 11.111vh;
   left: 20vw;
   display: none;
-  border: 0.3vw solid #db7d1f;
+ 
   padding: 1px;
   width: 10vw;
 }
@@ -338,7 +352,7 @@
   display: block;
   float: left;
   text-align: center;
-  border: 1vh solid black;
+  border:	 outset 1vh  #1f6b91;
   width: 15.625%;
   opacity: 0.8;
   background: #a1a19f;
@@ -352,10 +366,10 @@
   margin: 0px;
 }
 .craft {
-  border: solid 2px blue;
-
+  border:	 outset 8px  #1f6b91;
+border-radius: 5px;
   float: left;
-  opacity: 0.8;
+  opacity: 0.92;
   background: #a1a19f;
   padding: 0.5%;
   margin: 1%;
@@ -368,11 +382,14 @@
 #Tocraft {
   width: 20%;
   font-size: 1.2vw;
+ 
 }
+
 #hiddenresources
 {
   height: 100%;
   font-size: 1.2vw;
+  
   
 }
 #Craftslect {
@@ -380,6 +397,8 @@
 }
 #setcraftamount {
   font-size: 1.2vw;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px #9e9999;
 }
 .craft li {
   list-style-type: "-";
@@ -392,6 +411,13 @@
   width: 90%;
   margin-left: 5%;
   margin-bottom: 1%;
+  background: #137aad;
+  border: 0.1vh solid #3a3a34;
+  border-radius: 10px;
+  opacity: 10;
+}
+.craftbutton:hover {
+  background: #11618a;
 }
 .craft ul {
   margin-top: -10%;
@@ -414,11 +440,11 @@
 #CraftMachines {
   display: block;
   float: right;
-
+  border:	 outset 1vh  #1f6b91;
   width: 15%;
   margin-right: 1%;
   margin-top: 2%;
-  border: 10px solid black;
+
   padding: 1%;
   opacity: 0.8;
   background: #a1a19f;
