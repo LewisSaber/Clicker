@@ -391,11 +391,8 @@
 #Craftslect {
   width: 100%;
 }
-#setcraftamount {
-  font-size: 1.2vw;
-  border-radius: 10px;
-  box-shadow: 1px 1px 1px 1px #9e9999;
-}
+
+
 .craft li {
   list-style-type: "-";
   margin: -2%;
@@ -414,6 +411,14 @@
 }
 .craftbutton:hover {
   background: #11618a;
+}
+.setcraftbutton
+{
+  font-size: 1.2vw;
+}
+.setcraftbutton:hover
+{
+  background: #45a4d3;
 }
 .craft ul {
   margin-top: -10%;

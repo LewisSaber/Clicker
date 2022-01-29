@@ -10,11 +10,16 @@
 
 
 */
-function setcraftvalue() {
-  if(+Ca.value >=1)
-  {
-tocraft = +Ca.value
+setcraft1 = document.getElementById("setcraft1")
+setcraft2 = document.getElementById("setcraft2")
+setcraft3 = document.getElementById("setcraft3")
+setcraft4 = document.getElementById("setcraft4")
+
+function setcraftvalue(value) {
+if(value >=1){
+tocraft = value
 }else tocraft= 1
+Ca.value = tocraft
 updateCraftButtons()
 }
 
