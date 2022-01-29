@@ -89,15 +89,6 @@
         <p id="loot4"   class="loot" ></p>
         
     </div>
-    
-   <div id="crateinfodiv">
-   <button id="back" onclick="back()">Back</button>
-   <div id="craftinfobuttonsdiv">
-    <button class="crateinfobutton" onclick="goldcrateinfo()">Gold crate</button>
-    <button class="crateinfobutton" onclick="atomcrateinfo()">Atom crate</button>
-</div>
-<div id="crateinfotext"></div>
-   </div>
     <div id="crates">
         <div id="cratetop">
             <div id="Crateselect"><input type="number" name="ToOpen" id="ToOpen" placeholder="max 999">
@@ -111,14 +102,24 @@
         <button id="OpenCrate2" class="button" onclick="OpenCrate2()">Open(5Atoms) </button>  
     </div>
 </div>
+<div id="crateinfodiv">
+    <button id="back" onclick="back()">Back</button>
+    <div id="craftinfobuttonsdiv">
+     <button class="crateinfobutton" onclick="goldcrateinfo()">Gold crate</button>
+     <button class="crateinfobutton" onclick="atomcrateinfo()">Atom crate</button>
+ </div>
+ <div id="crateinfotext"></div>
+    </div>
 <div id="legloothistory">Legendary loot
     <p id="loot5"   class="loot" ></p>
     <p id="loot6"   class="loot" ></p>
 </div>
+
 </div>
 <div id="craftsdiv" class="closeddiv">
     <button  class="close" onclick="Close()">Close</button>
     <div id="resources">Resources
+        <div id="visibleresources">
         <p class="resource" id="clickscraft">Clicks : 0 </p>
         <p class="resource" id="GKcraft">Gold keys : 0 </p>
      <p class="resource" id="scrap">Scrap : 0 </p>
@@ -141,11 +142,13 @@
         <p class="resource" id="plank">Wood planks : 0 </p>
         <p class="resource" id="log">Wood logs : 0 </p>
     </div>
-     
+</div>
+<div id="hiddenresources"></div>
     </div>
 
     <div id="crafts" >
-        <div id="Craftslect"><input type="number" name="Tocraft" id="Tocraft" >
+        <div id="Craftslect"><button id="hiddenresources" onclick="ShowHiddenResources()">S</button>
+            <input type="number" name="Tocraft" id="Tocraft" >
             <button class="button" id="setcraftamount" onclick="setcraftvalue()">set craft amount</button></div>
           
     <div id="craftbasiccore" class="craft">

@@ -262,7 +262,7 @@
 #crateinfodiv {
   
   margin: 1%;
-  margin-top: 10vh;
+  
   height: 80vh;
   width: 65vw;
   display: none;
@@ -270,6 +270,7 @@
   padding: 1%;
   opacity: 1;
   background: #d1d1cb;
+  float: left;
 }
 .crateinfobutton
 {
@@ -337,12 +338,12 @@
   display: block;
   float: left;
   text-align: center;
-  border: 10px solid black;
+  border: 1vh solid black;
   width: 15.625%;
   opacity: 0.8;
   background: #a1a19f;
   height: 37%;
-  padding: 2%;
+  padding: 1%;
   margin: 2%;
 }
 .resource {
@@ -368,11 +369,17 @@
   width: 20%;
   font-size: 1.2vw;
 }
+#hiddenresources
+{
+  height: 100%;
+  font-size: 1.2vw;
+  
+}
 #Craftslect {
   width: 100%;
 }
 #setcraftamount {
-  font-size: 1vw;
+  font-size: 1.2vw;
 }
 .craft li {
   list-style-type: "-";
