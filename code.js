@@ -162,10 +162,13 @@ loot1 = document.getElementById("loot1")
 loot2 = document.getElementById("loot2")
 loot3 = document.getElementById("loot3")
 loot4 = document.getElementById("loot4")
+loot5 = document.getElementById("loot5")
+loot6 = document.getElementById("loot6")
 upgrade3 = document.getElementById("upgrade3effect")
 Ca = document.getElementById("Tocraft")
 Oa = document.getElementById("ToOpen")
 placeholder = document.getElementById("placeholder")
+placeholder2 = document.getElementById("placeholder2")
 //resources
 Clickscraft = document.getElementById("clickscraft")
 GKcraft = document.getElementById("GKcraft")
@@ -406,6 +409,13 @@ function history(loot) {
   loot3.innerText = loot4.innerText
   loot4.innerText = loot
 }
+function history2(loot)
+{
+  loot5.innerText = loot6.innerText
+  loot6.innerText = loot
+  loot5.style.color = placeholder2.style.color
+  placeholder2.style.color = loot6.style.color
+}
 
 function OpenCrate1() {
   toopen = +setcratevalue()
@@ -447,12 +457,17 @@ function OpenCrate1() {
         game.dragonlore += Math.floor(Math.sqrt(toopen))
         loot = " + " + Math.floor(Math.sqrt(toopen)) + " Dragonlore"
         loot4.style.color = "red"
+        loot6.style.color = "red"
+        history2(loot)
       }
-    } else if (drop == 46 && toopen > 900) {
+    } else
+     if (drop == 46 && toopen > 900) {
       loot4.style.color = "blue"
+      loot6.style.color = "blue"
       if (game.upgrade.upgrade8effect == 0) {
         game.autoclickerfragments += 1
         loot = "+1 autoclicker fragment "
+        
       } else {
         game.autoclickerfragments += Math.floor(
           20000 / game.upgrade.upgrade8effect
@@ -462,13 +477,16 @@ function OpenCrate1() {
           Math.floor(20000 / game.upgrade.upgrade8effect) +
           " Autoclicker frags"
       }
+      history2(loot)
     } else
     if( drop == 47 && toopen<101)
     {
       let dropadvscrap = Math.floor(Math.random() * 2)+1 * game.basedatom
       game.advancedscrap += dropadvscrap
-      loot = "+ "+ dropadvscrap + " Adv scrap"
+      loot = "+ "+ dropadvscrap.formateNumber() + " Adv scrap"
       loot4.style.color = "green"
+      loot6.style.color = "green"
+      history2(loot)
     }
     else
      loot = "nothing"
@@ -506,10 +524,14 @@ function OpenCrate2() {
       loot = "+ " + dropBpotato.formateNumber() + " Based potatoes"
     } else if (drop > 32 && drop < 34 && game.gen3 > 0) {
       loot4.style.color = "yellow"
+      loot6.style.color = "yellow"
       game.boostercore += Math.floor(Math.sqrt(toopen))
       loot = " + " + Math.floor(Math.sqrt(toopen)) + " booster core"
+      history2(loot)
     } else if (drop == 34) {
       loot4.style.color = "blue"
+      loot6.style.color = "blue"
+    
       if (game.upgrade.upgrade8effect == 0) {
         game.autoclickerfragments += 1 * 10
         loot = "+10 autoclicker fragment "
@@ -521,6 +543,7 @@ function OpenCrate2() {
           Math.floor(20000 / game.upgrade.upgrade8effect) * 10 +
           " Autoclicker frags"
       }
+      history2(loot)
     } else if(drop == 35 && toopen > 1)
     { 
      
@@ -529,14 +552,18 @@ function OpenCrate2() {
       game.basedatom++
       loot = " + 1 based atom"
       loot4.style.color = "green"
+      loot6.style.color = "green"
+      history2(loot)
     }
     }
     else
     if(drop==36 && toopen > 9){
       console.log("dragonlore dropped ewww")
       game.dragonlore += game.basedatom *Math.floor( Math.sqrt(toopen * 10)) * 5
-      loot = "+ " + game.basedatom *Math.floor( Math.sqrt(toopen * 10)) * 5 + " Dragonlores"
+      loot = "+ " + (game.basedatom *Math.floor( Math.sqrt(toopen * 10)) * 5).formateNumber() + " Dragonlores"
       loot4.style.color = "red"
+      loot6.style.color = "red"
+      history2(loot)
     }
     else
     loot = "nothing"

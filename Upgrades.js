@@ -154,28 +154,7 @@ let upgradeelements = document.querySelectorAll(".cost")
 function updateupgrades() {
  document.getElementById("ClickPower").innerText =
     game.clickpower.formateNumber() //updates clickpower showcase
- /*  document.getElementById("upgrade1cost").innerText =
-    game.upgrade.upgrade1cost.formateNumber()
-  document.getElementById("upgrade1effect").innerText =
-    game.upgrade.upgrade1effect.formateNumber()
-  document.getElementById("upgrade2cost").innerText =
-    game.upgrade.upgrade2cost.formateNumber()
-  document.getElementById("upgrade3cost").innerText =
-    game.upgrade.upgrade3cost.formateNumber()
-  document.getElementById("upgrade2effect").innerText =
-    game.upgrade.upgrade2effect.formateNumber()
-  document.getElementById("upgrade3effect").innerText =
-    game.upgrade.upgrade3effect.formateNumber()
-  document.getElementById("upgrade4cost").innerText =
-    game.upgrade.upgrade4cost.formateNumber()
-  document.getElementById("upgrade4effect").innerText =
-    game.upgrade.upgrade4effect.formateNumber()
-  document.getElementById("upgrade5cost").innerText =
-    game.upgrade.upgrade5cost.formateNumber()
-    document.getElementById("upgrade6cost").innerText =
-    game.upgrade.upgrade6cost.formateNumber()
-  document.getElementById("upgrade6effect").innerText =
-    game.upgrade.upgrade6effect.formateNumber()*/
+
   for (let i = 0; i < upgradeelements.length; i++) {
     upgradeelements[i].innerText = Object.values(game.upgrade)[i].formateNumber()
     
