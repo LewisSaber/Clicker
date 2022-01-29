@@ -89,7 +89,6 @@
   background-color: #768279;
   font-size: 1.6vw;
   opacity: 1;
-  
 }
 .button:hover {
   background: #8a918c;
@@ -100,7 +99,6 @@
   top: 5.55vh;
   left: 20vw;
 
-  
   padding: 1px;
   width: 10vw;
 }
@@ -111,8 +109,6 @@
   left: 20vw;
   padding: 1px;
   width: 10vw;
-  
-  
 }
 #upgradesdiv {
   display: none;
@@ -128,8 +124,7 @@
   background-color: #f04735;
   display: block;
 }
-.close:hover
-{
+.close:hover {
   background-color: #e9331f;
 }
 #body {
@@ -164,7 +159,6 @@
   margin: 20px;
   font-size: 20px;
   border-radius: 40px;
- 
 }
 .cost {
   display: inline;
@@ -177,7 +171,7 @@
   top: 11.111vh;
   left: 20vw;
   display: none;
- 
+
   padding: 1px;
   width: 10vw;
 }
@@ -190,31 +184,35 @@
   text-align: center;
   float: left;
   height: 27.777vh;
-  width: 11.82vw;
+  width: 13vw;
   background: #ffffff;
   background-image: url(GoldCrate.jpg);
   background-position: center;
-  opacity: 0.8;
+  background-size: contain;
+  opacity: 1;
   background-repeat: no-repeat;
-  border: 10px solid black;
+  
+  border-radius: 20px;
+  border: outset 1.1vh rgba(212, 43, 24,1);
 }
 #Crate2 {
   margin: 2%;
   display: block;
   font-weight: bold;
   font-size: 2.6vw;
-
   position: relative;
   text-align: center;
   float: left;
   height: 27.777vh;
-  width: 11.82vw;
+  width: 13vw;
   background: #ffffff;
   background-image: url(AtomCrate.jpg);
   background-position: center;
-  opacity: 0.8;
+  opacity: 1;
+  border-radius: 20px;
+  background-size: contain;
   background-repeat: no-repeat;
-  border: 10px solid black;
+  border: outset 1.1vh rgba(212, 43, 24,1);
 }
 
 #cratesdiv {
@@ -255,18 +253,15 @@
   font-size: 1.5vw;
   width: 10vw;
   height: 5vh;
-  
 }
-#craftinfobuttonsdiv
-{
+#craftinfobuttonsdiv {
   margin: 1%;
   margin-top: 2%;
   width: 15vw;
   display: block;
   float: left;
 }
-#crateinfotext
-{
+#crateinfotext {
   margin: 1%;
   margin-top: 2%;
   width: 45vw;
@@ -274,9 +269,8 @@
   float: left;
 }
 #crateinfodiv {
-  
   margin: 1%;
-  
+
   height: 80vh;
   width: 65vw;
   display: none;
@@ -286,8 +280,7 @@
   background: #d1d1cb;
   float: left;
 }
-.crateinfobutton
-{
+.crateinfobutton {
   opacity: 1;
   margin: 1%;
   background-color: #d5df48;
@@ -295,6 +288,9 @@
   width: 14vw;
   font-size: 2.2vw;
   box-shadow: 4px 2px 2px #9e9043;
+}
+#OpenCrate1:hover{
+  background: #d3d16e;
 }
 #OpenCrate1 {
   position: absolute;
@@ -307,6 +303,9 @@
   width: 90%;
   left: 5%;
   opacity: 1;
+}
+#OpenCrate2:hover{
+  background: #d3d16e;
 }
 #OpenCrate2 {
   position: absolute;
@@ -323,7 +322,7 @@
   display: block;
   float: right;
   text-align: center;
-  border: 10px solid black;
+  border: outset 1.1vh #d42b18;
   width: 15.625%;
   opacity: 1;
   background: #a1a19f;
@@ -332,12 +331,12 @@
   margin: 2%;
   margin-bottom: 1%;
 }
-#legloothistory
-{
+#legloothistory {
   display: block;
   float: right;
   text-align: center;
-  border: 10px solid black;
+
+  border: outset 1.1vh #d42b18;
   width: 15.625%;
   opacity: 1;
   background: #a1a19f;
@@ -346,13 +345,14 @@
   margin: 2%;
   margin-top: 0%;
 }
-#placeholder2
-{display: none;}
+#placeholder2 {
+  display: none;
+}
 #resources {
   display: block;
   float: left;
   text-align: center;
-  border:	 outset 1vh  #1f6b91;
+  border: outset 1vh #1f6b91;
   width: 15.625%;
   opacity: 0.8;
   background: #a1a19f;
@@ -366,8 +366,8 @@
   margin: 0px;
 }
 .craft {
-  border:	 outset 8px  #1f6b91;
-border-radius: 5px;
+  border: outset 8px #1f6b91;
+  border-radius: 5px;
   float: left;
   opacity: 0.92;
   background: #a1a19f;
@@ -382,15 +382,11 @@ border-radius: 5px;
 #Tocraft {
   width: 20%;
   font-size: 1.2vw;
- 
 }
 
-#hiddenresources
-{
+#hiddenresources {
   height: 100%;
   font-size: 1.2vw;
-  
-  
 }
 #Craftslect {
   width: 100%;
@@ -440,7 +436,7 @@ border-radius: 5px;
 #CraftMachines {
   display: block;
   float: right;
-  border:	 outset 1vh  #1f6b91;
+  border: outset 1vh #1f6b91;
   width: 15%;
   margin-right: 1%;
   margin-top: 2%;
@@ -526,13 +522,23 @@ border-radius: 5px;
 }
 .ResourceOverlay {
   width: 95vw;
+  margin-top: 1%;
+  margin-bottom: 2%;
   font-size: 2vw;
-  opacity: 0.8;
+  opacity: 0.9;
   background: #a1a19f;
-  border: 10px solid black;
+  border: 0.8vh solid #81817f;
+  box-shadow: 10px 4px 20px 5px #9e9999;
+  border-radius: 20px;
   padding: 1vh;
   float: left;
   display: block;
+}
+#overlaycrates {
+  margin-bottom: 0%;
+  opacity: 1;
+  box-shadow: 5px 1px 10px 2px #9e9999;
+  margin-top: 0.5%;
 }
 .overlayresource {
   display: inline;

@@ -78,7 +78,7 @@
 </div>
 <div id="cratesdiv" class="closeddiv">
     <button  class="close" onclick="Close()">Close</button>
-    <div class="ResourceOverlay">
+    <div class="ResourceOverlay" id="overlaycrates">
         <p class="overlayresource" id="GKcrates">GK: 0 </p>
         <p class="overlayresource" id="Atomcrates">Atoms: 0 </p>
     </div>
@@ -95,18 +95,18 @@
               </div>
               <button id="crateinfo" onclick="opencrateinfo()"> Crate info</button>
             </div>
-    <div class="crate" id="Crate1">Gold crate 
+    <div class="crate" id="Crate1">Golden
         <button id="OpenCrate1" class="button" onclick="OpenCrate1()">Open(10GK) </button>  
     </div>
-    <div class="crate" id="Crate2">Atom crate 
+    <div class="crate" id="Crate2">Atomic
         <button id="OpenCrate2" class="button" onclick="OpenCrate2()">Open(5Atoms) </button>  
     </div>
 </div>
 <div id="crateinfodiv">
     <button id="back" onclick="back()">Back</button>
     <div id="craftinfobuttonsdiv">
-     <button class="crateinfobutton" onclick="goldcrateinfo()">Gold crate</button>
-     <button class="crateinfobutton" onclick="atomcrateinfo()">Atom crate</button>
+     <button class="crateinfobutton" onclick="goldcrateinfo()">Golden</button>
+     <button class="crateinfobutton" onclick="atomcrateinfo()">Atomic</button>
  </div>
  <div id="crateinfotext"></div>
     </div>
