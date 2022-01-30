@@ -9,6 +9,7 @@ Advcoreupgrade = document.getElementById("Advcoreupgrade")
 //crates
 GKcrates = document.getElementById("GKcrates")
 Atomcrates = document.getElementById("Atomcrates")
+Bcircuitcrates = document.getElementById("Bcircuitcrates")
 
 function OverlayUpdate()
 {
@@ -19,4 +20,5 @@ function OverlayUpdate()
     RIScopperupgrade.innerText = "RIS copper: "+ game.riscopper.formateNumber()
     Dragonloreupgrade.innerText = "Dragonlore: "+ game.dragonlore.formateNumber()
     Advcoreupgrade.innerText = "Adv cores: "+ game.advancedcore.formateNumber()
+    Bcircuitcrates.innerText = "Basic circuits: " + game.basiccircuit.formateNumber()
 }

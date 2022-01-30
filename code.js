@@ -91,6 +91,7 @@ function reset() {
     advancedscrap: 1,
     luckyshard: 0,
     basiccircuit: 0,
+    sapling: 1,
   }
 }
 reset()
@@ -219,7 +220,14 @@ function click1() {
 
   Clickshard.innerText = "Clickshards : " + game.clickshard.formateNumber(1e4)
 }
-
+function random(value)
+{
+  return Math.floor(Math.random()* value)+1
+}
+function craterandom(value)
+{
+  return random(value)*toopen*luck()
+}
 function onTick() {
   game.clicks =
     game.clicks + game.gen1 * (1 + game.clickpower / 30) * game.genmult //game.clicks per second
@@ -296,6 +304,12 @@ function Close() {
   upgradesdiv.style.display = "none"
   cratesdiv.style.display = "none"
   craftsdiv.style.display = "none"
+}
+function compare(value,value1,value2)
+{
+  if(value >= value1 && value <= value2)
+  return true
+  else false
 }
 function keytrial() {
   if (game.decrnumber <= 1 && game.clicks >= 2000) {
@@ -600,7 +614,43 @@ function OpenCrate2() {
    
   }
 }
-
+function OpenCrate3()
+{
+  toopen = +setcratevalue()
+  if (game.basiccircuit >= 5 * toopen) {
+    loot = "nothing"
+    game.basiccircuit -= toopen * 5
+    loot4.style.backgroundImage = "linear-gradient(rgb(0, 0, 0),rgb(2, 0, 0))"
+    drop = Math.floor(Math.random() * 100)
+  if(compare(drop, 0, 4))
+  {
+   loot = (Math.floor(Math.random()*3)+1)*luck() * toopen
+   game.sapling += loot
+   loot = "+ " + loot.formateNumber() + " saplings"
+  }else
+  if(compare(drop,5,5))
+  {
+    if(Math.floor(Math.random()*100)<8)
+    {
+    loot4.style.backgroundImage = " linear-gradient( to left, violet, indigo, blue, green, yellow, orange, rgb(255, 0, 0))"
+    loot6.style.backgroundImage = " linear-gradient( to left, violet, indigo, blue, green, yellow, orange, rgb(255, 0, 0))"
+    game.luckyshard+=luck()
+    loot = "+"+ luck().formateNumber() + " lucky shards"
+    history2(loot)
+    }
+  } else
+    if(compare(drop,6,7))
+    {
+     
+      drop = craterandom(5)*1e5
+      game.legendaryclickshard += drop
+      loot = "+ " + drop.formateNumber() + " Legendary clickshards"
+    }
+  
+    history(loot)
+    OverlayUpdate()
+  }
+}
 function OpenScrapSorting() {
   CloseMachine()
   document.getElementById("crafts").style.display = "none"
@@ -680,15 +730,15 @@ function Currentlymakingwood() {
 }
 function cutwood() {
   if (game.makeBark > 0) {
-    game.bark += 4 * game.woodorchard
+    game.bark += 4 * game.woodorchard * game.sapling
     Bark.innerText = "Wood barks: " + game.bark.formateNumber()
   }
   if (game.makeLog > 0) {
-    game.log += 1 * game.woodorchard
+    game.log += 1 * game.woodorchard * game.sapling
     Log.innerText = "Wood logs: " + game.log.formateNumber()
   }
   if (game.makePlank > 0) {
-    game.plank += 2 * game.woodorchard
+    game.plank += 2 * game.woodorchard * game.sapling
     Plank.innerText = "Wood planks: " + game.plank.formateNumber()
   }
 }

@@ -85,7 +85,7 @@
 .button {
   box-shadow: 3px 5px 10px 3px #9e9999;
   border: solid 0.5vh #747975;
-  border-radius: 20px;
+  border-radius: 12px;
   background-color: #768279;
   font-size: 1.6vw;
   opacity: 1;
@@ -214,6 +214,25 @@
   background-repeat: no-repeat;
   border: outset 1.1vh rgba(212, 43, 24,1);
 }
+#Crate3 {
+  margin: 2%;
+  display: block;
+  font-weight: bold;
+  font-size: 2.6vw;
+  position: relative;
+  text-align: center;
+  float: left;
+  height: 27.777vh;
+  width: 13vw;
+  background: #ffffff;
+  background-image: url(CircuitCrate.jpg);
+  background-position: center;
+  opacity: 1;
+  border-radius: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: outset 1.1vh rgba(212, 43, 24,1);
+}
 
 #cratesdiv {
   height: 100%;
@@ -308,6 +327,20 @@
   background: #d3d16e;
 }
 #OpenCrate2 {
+  position: absolute;
+  right: 0px;
+  font-size: 1.4vw;
+  background: #e0dc3d;
+  border-radius: 10px;
+  bottom: 5px;
+  opacity: 1;
+  width: 90%;
+  left: 5%;
+}
+#OpenCrate3:hover{
+  background: #d3d16e;
+}
+#OpenCrate3 {
   position: absolute;
   right: 0px;
   font-size: 1.4vw;
