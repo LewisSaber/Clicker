@@ -345,6 +345,12 @@
   margin: 2%;
   margin-top: 0%;
 }
+.loot
+{
+  background-image: linear-gradient( to left, violet, indigo, blue, green, yellow, orange, rgb(255, 0, 0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 #placeholder2 {
   display: none;
 }

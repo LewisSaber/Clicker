@@ -7,6 +7,11 @@ function opencrateinfo()
     Crateinfodiv.style.display = "block"
     
 }
+function luck()
+{
+
+    return (1 + game.luckyshard/50)
+}
 function back()
 {
     Crates.style.display =  "block"
@@ -15,9 +20,9 @@ function back()
 function goldcrateinfo()
 {
     infodiv.innerHTML = "When you open multiple crates,all drop(exept legendary) gets multiplied by amount of crates you open at once<br> Drops from crate : <br>"+
-    "- 10% 30x gen 1 <br> - 10% 3 GK * Multipier <br> - 5% 1-25 scrap <br> - 1% 1-3 GK multiplicator <br> - 9% 1-6 clickpower <br> - 3% upgrade3 cost reducer(half wip) <br> - 5% 1-10 generator multiplier<br> - 2% 1 legendary clickshard (boost clickshard gain by Lclickshard/100 )<br><div style='color:yellow'>Legendary drops : <br></div> - 0.1% Sqrt(crates you open) Dragonlores, history color : red<br> - 1% Autoclicker fragments, if you open >900 crates at once, gain is based on bought autoclicker interval upgrades, history color: blue<br> - 1% (1-2 * based atom) Advanced scrap, multiply scrap gain by itself, drops if you open LESS then 100 crates, history color: green<br> "
+    "- 10% 30x gen 1 <br> - 10% 3 GK * Multipier <br> - 5% 1-25 scrap <br> - 1% 1-3 GK multiplicator <br> - 9% 1-6 clickpower <br> - 3% upgrade3 cost reducer(half wip) <br> - 5% 1-10 generator multiplier<br> - 2% 1 legendary clickshard (boost clickshard gain by Lclickshard/100 )<br><div style='color:yellow'>Legendary drops : <br></div> - 0.1% Sqrt(crates you open) Dragonlores, history color : red<br> - 1% Autoclicker fragments, if you open >900 crates at once, gain is based on bought autoclicker interval upgrades, history color: blue<br> - 1% (1-2 * based atom) Advanced scrap, multiply scrap gain by itself, drops if you open LESS then 100 crates, history color: green<br> - 0,02% 1 lucky shard, gives +4% more drop from crates, applies TO ALL dropps, history color: RAINBOW<br> "
 }
 function atomcrateinfo()
 {
-    infodiv.innerHTML = "When you open multiple crates,all drop(exept legendary) gets multiplied by amount of crates you open at once<br> Drops from crate : <br> - 10% 1-300 Basic cores<br> - 4% 50-100 Legendaryclickshards <br> - 10% 1000-2000 generator multiplier <br> - 8% 10-12 based potato <br><div style='color:yellow'>Legendary drops : <br></div> - 1% Sqrt(crates you open) Booster cores,after you get generator 3, history color: yellow<br> - 1% Autoclicker fragments, 10x more then in gold crate, gain is based on bought autoclicker interval upgrades, history color: blue<br> - 0.5% 1 Based atom, if you open more then 1 crate, boost atom gain by itself, history color : green<br> - 1% Dragonlores,sqrt(crates to open) * 5 * basedatoms, drops if 10+ crates opened at once, history color: red<br>"
+    infodiv.innerHTML = "When you open multiple crates,all drop(exept legendary) gets multiplied by amount of crates you open at once<br> Drops from crate : <br> - 10% 1-300 Basic cores<br> - 4% 50-100 Legendaryclickshards <br> - 10% 1000-2000 generator multiplier <br> - 8% 10-12 based potato <br><div style='color:yellow'>Legendary drops : <br></div> - 1% Sqrt(crates you open) Booster cores,after you get generator 3, history color: yellow<br> - 1% Autoclicker fragments, 10x more then in gold crate, gain is based on bought autoclicker interval upgrades, history color: blue<br> - 0.5% 1 Based atom, if you open more then 1 crate, boost atom gain by itself, history color : green<br> - 1% Dragonlores,sqrt(crates to open) * 5 * basedatoms, drops if 10+ crates opened at once, history color: red<br> - 0,05% 1 lucky shard, gives +4% more drop from crates, applies TO ALL dropps, history color: RAINBOW<br>"
 }

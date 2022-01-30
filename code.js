@@ -89,6 +89,7 @@ function reset() {
     autoclickerfragments: 0,
     basedatom: 1,
     advancedscrap: 1,
+    luckyshard: 0,
   }
 }
 reset()
@@ -398,11 +399,11 @@ function OpenCrate() {
   OverlayUpdate()
 }
 function history(loot) {
-  loot1.style.color = loot2.style.color
-  loot2.style.color = loot3.style.color
-  if (placeholder.style.color == "black") loot3.style.color = "black"
-  else loot3.style.color = placeholder.style.color
-  placeholder.style.color = loot4.style.color
+  loot1.style.backgroundImage = loot2.style.backgroundImage
+  loot2.style.backgroundImage = loot3.style.backgroundImage
+  
+  loot3.style.backgroundImage = placeholder.style.backgroundImage
+  placeholder.style.backgroundImage = loot4.style.backgroundImage
 
   loot1.innerText = loot2.innerText
   loot2.innerText = loot3.innerText
@@ -413,79 +414,90 @@ function history2(loot)
 {
   loot5.innerText = loot6.innerText
   loot6.innerText = loot
-  loot5.style.color = placeholder2.style.color
-  placeholder2.style.color = loot6.style.color
+  loot5.style.backgroundImage = placeholder2.style.backgroundImage
+  placeholder2.style.backgroundImage = loot6.style.backgroundImage
 }
 
 function OpenCrate1() {
   toopen = +setcratevalue()
   if (game.GK >= 10 * toopen) {
     drop = Math.floor(Math.random() * 100)
-    loot4.style.color = "black"
+    loot4.style.backgroundImage = "linear-gradient(rgb(0, 0, 0),rgb(1, 0, 0))"
     game.GK -= 10 * toopen
     if (drop < 10) {
       game.gen1 += 30 * toopen
       loot = "+" + (30 * toopen).formateNumber() + " gen 1"
     } else if (drop > 9 && drop < 20) {
-      game.GK += game.GKM * 3 * toopen
-      loot = "+ " + (3 * game.GKM * toopen).formateNumber() + " Gold keys"
+      game.GK += game.GKM * 3 * toopen * luck()
+      loot = "+ " + (3 * game.GKM * toopen* luck()).formateNumber() + " Gold keys"
     } else if (drop > 19 && drop < 25) {
-      let scrapdropped = (Math.floor(Math.random() * 25) + 1) * toopen * game.advancedscrap
+      let scrapdropped = (Math.floor(Math.random() * 25) + 1) * toopen * game.advancedscrap * luck()
       game.scrap += scrapdropped
       loot = "+ " + scrapdropped.formateNumber() + " Scrap"
     } else if (drop == 25) {
-      let dropGKM = (Math.floor(Math.random() * 3) + 1) * toopen
-      game.GKMa += dropGKM
+      let dropGKM = (Math.floor(Math.random() * 3) + 1) * toopen* luck()
+      game.GKMa += dropGKM 
       loot = "+ " + dropGKM.formateNumber() + " Gold key modifier"
     } else if (drop > 25 && drop < 35) {
-      dropclickpower = (Math.floor(Math.random() * 6) + 1) * toopen
+      dropclickpower = (Math.floor(Math.random() * 6) + 1) * toopen * luck()
       game.clickpower += dropclickpower
       loot = "+ " + dropclickpower.formateNumber() + " clickpower"
     } else if (drop > 34 && drop < 38) {
-      game.upgrade.upgrade3costreducer += 10 * toopen
+      game.upgrade.upgrade3costreducer += 10 * toopen * luck()
       loot = "Upgrade 3 cost reduced!(half WIP)"
     } else if (drop > 37 && drop < 43) {
-      let dropgenM = (Math.floor(Math.random() * 10) + 1) * toopen
+      let dropgenM = (Math.floor(Math.random() * 10) + 1) * toopen * luck()
       game.genmult += dropgenM
       loot = "+ " + dropgenM + " Generator multiplier"
     } else if (drop > 42 && drop < 45) {
       game.legendaryclickshard += toopen
       loot = "legendary clickshard!"
     } else if (drop == 45) {
+      drop = Math.floor(Math.random() * 50)
+      if(drop == 1)
+      {
+        loot4.style.backgroundImage = " linear-gradient( to left, violet, indigo, blue, green, yellow, orange, rgb(255, 0, 0))"
+        loot6.style.backgroundImage = " linear-gradient( to left, violet, indigo, blue, green, yellow, orange, rgb(255, 0, 0))"
+        game.luckyshard+=luck()
+        loot = "+"+ luck().formateNumber() + " lucky shards"
+        history2(loot)
+        history(loot)
+      }
+      else {
       let dropdragonlore = Math.floor(Math.random() * 10)
       if (dropdragonlore == 1) {
-        game.dragonlore += Math.floor(Math.sqrt(toopen))
-        loot = " + " + Math.floor(Math.sqrt(toopen)) + " Dragonlore"
-        loot4.style.color = "red"
-        loot6.style.color = "red"
+        game.dragonlore += Math.floor(Math.sqrt(toopen)) * luck()
+        loot = " + " + (Math.floor(Math.sqrt(toopen))* luck()).formateNumber() + " Dragonlore"
+        loot4.style.backgroundImage = "linear-gradient(rgb(255, 0, 0),rgb(254, 0, 0))"
+        loot6.style.backgroundImage = "linear-gradient(rgb(255, 0, 0),rgb(254, 0, 0))"
         history2(loot)
-      }
+      }}
     } else
      if (drop == 46 && toopen > 900) {
-      loot4.style.color = "blue"
-      loot6.style.color = "blue"
+      loot4.style.backgroundImage = "linear-gradient(rgb(0, 0, 255),rgb(0, 0, 254))"
+      loot6.style.backgroundImage = "linear-gradient(rgb(0, 0, 255),rgb(0, 0, 254))"
       if (game.upgrade.upgrade8effect == 0) {
-        game.autoclickerfragments += 1
-        loot = "+1 autoclicker fragment "
+        game.autoclickerfragments += 1 * luck()
+        loot = "+"+ luck()+ " autoclicker fragment "
         
       } else {
         game.autoclickerfragments += Math.floor(
-          20000 / game.upgrade.upgrade8effect
+          20000 / game.upgrade.upgrade8effect * luck()
         )
         loot =
           "+ " +
-          Math.floor(20000 / game.upgrade.upgrade8effect) +
+          Math.floor(20000 / game.upgrade.upgrade8effect)* luck() +
           " Autoclicker frags"
       }
       history2(loot)
     } else
     if( drop == 47 && toopen<101)
     {
-      let dropadvscrap = Math.floor(Math.random() * 2)+1 * game.basedatom
+      let dropadvscrap = Math.floor(Math.random() * 2)+1 * game.basedatom * luck()
       game.advancedscrap += dropadvscrap
       loot = "+ "+ dropadvscrap.formateNumber() + " Adv scrap"
-      loot4.style.color = "green"
-      loot6.style.color = "green"
+      loot4.style.backgroundImage = "linear-gradient(rgb(0, 255, 0),rgb(0, 254, 0))"
+      loot6.style.backgroundImage = "linear-gradient(rgb(0, 255, 0),rgb(0, 254, 0))"
       history2(loot)
     }
     else
@@ -500,69 +512,82 @@ function OpenCrate2() {
  
   toopen = +setcratevalue()
   if (game.atom >= 5 * toopen) {
-    loot4.style.color = "black"
+    loot4.style.backgroundImage = "linear-gradient(rgb(0, 0, 0),rgb(2, 0, 0))"
     drop = Math.floor(Math.random() * 100)
     game.atom -= 5 * toopen
     if (drop < 10) {
-      let dropBcores = Math.floor(Math.random() * 300) * toopen
+      let dropBcores = Math.floor(Math.random() * 300) * toopen * luck()
       game.basiccore += dropBcores
       loot = "+ " + dropBcores.formateNumber() + " Basic cores"
     } else if (drop < 15 && drop > 10) {
-      let dropLshard = (Math.floor(Math.random() * 50) + 50) * toopen
+      let dropLshard = (Math.floor(Math.random() * 50) + 50) * toopen* luck()
       game.legendaryclickshard += dropLshard
       loot = "+ " + dropLshard.formateNumber() + " Legendary shards"
     } else if (drop > 14 && drop < 25) {
-      let dropgenM = (Math.floor(Math.random() * 1000) + 1000) * toopen
+      let dropgenM = (Math.floor(Math.random() * 1000) + 1000) * toopen* luck()
       game.genmult += dropgenM
       loot = "+ " + dropgenM.formateNumber() + " Generator multiplier"
     } else if (drop > 24 && drop < 33) {
       let dropBpotato =
         (Math.floor(Math.random() * 3) + 10) *
         toopen *
-        game.upgrade.upgrade7effect
+        game.upgrade.upgrade7effect* luck()
       game.basedpotato += dropBpotato
       loot = "+ " + dropBpotato.formateNumber() + " Based potatoes"
     } else if (drop > 32 && drop < 34 && game.gen3 > 0) {
-      loot4.style.color = "yellow"
-      loot6.style.color = "yellow"
-      game.boostercore += Math.floor(Math.sqrt(toopen))
-      loot = " + " + Math.floor(Math.sqrt(toopen)) + " booster core"
+      loot4.style.backgroundImage = "linear-gradient(rgb(255, 255, 0),rgb(254, 255, 0))"
+      loot6.style.backgroundImage = "linear-gradient(rgb(255, 255, 0),rgb(254, 255, 0))"
+      game.boostercore += Math.floor(Math.sqrt(toopen))* luck()
+      loot = " + " + (Math.floor(Math.sqrt(toopen))*luck()).formateNumber() + " booster core"
       history2(loot)
     } else if (drop == 34) {
-      loot4.style.color = "blue"
-      loot6.style.color = "blue"
+      drop = Math.floor(Math.random() * 20)
+      console.log("chance: " + drop)
+      if(drop == 1)
+      {
+        
+        loot4.style.backgroundImage = " linear-gradient( to left, violet, indigo, blue, green, yellow, orange, rgb(255, 0, 0))"
+        loot6.style.backgroundImage = " linear-gradient( to left, violet, indigo, blue, green, yellow, orange, rgb(255, 0, 0))"
+        game.luckyshard+=luck()
+        loot = "+"+ luck().formateNumber() + " lucky shards"
+        history2(loot)
+        history(loot)
+      }
+      else {
+      loot4.style.backgroundImage = "linear-gradient(rgb(0, 0, 255),rgb(0, 0, 254))"
+      loot6.style.backgroundImage = "linear-gradient(rgb(0, 0, 255),rgb(0, 0, 254))"
     
       if (game.upgrade.upgrade8effect == 0) {
-        game.autoclickerfragments += 1 * 10
-        loot = "+10 autoclicker fragment "
+        game.autoclickerfragments += 1 * 10* luck()
+        loot = "+"+10*luck().formateNumber()+" autoclicker fragment "
       } else {
         game.autoclickerfragments +=
-          Math.floor(20000 / game.upgrade.upgrade8effect) * 10
+          Math.floor(20000 / game.upgrade.upgrade8effect) * 10 * luck()
         loot =
           "+ " +
-          Math.floor(20000 / game.upgrade.upgrade8effect) * 10 +
+         ( Math.floor(20000 / game.upgrade.upgrade8effect) * 10 * luck()).formateNumber() +
           " Autoclicker frags"
       }
       history2(loot)
-    } else if(drop == 35 && toopen > 1)
+    } }else if(drop == 35 && toopen > 1)
     { 
      
       if(Math.floor(Math.random() * 2) == 1)
       {
-      game.basedatom++
-      loot = " + 1 based atom"
-      loot4.style.color = "green"
-      loot6.style.color = "green"
+      game.basedatom+= luck()
+      loot = " +"+ luck().formateNumber()+" based atom"
+      loot4.style.backgroundImage = "linear-gradient(rgb(0, 255, 0),rgb(0, 254, 0))"
+      loot6.style.backgroundImage = "linear-gradient(rgb(0, 255, 0),rgb(0, 254, 0))"
       history2(loot)
     }
     }
     else
     if(drop==36 && toopen > 9){
       console.log("dragonlore dropped ewww")
-      game.dragonlore += game.basedatom *Math.floor( Math.sqrt(toopen * 10)) * 5
-      loot = "+ " + (game.basedatom *Math.floor( Math.sqrt(toopen * 10)) * 5).formateNumber() + " Dragonlores"
-      loot4.style.color = "red"
-      loot6.style.color = "red"
+      game.dragonlore += game.basedatom *Math.floor( Math.sqrt(toopen * 10)) * 5* luck()
+      loot = "+ " + (game.basedatom *Math.floor( Math.sqrt(toopen * 10)) * 5* luck()).formateNumber() + " Dragonlores"
+      loot4.style.backgroundImage = "linear-gradient(rgb(255, 0, 0),rgb(254, 0, 0))"
+      loot6.style.backgroundImage = "linear-gradient(rgb(255, 0, 0),rgb(254, 0, 0))"
       history2(loot)
     }
     else
