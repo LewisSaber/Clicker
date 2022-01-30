@@ -11,6 +11,7 @@ for (let i = 0; i < materials.length; i++) {
 }
 amounts[4] = 2
 amounts[7] = 32
+amounts[14] = 2
 function updateCraftButtons() {
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].innerHTML =

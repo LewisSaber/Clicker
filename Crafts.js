@@ -211,3 +211,17 @@ function OpenCraft() {
         resourceupdate()
       }
   }
+  function craftbasiccircuit()
+  {
+    
+    if(game.coppercable >= craftmaterials[34] &&
+      game.t1board >= craftmaterials[35] &&
+      game.GK >= craftmaterials[36])
+      {
+        game.coppercable -= craftmaterials[34]
+        game.t1board -= craftmaterials[35]
+        game.GK -= craftmaterials[36]
+        game.basiccircuit += tocraft*2
+        resourceupdate()
+      }
+  }

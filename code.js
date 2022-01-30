@@ -90,6 +90,7 @@ function reset() {
     basedatom: 1,
     advancedscrap: 1,
     luckyshard: 0,
+    basiccircuit: 0,
   }
 }
 reset()
@@ -144,7 +145,7 @@ Number.prototype.formateNumber = function (max = 1e5) {
   return formatestring
 }
 //else game[Object.keys(game)[i]] = game[i]
-
+clearInterval(woodtimer)
 //elements
 Counter = document.getElementById("Counter")
 gt1 = document.getElementById("gt1")
@@ -199,6 +200,7 @@ Log = document.getElementById("log")
 Coppercable = document.getElementById("coppercable")
 Treesap = document.getElementById("treesap")
 T1board = document.getElementById("t1board")
+Basiccircuit = document.getElementById("basiccircuit")
 
 //
 function click1() {
@@ -281,6 +283,7 @@ function resourceupdate() {
   Coppercable.innerText = game.coppercable.formateNumber()
   Treesap.innerText = game.treesap.formateNumber()
   T1board.innerText = game.t1board.formateNumber()
+  Basiccircuit.innerText = game.basiccircuit.formateNumber()
   OverlayUpdate()
 }
 function CloseMenu() {
