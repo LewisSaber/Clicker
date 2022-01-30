@@ -28,6 +28,6 @@ function atomcrateinfo()
 }
 function bcircuitcrateinfo()
 {
-infodiv.innerHTML = "When you open multiple crates,all drop(exept legendary) gets multiplied by amount of crates you open at once<br> Drops from crate : <br> - 5% 1-3 saplings,multiply production of wood ochard<br> - 2% 1e5-5e5 Legendary clickshards<br> <div style='color:yellow'>Legendary drops :</div> <br> - 0,08% 1 lucky shard, gives +4% more drop from crates, applies TO ALL dropps, history color: RAINBOW<br>"
+infodiv.innerHTML = "When you open multiple crates,all drop(exept legendary) gets multiplied by amount of crates you open at once<br> Drops from crate : <br> - 5% 1-3 saplings,multiply production of wood ochard<br> - 5% 1-10 dwarfs<br> - 2% 1e5-5e5 Legendary clickshards<br> <div style='color:yellow'>Legendary drops : <br></div> <br> - 0,08% 1 lucky shard, gives +4% more drop from crates, applies TO ALL dropps, history color: RAINBOW<br>"
 
 }

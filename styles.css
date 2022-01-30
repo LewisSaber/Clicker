@@ -499,7 +499,8 @@
 #WoodOrcharddiv {
   display: none;
   float: left;
-  border: solid 0.5vw orangered;
+  border: outset 0.8vw orangered;
+  border-radius: 20px;
   background-size: cover;
   background-image: url("Woodorchardbackground.jpg");
   width: 55%;

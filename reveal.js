@@ -29,6 +29,8 @@ let Partsofgame = [
   document.getElementById("Upgrade8"),//27
   Autoclickfragsupgrade,//28
   document.getElementById("Upgrade9"),//29
+  document.getElementById("circuitcratecraft"),//30
+  document.getElementById("circuitmats"),//31
 ]
 
 function revealstatus() {
@@ -63,6 +65,8 @@ function revealstatus() {
   if (tabs[27] == false && game.autoclickerfragments > 0 &&(game.upgrade.upgrade8effect >10 || game.upgrade.upgrade8effect == 0)) tabs[27] = true
   if (tabs[28] == false && game.autoclickerfragments > 0 &&( game.upgrade.upgrade8effect >10 || game.upgrade.upgrade8effect == 0)) tabs[28] = true
   if (tabs[29] == false && game.gen2 > 0 ) tabs[29] = true
+  if (tabs[30] == false && game.dwarf > 0 ) tabs[30] = true
+  if (tabs[31] == false && game.dwarf > 0 ) tabs[31] = true
 }
 function reveal() {
   revealstatus()

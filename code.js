@@ -92,6 +92,7 @@ function reset() {
     luckyshard: 0,
     basiccircuit: 0,
     sapling: 1,
+    dwarf : 0,
   }
 }
 reset()
@@ -202,7 +203,7 @@ Coppercable = document.getElementById("coppercable")
 Treesap = document.getElementById("treesap")
 T1board = document.getElementById("t1board")
 Basiccircuit = document.getElementById("basiccircuit")
-
+Dwarf = document.getElementById("dwarf")
 //
 function click1() {
   game.clicks += game.clickpower
@@ -292,6 +293,7 @@ function resourceupdate() {
   Treesap.innerText = game.treesap.formateNumber()
   T1board.innerText = game.t1board.formateNumber()
   Basiccircuit.innerText = game.basiccircuit.formateNumber()
+  Dwarf.innerText ="Dwarfs: " + game.dwarf.formateNumber()
   OverlayUpdate()
 }
 function CloseMenu() {
@@ -495,7 +497,7 @@ function OpenCrate1() {
       loot6.style.backgroundImage = "linear-gradient(rgb(0, 0, 255),rgb(0, 0, 254))"
       if (game.upgrade.upgrade8effect == 0) {
         game.autoclickerfragments += 1 * luck()
-        loot = "+"+ luck()+ " autoclicker fragment "
+        loot = "+"+ luck().formateNumber()+ " autoclicker fragment "
         
       } else {
         game.autoclickerfragments += Math.floor(
@@ -645,6 +647,12 @@ function OpenCrate3()
       drop = craterandom(5)*1e5
       game.legendaryclickshard += drop
       loot = "+ " + drop.formateNumber() + " Legendary clickshards"
+    }else
+    if(compare(drop,8,12))
+    {
+      loot = random(10)
+      game.dwarf += loot
+      loot = "+ " + loot + " Dwarfs"
     }
   
     history(loot)
