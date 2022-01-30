@@ -542,7 +542,7 @@ function OpenCrate2() {
       history2(loot)
     } else if (drop == 34) {
       drop = Math.floor(Math.random() * 20)
-      console.log("chance: " + drop)
+    
       if(drop == 1)
       {
         
@@ -583,7 +583,7 @@ function OpenCrate2() {
     }
     else
     if(drop==36 && toopen > 9){
-      console.log("dragonlore dropped ewww")
+    
       game.dragonlore += game.basedatom *Math.floor( Math.sqrt(toopen * 10)) * 5* luck()
       loot = "+ " + (game.basedatom *Math.floor( Math.sqrt(toopen * 10)) * 5* luck()).formateNumber() + " Dragonlores"
       loot4.style.backgroundImage = "linear-gradient(rgb(255, 0, 0),rgb(254, 0, 0))"
