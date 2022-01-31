@@ -267,6 +267,7 @@ function onTick() {
   }
   document.getElementById("ClickPower").innerText =
     game.clickpower.formateNumber()
+    bugcheck()
 }
 
 let timertick = setInterval(onTick, 1000)
@@ -782,6 +783,12 @@ function cutwood() {
     Plank.innerText = "Wood planks: " + game.plank.formateNumber()
   }
 }
-
+function bugcheck()
+{
+  if(typeof game.upgrade == "number")
+  {
+    alert("BUG SPOTTED PLEASE REPORT")
+  }
+}
 //OpenCraft()
 //Close()
