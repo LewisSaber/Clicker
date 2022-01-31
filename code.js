@@ -597,7 +597,7 @@ function OpenCrate2() {
           " Autoclicker frags"
       }
       history2(loot)
-    } }else if(drop == 35 && toopen > 1)
+    } }else if(compare(drop,35,35) && toopen > 1)
     { 
      
       if(Math.floor(Math.random() * 2) == 1)
@@ -683,18 +683,27 @@ function OpenCrate3()
   }
 }
 function OpenScrapSorting() {
-  CloseMachine()
-  document.getElementById("crafts").style.display = "none"
-
+  CloseAllmachines()
   document.getElementById("ScrapSorting").style.display = "block"
 }
 function OpenWoodorchard() {
-  CloseMachine()
+  CloseAllmachines()
   Currentlymakingwood()
-  document.getElementById("crafts").style.display = "none"
+
   document.getElementById("WoodOrcharddiv").style.display = "block"
 }
-
+function OpenMineshaft()
+{
+  CloseAllmachines()
+  document.getElementById("Mineshaftdiv").style.display = "Block"
+}
+function CloseAllmachines()
+{
+  document.getElementById("ScrapSorting").style.display = "none"
+  document.getElementById("crafts").style.display = "none"
+  document.getElementById("WoodOrcharddiv").style.display = "none"
+  document.getElementById("Mineshaftdiv").style.display = "none"
+}
 function CloseMachine() {
   document.getElementById("ScrapSorting").style.display = "none"
   document.getElementById("crafts").style.display = "block"
