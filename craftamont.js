@@ -25,7 +25,6 @@ function updateCraftButtons() {
 updateCraftButtons()
 hiddenresdiv = document.getElementById("hiddenresources")
 visibleresdiv = document.getElementById("visibleresources")
-
 hidresnames = ["Legendary click shards: ","Lucky shard: ","Advanced scrap: ","Based atoms : ", "Saplings: "]
 let hidresbool = 0
 let tag

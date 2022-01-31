@@ -93,6 +93,8 @@ function reset() {
     basiccircuit: 0,
     sapling: 1,
     dwarf : 0,
+    mineshaft: 0,
+
   }
 }
 reset()
@@ -204,6 +206,7 @@ Treesap = document.getElementById("treesap")
 T1board = document.getElementById("t1board")
 Basiccircuit = document.getElementById("basiccircuit")
 Dwarf = document.getElementById("dwarf")
+Mineshaft = document.getElementById("mineshaft")
 //
 function click1() {
   game.clicks += game.clickpower
@@ -294,6 +297,7 @@ function resourceupdate() {
   T1board.innerText = game.t1board.formateNumber()
   Basiccircuit.innerText = game.basiccircuit.formateNumber()
   Dwarf.innerText ="Dwarfs: " + game.dwarf.formateNumber()
+  Mineshaft.innerText = game.mineshaft.formateNumber()
   OverlayUpdate()
 }
 function CloseMenu() {

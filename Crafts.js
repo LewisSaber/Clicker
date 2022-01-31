@@ -225,3 +225,17 @@ function OpenCraft() {
         resourceupdate()
       }
   }
+  function craftmineshaft()
+  {
+if(game.advancedcore >= craftmaterials[37] &&
+  game.dwarf >= craftmaterials[38] &&
+  game.bark >= craftmaterials[39])
+  {
+    game.mineshaft += tocraft
+    game.advancedcore -= craftmaterials[37] 
+  game.dwarf -= craftmaterials[38] 
+  game.bark -= craftmaterials[39]
+  resourceupdate()
+  }
+
+  }
