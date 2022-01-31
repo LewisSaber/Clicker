@@ -116,7 +116,7 @@ function GameStage1()
     upgrade9cost: 1e30,
     upgrade9effect: 1,
     upgrade10cost: 1,
-    upgrade10effect: Math.pow(2,10),
+    upgrade10effect: 1,
   }
   updateupgrades()
   save()

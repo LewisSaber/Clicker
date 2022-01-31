@@ -65,7 +65,7 @@ function reset() {
     coppercable: 0,
     treesap: 0,
     t1board: 0,
-upgrades10: 0,
+
     upgrade: {
       upgrade1cost: 1,
       upgrade1effect: 0,
@@ -97,6 +97,7 @@ upgrades10: 0,
     dwarf : 0,
     mineshaft: 0,
     enrichedsilicon: 0,
+    upgrades10: 0,
 
   }
 }
