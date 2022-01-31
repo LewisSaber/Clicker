@@ -6,6 +6,7 @@ Autoclickfragsupgrade = document.getElementById("Autoclickfragsupgrade")
 RIScopperupgrade = document.getElementById("RIScopperupgrade")
 Dragonloreupgrade = document.getElementById("Dragonloreupgrade")
 Advcoreupgrade = document.getElementById("Advcoreupgrade")
+Enrsiliconupgrade = document.getElementById("Enrsiliconupgrade")
 //crates
 GKcrates = document.getElementById("GKcrates")
 Atomcrates = document.getElementById("Atomcrates")
@@ -21,4 +22,5 @@ function OverlayUpdate()
     Dragonloreupgrade.innerText = "Dragonlore: "+ game.dragonlore.formateNumber()
     Advcoreupgrade.innerText = "Adv cores: "+ game.advancedcore.formateNumber()
     Bcircuitcrates.innerText = "Basic circuits: " + game.basiccircuit.formateNumber()
+    Enrsiliconupgrade.innerText = "Enr silicon: " + game.enrichedsilicon.formateNumber()
 }

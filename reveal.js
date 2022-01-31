@@ -31,6 +31,7 @@ let Partsofgame = [
   document.getElementById("Upgrade9"),//29
   document.getElementById("circuitcratecraft"),//30
   document.getElementById("circuitmats"),//31
+  document.getElementById("Upgrade10"),//32
 ]
 
 function revealstatus() {
@@ -67,6 +68,7 @@ function revealstatus() {
   if (tabs[29] == false && game.gen2 > 0 ) tabs[29] = true
   if (tabs[30] == false && game.dwarf > 0 ) tabs[30] = true
   if (tabs[31] == false && game.dwarf > 0 ) tabs[31] = true
+  if (tabs[32] == false && game.enrichedsilicon > 0 ) tabs[32] = true
 }
 function reveal() {
   revealstatus()
@@ -93,6 +95,7 @@ reveal()
 let timerreveal = setInterval(reveal, 5000)
 function GameStage1()
 {
+  game.upgrades10 = 10
   game.upgrade = {
     upgrade1cost: 1,
     upgrade1effect: 0,
@@ -110,7 +113,12 @@ function GameStage1()
     upgrade7effect: 1,
     upgrade8cost: 1,
     upgrade8effect: 0,
+    upgrade9cost: 1e30,
+    upgrade9effect: 1,
+    upgrade10cost: 1,
+    upgrade10effect: Math.pow(2,10),
   }
+  updateupgrades()
   save()
 }
 

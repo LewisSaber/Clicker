@@ -65,7 +65,7 @@ function reset() {
     coppercable: 0,
     treesap: 0,
     t1board: 0,
-
+upgrades10: 0,
     upgrade: {
       upgrade1cost: 1,
       upgrade1effect: 0,
@@ -85,6 +85,8 @@ function reset() {
       upgrade8effect: 0,
       upgrade9cost: 1e30,
       upgrade9effect: 1,
+      upgrade10cost: 1,
+      upgrade10effect: 1,
     },
     autoclickerfragments: 0,
     basedatom: 1,
@@ -94,6 +96,7 @@ function reset() {
     sapling: 1,
     dwarf : 0,
     mineshaft: 0,
+    enrichedsilicon: 0,
 
   }
 }
@@ -207,6 +210,7 @@ T1board = document.getElementById("t1board")
 Basiccircuit = document.getElementById("basiccircuit")
 Dwarf = document.getElementById("dwarf")
 Mineshaft = document.getElementById("mineshaft")
+
 //
 function click1() {
   game.clicks += game.clickpower
@@ -654,9 +658,15 @@ function OpenCrate3()
     }else
     if(compare(drop,8,12))
     {
-      loot = random(10)
+      loot = craterandom(10)
       game.dwarf += loot
-      loot = "+ " + loot + " Dwarfs"
+      loot = "+ " + loot.formateNumber() + " Dwarfs"
+    }else 
+    if(compare(drop,13,18))
+    {
+      loot = craterandom(4)
+      game.enrichedsilicon += loot
+      loot = "+ " + loot.formateNumber() + " Enriched silicon"
     }
   
     history(loot)
@@ -720,7 +730,7 @@ function sortscrap() {
     }
     if (drop > 9 && drop < 20) {
       dropScrapsort = (Math.floor(Math.random() * 3) + 1) * game.scrapsorter
-      game.rawsilicon += dropScrapsort
+      game.rawsilicon += dropScrapsort*game.upgrade.upgrade10effect
     }
     if (drop > 19 && drop < 30) {
       dropScrapsort = (Math.floor(Math.random() * 10) + 1) * game.scrapsorter
