@@ -514,7 +514,7 @@ function OpenCrate1() {
         )
         loot =
           "+ " +
-          Math.floor(20000 / game.upgrade.upgrade8effect)* luck() +
+         ( Math.floor(20000 / game.upgrade.upgrade8effect)* luck()).formateNumber() +
           " Autoclicker frags"
       }
       history2(loot)
