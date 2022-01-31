@@ -162,8 +162,54 @@ function BuyUpgrade10() {
     OverlayUpdate()
   }
 }
+breakpowercost = document.getElementById("breakpowercost")
+function upgradebreakpower()
+{
+  if(game.breakpower == 3 &&  game.obsidian >=1000)
+  {
+    game.breakpower++
+    game.obsidian -=1000
+  }
+  
+  if(game.breakpower == 2 && game.goldore >=1000)
+  {
+    game.breakpower++
+    game.goldore -=1000
+  }
+  if(game.breakpower == 1 &&  game.ironore >=1000)
+  {
+    game.breakpower++
+    game.ironore -=1000
+  }
+  if(game.breakpower == 0 && game.cobblestone >=1000)
+  {
+    game.breakpower++
+    game.cobblestone -=1000
+  }
+  
+  
+  updatebreakpowerupgrade()
+}
+function updatebreakpowerupgrade()
+{
+  if(game.breakpower==0)
+  breakpowercost.innerText = "1000 cobblestone"
+  if(game.breakpower==1)
+  breakpowercost.innerText = "1000 iron ore"
+  if(game.breakpower==2)
+  breakpowercost.innerText = "1000 gold ore"
+  if(game.breakpower==3)
+  breakpowercost.innerText = "1000 diamonds"
+  if(game.breakpower==4)
+  //breakpowercost.innerText = "1000 obsidian"
+  breakpowercost.innerText = "maxed"
+}
+updatebreakpowerupgrade()
+
+
 
 let upgradeelements = document.querySelectorAll(".cost")
+
 
 function updateupgrades() {
  document.getElementById("ClickPower").innerText =

@@ -30,10 +30,16 @@ let Partsofgame = [
   Autoclickfragsupgrade,//28
   document.getElementById("Upgrade9"),//29
   document.getElementById("circuitcratecraft"),//30
-  document.getElementById("circuitmats"),//31
+ Dwarf,//31
   document.getElementById("Upgrade10"),//32
+  document.getElementById("mineshaftmats"),//33
+  document.getElementById("forgecrafts"),//34
+  document.getElementById("Forge"),//35
 ]
-
+tabs = []
+for (let i = 0; i <Partsofgame.length; i++) {
+  tabs.push(false)
+}
 function revealstatus() {
   if (tabs[0] == false && game.GK > 0) tabs[0] = true
   if (tabs[1] == false && game.clicks > 2000) tabs[1] = true
@@ -69,12 +75,19 @@ function revealstatus() {
   if (tabs[30] == false && game.dwarf > 0 ) tabs[30] = true
   if (tabs[31] == false && game.dwarf > 0 ) tabs[31] = true
   if (tabs[32] == false && game.enrichedsilicon > 0 ) tabs[32] = true
+  if (tabs[33] == false && game.mineshaft > 0 ) tabs[33] = true
+  if (tabs[34] == false && game.obsidian > 0 ) tabs[34] = true
+  if (tabs[34] == true && game.forge > 0 ) tabs[34] = false
+  if (tabs[35] == false && game.forge > 0 ) tabs[35] = true
 }
 function reveal() {
   revealstatus()
   for (let i = 0; i < Partsofgame.length; i++) {
     if (tabs[i] == true) Partsofgame[i].style.display = "block"
+    else
+    Partsofgame[i].style.display = "none"
   }
+ 
 }
 
 

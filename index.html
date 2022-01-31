@@ -127,31 +127,38 @@
     <button  class="close" onclick="Close()">Close</button>
     <div id="resources">Resources
         <div id="visibleresources">
-        <p class="resource" id="clickscraft">Clicks : 0 </p>
-        <p class="resource" id="GKcraft">Gold keys : 0 </p>
+        <p class="resource" id="clickscraft">Clicks: 0 </p>
+        <p class="resource" id="GKcraft">Gold keys: 0 </p>
      <p class="resource" id="scrap">Scrap : 0 </p>
-     <p class="resource" id="clickshard">Clickshards : 0 </p>
-     <p class="resource" id="generatorshard">Generatorshards : 0 </p>
+     <p class="resource" id="clickshard">Clickshards: 0 </p>
+     <p class="resource" id="generatorshard">Generatorshards: 0 </p>
      
-     <p class="resource" id="atom">Atoms : 0 </p>
+     <p class="resource" id="atom">Atoms: 0 </p>
      <div id="pastcrate2">
-     <p class="resource" id="basedpotato">Based potatoes : 0 </p>
-     <p class="resource" id="boostercore">Booster cores : 0 </p>
+     <p class="resource" id="basedpotato">Based potatoes: 0 </p>
+     <p class="resource" id="boostercore">Booster cores: 0 </p>
     </div>
     <div id="scrapmats">
-     <p class="resource" id="rawcopper">Raw copper : 0 </p>
-     <p class="resource" id="rawsilicon">Raw silicon : 0 </p>
-     <p class="resource" id="rawplastic">Raw plastic : 0 </p>
-     <p class="resource" id="rat">Rats : 0 </p>   
+     <p class="resource" id="rawcopper">Raw copper: 0 </p>
+     <p class="resource" id="rawsilicon">Raw silicon: 0 </p>
+     <p class="resource" id="rawplastic">Raw plastic: 0 </p>
+     <p class="resource" id="rat">Rats: 0 </p>   
 </div>
     <div id="woodmats">
-        <p class="resource" id="bark">Wood barks : 0 </p>
-        <p class="resource" id="plank">Wood planks : 0 </p>
-        <p class="resource" id="log">Wood logs : 0 </p>
+        <p class="resource" id="bark">Wood barks: 0 </p>
+        <p class="resource" id="plank">Wood planks: 0 </p>
+        <p class="resource" id="log">Wood logs: 0 </p>
     </div>
-    <div id="circuitmats">
-        <p class="resource" id="dwarf">Dwarfs : 0 </p>
+    <p class="resource" id="dwarf">Dwarfs: 0 </p>
+    <div id="mineshaftmats">
+       
+        <p class="resource" id="cobblestone">Cobblestone: 0 </p>
+        <p class="resource" id="coal">Coal: 0 </p>
+        <p class="resource" id="diamond">Diamonds: 0 </p>
+        <p class="resource" id="obsidian">Obsidian: 0 </p>
+        
     </div>
+
 </div>
 <div id="hiddenresources"></div>
     </div>
@@ -329,19 +336,35 @@
                 <button class="craftbutton" onclick="craftmineshaft()"><img src="Craft.jpeg">Craft</button>
         </div>
         </div>
+       <div id="forgecrafts">
+        <div id="craftforgebasin" class="craft">
+            <p class="craftamount">Forge basin: <p  id="forgebasin" class="craftamount">0</p></p>
+            <ul>
+                 <li><div class="materials1">100</div> Obsidian</li>
+                 <li><div class="materials1">5</div> Dwarfs</li>
+                 <li><div class="materials1">20</div> Coal</li>
+            </ul>
+            <button class="craftbutton" onclick="craftforgebasin()"><img src="Craft.jpeg">Craft</button>
+           
+       </div>
+       <div id="craftforge" class="craft">
+        <p class="craftamount">Unlock forge <p  id="forgebasin" class="craftamount"></p></p>
+        <ul>
+             <li><div class="materials1">1e5</div> Cobblestone</li>
+             <li><div class="materials1">100</div> Dwarfs</li>
+             <li><div class="materials1">10</div> Forge basin</li>
+        </ul>
+        <button class="craftbutton" onclick="craftforge()"><img src="Craft.jpeg">Craft</button>
+</div>
 
-
-
-
-        
         <div id="craftbooster" class="craft" >
             <p class="craftamount">Booster: <p  id="booster" class="craftamount">0</p></p>
-            <ul>
-                
+            <ul>      
             </ul>
             <button class="craftbutton" onclick="craftbooster()"><img src="Craft.jpeg">Craft</button>      
           
         </div>
+    </div>
 </div>
 
     
@@ -350,6 +373,7 @@
     <button id="ScrapSorter" class="button" onclick="OpenScrapSorting()"> Scrap sorter</button>
     <button id="WoodOrchard" class="button" onclick="OpenWoodorchard()"> Wood orchard</button>
     <button id="Mineshaft" class="button" onclick="OpenMineshaft()">Mineshaft</button>
+    <button id="Forge" class="button" onclick="OpenForge()">Forge</button>
 </div>
   <div id="ScrapSorting">
       <button class="Closemachine" onclick="CloseMachine()">Back</button>
@@ -357,7 +381,7 @@
   </div>
   <div id="WoodOrcharddiv">
     <button class="Closemachine" onclick="CloseMachine()">Back</button>
-    <button id="TurnWoodorchard" onclick="TurnOrchard()">Turn <br> on</button>
+    
     <div id="tree" onclick="cutwood()"></div>
     <div id="productionbuttons">
         <p id="Currproducingwood">Currently making: <br> </p>
@@ -368,7 +392,13 @@
     </div>
     <p id="tiptree">You can click on tree!</p>
 </div>
-<div id="Mineshaftdiv"></div>
+<div id="Mineshaftdiv">
+    <button class="Closemachine" onclick="CloseMachine()">Back</button>
+  <button id="upgradebreakpower" onclick="upgradebreakpower()"><img src="pickaxe.png" ><br>Upgrade tool breakpower<br>Cost : <div id="breakpowercost">1000 cobblestone</div></button>
+</div>
+<div id="Forgediv">
+    <button class="Closemachine" onclick="CloseMachine()">Back</button>
+</div>
 </div>
 
 <div id="placeholder"></div>

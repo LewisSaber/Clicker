@@ -239,3 +239,30 @@ if(game.advancedcore >= craftmaterials[37] &&
   }
 
   }
+  function craftforgebasin()
+  {
+    if(game.obsidian >= craftmaterials[40]&&
+      game.dwarf >= craftmaterials[41]&&
+      game.coal >= craftmaterials[42])
+      {
+        game.forgebasin+= tocraft
+        game.obsidian -= craftmaterials[40]
+        game.dwarf -= craftmaterials[41]
+        game.coal -= craftmaterials[42]
+        resourceupdate()
+      }
+
+  }
+  function craftforge()
+  {
+    if(game.cobblestone >= craftmaterials[43]&&
+      game.dwarf >= craftmaterials[44]&&
+      game.forgebasin >= craftmaterials[45])
+      {
+        game.cobblestone -= craftmaterials[43]
+        game.dwarf -= craftmaterials[44]
+        game.forgebasin -= craftmaterials[45]
+        game.forge = 1
+
+      }
+  }

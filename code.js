@@ -98,7 +98,16 @@ function reset() {
     mineshaft: 0,
     enrichedsilicon: 0,
     upgrades10: 0,
-
+    breakpower: 0,
+    cobblestone: 0,
+    ironore: 0,
+    goldore: 0,
+    diamond: 0,
+    obsidian: 0,
+    pickaxe: 0,
+    coal: 0,
+    forgebasin: 0,
+    forge : 0
   }
 }
 reset()
@@ -118,10 +127,7 @@ function load() {
 }
 load()
 
-tabs = []
-for (let i = 0; i < 30; i++) {
-  tabs.push(false)
-}
+
 function loadGame(loadgame) {
   //Sets each variable in 'game' to the equivalent variable in 'loadgame' (the saved file)
   for (i = 0; i < Object.keys(loadgame).length; i++) {
@@ -211,7 +217,11 @@ T1board = document.getElementById("t1board")
 Basiccircuit = document.getElementById("basiccircuit")
 Dwarf = document.getElementById("dwarf")
 Mineshaft = document.getElementById("mineshaft")
-
+Cobblestone = document.getElementById("cobblestone")
+Diamond=document.getElementById("diamond")
+Obsidian=document.getElementById("obsidian")
+Coal=document.getElementById("coal")
+Forgebasin = document.getElementById("forgebasin")
 //
 function click1() {
   game.clicks += game.clickpower
@@ -273,23 +283,23 @@ function onTick() {
 let timertick = setInterval(onTick, 1000)
 
 function resourceupdate() {
-  Clickscraft.innerText = "Clicks : " + game.clicks.formateNumber()
-  GKcraft.innerText = "Gold keys : " + game.GK.formateNumber()
-  Scrap.innerText = "Scrap : " + game.scrap.formateNumber() //export game.scrap
-  Clickshard.innerText = "Clickshards : " + game.clickshard.formateNumber(1e4) //export clickshards
+  Clickscraft.innerText = "Clicks: " + game.clicks.formateNumber()
+  GKcraft.innerText = "Gold keys: " + game.GK.formateNumber()
+  Scrap.innerText = "Scrap: " + game.scrap.formateNumber() //export game.scrap
+  Clickshard.innerText = "Clickshards: " + game.clickshard.formateNumber(1e4) //export clickshards
   Basiccore.innerText = game.basiccore.formateNumber()
   Generatorshard.innerText =
-    "Generator shards : " + game.generatorshard.formateNumber()
-  Atom.innerText = "Atoms : " + game.atom.formateNumber()
-  Basedpotato.innerText = "Based potatoes : " + game.basedpotato.formateNumber()
+    "Generator shards: " + game.generatorshard.formateNumber()
+  Atom.innerText = "Atoms: " + game.atom.formateNumber()
+  Basedpotato.innerText = "Based potatoes: " + game.basedpotato.formateNumber()
   Scrapsorter.innerText = game.scrapsorter.formateNumber()
-  Rawcopper.innerText = "Raw copper : " + game.rawcopper.formateNumber()
-  Rawsilicon.innerText = "Raw silicon : " + game.rawsilicon.formateNumber()
-  Rawplastic.innerText = "Raw plastic : " + game.rawplastic.formateNumber()
-  Rat.innerText = "Rats : " + game.rat.formateNumber()
+  Rawcopper.innerText = "Raw copper: " + game.rawcopper.formateNumber()
+  Rawsilicon.innerText = "Raw silicon: " + game.rawsilicon.formateNumber()
+  Rawplastic.innerText = "Raw plastic: " + game.rawplastic.formateNumber()
+  Rat.innerText = "Rats: " + game.rat.formateNumber()
   Atomizedcopper.innerText = game.atomizedcopper.formateNumber()
   Riscopper.innerText = game.riscopper.formateNumber()
-  Boostercore.innerText = "Booster cores : " + game.boostercore.formateNumber()
+  Boostercore.innerText = "Booster cores: " + game.boostercore.formateNumber()
   Silicon.innerText = game.silicon.formateNumber()
   LESboule.innerText = game.lesboule.formateNumber()
   LESwafer.innerText = game.leswafer.formateNumber()
@@ -304,6 +314,11 @@ function resourceupdate() {
   Basiccircuit.innerText = game.basiccircuit.formateNumber()
   Dwarf.innerText ="Dwarfs: " + game.dwarf.formateNumber()
   Mineshaft.innerText = game.mineshaft.formateNumber()
+  Cobblestone.innerText ="Cobblestone: " + game.cobblestone.formateNumber()
+  Coal.innerText =  "Coal: " + game.coal.formateNumber()
+  Diamond.innerText ="Diamonds: " + game.diamond.formateNumber()
+  Obsidian.innerText = "Obsidian: "+ game.obsidian.formateNumber()
+  Forgebasin.innerText =  game.forgebasin.formateNumber()
   OverlayUpdate()
 }
 function CloseMenu() {
@@ -698,17 +713,27 @@ function OpenMineshaft()
   CloseAllmachines()
   document.getElementById("Mineshaftdiv").style.display = "Block"
 }
+function OpenForge()
+{
+  CloseAllmachines()
+  document.getElementById("Forgediv").style.display = "Block"
+
+}
+woodtimer = setInterval(cutwood, 1000)
+minetimer = setInterval(mine,1000)
+//mineshafttimer = 
 function CloseAllmachines()
 {
   document.getElementById("ScrapSorting").style.display = "none"
   document.getElementById("crafts").style.display = "none"
   document.getElementById("WoodOrcharddiv").style.display = "none"
   document.getElementById("Mineshaftdiv").style.display = "none"
+  document.getElementById("Forgediv").style.display = "none"
 }
 function CloseMachine() {
-  document.getElementById("ScrapSorting").style.display = "none"
+ CloseAllmachines()
   document.getElementById("crafts").style.display = "block"
-  document.getElementById("WoodOrcharddiv").style.display = "none"
+  
 }
 function TurnScrap() {
   if (game.isScrapOn == 1) {
@@ -723,21 +748,8 @@ function TurnScrap() {
     document.getElementById("TurnScrap").innerHTML = "Turn  <br> off"
   }
 }
-function TurnOrchard() {
-  if (game.iswoodorchardon == 1) {
-    document.getElementById("TurnWoodorchard").style.backgroundImage =
-      "url(off.jpg)"
-    game.iswoodorchardon = 0
-    clearInterval(woodtimer)
-    document.getElementById("TurnWoodorchard").innerHTML = "Turn  <br> on"
-  } else {
-    document.getElementById("TurnWoodorchard").style.backgroundImage =
-      "url(on.jpg)"
-    game.iswoodorchardon = 1
-    woodtimer = setInterval(cutwood, 1000)
-    document.getElementById("TurnWoodorchard").innerHTML = "Turn  <br> off"
-  }
-}
+
+
 
 function sortscrap() {
   if (game.scrap >= game.scrapsorter) {
@@ -783,6 +795,46 @@ function cutwood() {
     Plank.innerText = "Wood planks: " + game.plank.formateNumber()
   }
 }
+function mine()
+{
+ 
+  game.cobblestone += game.mineshaft*(game.pickaxe+1)
+  if(game.breakpower >=1 && random(2) == 2)
+  {
+    game.ironore += game.mineshaft*(game.pickaxe+1)
+   
+  }
+  if(game.breakpower >=1 && random(10) == 1)
+  {
+    game.coal++
+  }
+  if(game.breakpower >=2 && random(4) == 2)
+  {
+    game.goldore += game.mineshaft*(game.pickaxe+1)
+  }
+  if(game.breakpower >=3 && random(6) == 2)
+  {
+    game.diamond += game.mineshaft*(game.pickaxe+1)
+  }
+  if(game.breakpower >=4 && random(8) == 2)
+  {
+    game.obsidian += game.mineshaft*(game.pickaxe+1)
+  }
+  resourceupdate()
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 function bugcheck()
 {
   if(typeof game.upgrade == "number")
