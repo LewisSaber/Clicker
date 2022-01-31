@@ -228,10 +228,6 @@ function updateupgrades() {
     game.isScrapOn = 0
     TurnScrap()
   }
-  if (game.iswoodorchardon == 1) {
-    game.iswoodorchardon = 0
-    TurnOrchard()
-  }
 
   if (game.decrnumber == 1) {
     document.getElementById("Upgrade2").disabled = true
