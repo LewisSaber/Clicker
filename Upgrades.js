@@ -152,7 +152,7 @@ function BuyUpgrade10() {
   if (game.enrichedsilicon >= game.upgrade.upgrade10cost) {
     game.enrichedsilicon -= game.upgrade.upgrade10cost
     game.upgrades10++
-    console.log(game.upgrades10)
+ 
     if(game.upgrades10 > 15)
     game.upgrade.upgrade10cost = Math.floor(Math.pow((game.upgrades10+1),(Math.log10(game.upgrades10)/Math.log10(1.6))))
     else

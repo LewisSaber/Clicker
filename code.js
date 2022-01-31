@@ -622,11 +622,11 @@ function OpenCrate2() {
     else
     if(compare(drop,37,39) && game.dwarf > 0)
     {
-      console
+     
     loot = craterandom(3)*100
     game.GKMa += loot
     loot = "+ "+ loot.formateNumber() + " Gold key modifiers"
-    console.log(loot)
+    
     }else
     loot = "nothing"
     history(loot)
