@@ -109,6 +109,7 @@ function reset() {
     forgebasin: 0,
     forge : 0,
     forgefuel: 0,
+    ratferment: 0,
   }
 }
 reset()
@@ -701,7 +702,33 @@ function OpenCrate3()
       loot = craterandom(4)
       game.pickaxe += loot
       loot = "+ "+ loot.formateNumber() + " pickaxes"
-    
+    }
+    else
+    if(compare(drop,20,24))
+    {
+      loot = craterandom(4)*10000
+      game.basiccore += loot
+      loot = "+ " + loot.formateNumber() + " Basic cores"
+      
+    }else
+    if(compare(drop,25,28))
+    {
+      loot =  craterandom(4)
+      game.ratferment += loot
+      loot = "+ " + loot.formateNumber() + " Rat ferment"
+    }else
+    if(compare(drop,29,31))
+    {
+      loot = craterandom(3) * 100
+      game.Advancedcore += loot
+      loot = "+ " + loot.formateNumber() + " Advanced cores"
+
+    }else
+    if(compare(drop,31,33))
+    {
+      loot = craterandom(100) 
+      game.woodorchard += loot
+      loot = " + " + loot.formateNumber() +  " Wood orchards"
     }
   
     history(loot)
@@ -779,7 +806,7 @@ function sortscrap() {
     }
     if (drop > 29 && drop < 36) {
       dropScrapsort = (Math.floor(Math.random() * 2) + 1) * game.scrapsorter
-      game.rat += dropScrapsort
+      game.rat += dropScrapsort*(game.ratferment * 0.2 + 1)
     }
     resourceupdate()
   } else TurnScrap()
