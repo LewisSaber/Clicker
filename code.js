@@ -107,7 +107,8 @@ function reset() {
     pickaxe: 0,
     coal: 0,
     forgebasin: 0,
-    forge : 0
+    forge : 0,
+    forgefuel: 0,
   }
 }
 reset()
@@ -185,6 +186,8 @@ Ca = document.getElementById("Tocraft")
 Oa = document.getElementById("ToOpen")
 placeholder = document.getElementById("placeholder")
 placeholder2 = document.getElementById("placeholder2")
+forgefuelleft = document.getElementById("fueltimeleft")
+Coalfuel = document.getElementById("Coalfuel")
 //resources
 Clickscraft = document.getElementById("clickscraft")
 GKcraft = document.getElementById("GKcraft")
@@ -824,7 +827,33 @@ function mine()
 
 }
 
+function fueltick()
+{
+  if(game.forgefuel>0)
+  {
+game.forgefuel--
+forgefuelleft.innerText = " Time left: " + game.forgefuel + "s"
+console.log(game.forgefuel)
+  }
+}
+ forgefueltimer = setInterval(fueltick,1000)
+function powerforge()
+{
 
+  if(Coalfuel.value <= game.coal)
+  {
+    
+   
+    game.coal -= Coalfuel.value
+    game.forgefuel += Coalfuel.value * 10
+    forgefuelleft.innerText = " Time left: " + game.forgefuel + "s"
+   
+  }
+
+}
+
+//forgefuelleft = document.getElementById("fueltimeleft")
+//Coalfuel = document.getElementById("Coalfuel")
 
 
 

@@ -35,6 +35,7 @@ let Partsofgame = [
   document.getElementById("mineshaftmats"),//33
   document.getElementById("forgecrafts"),//34
   document.getElementById("Forge"),//35
+  document.getElementById("Mineshaft"),//36
 ]
 tabs = []
 for (let i = 0; i <Partsofgame.length; i++) {
@@ -79,6 +80,8 @@ function revealstatus() {
   if (tabs[34] == false && game.obsidian > 0 ) tabs[34] = true
   if (tabs[34] == true && game.forge > 0 ) tabs[34] = false
   if (tabs[35] == false && game.forge > 0 ) tabs[35] = true
+  if (tabs[36] == false && game.mineshaft > 0 ) tabs[36] = true
+
 }
 function reveal() {
   revealstatus()

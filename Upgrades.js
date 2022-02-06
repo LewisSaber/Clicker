@@ -165,10 +165,10 @@ function BuyUpgrade10() {
 breakpowercost = document.getElementById("breakpowercost")
 function upgradebreakpower()
 {
-  if(game.breakpower == 3 &&  game.obsidian >=1000)
+  if(game.breakpower == 3 &&  game.diamond >=1000)
   {
     game.breakpower++
-    game.obsidian -=1000
+    game.diamond -=1000
   }
   
   if(game.breakpower == 2 && game.goldore >=1000)
