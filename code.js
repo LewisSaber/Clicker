@@ -495,9 +495,9 @@ function OpenCrate1() {
     } else if (drop > 37 && drop < 43) {
       let dropgenM = (Math.floor(Math.random() * 10) + 1) * toopen * luck()
       game.genmult += dropgenM
-      loot = "+ " + dropgenM + " Generator multiplier"
+      loot = "+ " + dropgenM.formateNumber() + " Generator multiplier"
     } else if (drop > 42 && drop < 45) {
-      game.legendaryclickshard += toopen
+      game.legendaryclickshard += toopen * luck()
       loot = "legendary clickshard!"
     } else if (drop == 45) {
       drop = Math.floor(Math.random() * 50)
