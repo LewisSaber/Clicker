@@ -335,7 +335,7 @@ function Close() {
   cratesdiv.style.display = "none"
   craftsdiv.style.display = "none"
 }
-function compare(value,value1,value2)
+function compare(value,value1,value2 = value1)
 {
   if(value >= value1 && value <= value2)
   return true
@@ -695,6 +695,13 @@ function OpenCrate3()
       loot = craterandom(4)
       game.enrichedsilicon += loot
       loot = "+ " + loot.formateNumber() + " Enriched silicon"
+    }else
+    if(compare(drop,19))
+    {
+      loot = craterandom(4)
+      game.pickaxe += loot
+      loot = "+ "+ loot.formateNumber() + " pickaxes"
+    
     }
   
     history(loot)
@@ -805,7 +812,6 @@ function mine()
   if(game.breakpower >=1 && random(2) == 2)
   {
     game.ironore += game.mineshaft*(game.pickaxe+1)
-   
   }
   if(game.breakpower >=1 && random(10) == 1)
   {
