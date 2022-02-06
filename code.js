@@ -110,6 +110,9 @@ function reset() {
     forge : 0,
     forgefuel: 0,
     ratferment: 0,
+    ironingot: 0,
+    goldingot: 0,
+    furnace: 0,
   }
 }
 reset()
@@ -226,6 +229,7 @@ Diamond=document.getElementById("diamond")
 Obsidian=document.getElementById("obsidian")
 Coal=document.getElementById("coal")
 Forgebasin = document.getElementById("forgebasin")
+Furnace = document.getElementById("furnace")
 //
 function click1() {
   game.clicks += game.clickpower
@@ -323,6 +327,7 @@ function resourceupdate() {
   Diamond.innerText ="Diamonds: " + game.diamond.formateNumber()
   Obsidian.innerText = "Obsidian: "+ game.obsidian.formateNumber()
   Forgebasin.innerText =  game.forgebasin.formateNumber()
+  Furnace.innerText = game.furnace.formateNumber()
   OverlayUpdate()
 }
 function CloseMenu() {
@@ -754,6 +759,7 @@ function OpenForge()
 {
   CloseAllmachines()
   document.getElementById("Forgediv").style.display = "Block"
+  document.getElementById("craftselect").style.display = "Block"
 
 }
 woodtimer = setInterval(cutwood, 1000)

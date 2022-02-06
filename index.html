@@ -162,17 +162,17 @@
 </div>
 <div id="hiddenresources"></div>
     </div>
-
+    <div id="craftselect"><button id="hiddenresources" onclick="ShowHiddenResources()">S</button>
+        <input type="number" name="Tocraft" id="Tocraft" >
+        <button class="setcraftbutton" id="setcraftamount" onclick="setcraftvalue(+Ca.value)">set craft amount</button>
+         
+        <button id="setcraft1" class="setcraftbutton" onclick="setcraftvalue(+setcraft1.innerText)">1</button> 
+        <button id="setcraft2" class="setcraftbutton" onclick="setcraftvalue(+setcraft2.innerText)">10</button>
+        <button id="setcraft3" class="setcraftbutton" onclick="setcraftvalue(+setcraft3.innerText)">100</button>
+        <button id="setcraft4" class="setcraftbutton" onclick="setcraftvalue(+setcraft4.innerText)">1000</button>
+      </div>
     <div id="crafts" >
-        <div id="Craftslect"><button id="hiddenresources" onclick="ShowHiddenResources()">S</button>
-            <input type="number" name="Tocraft" id="Tocraft" >
-            <button class="setcraftbutton" id="setcraftamount" onclick="setcraftvalue(+Ca.value)">set craft amount</button>
-             
-            <button id="setcraft1" class="setcraftbutton" onclick="setcraftvalue(+setcraft1.innerText)">1</button> 
-            <button id="setcraft2" class="setcraftbutton" onclick="setcraftvalue(+setcraft2.innerText)">10</button>
-            <button id="setcraft3" class="setcraftbutton" onclick="setcraftvalue(+setcraft3.innerText)">100</button>
-            <button id="setcraft4" class="setcraftbutton" onclick="setcraftvalue(+setcraft4.innerText)">1000</button>
-          </div>
+      
     <div id="craftbasiccore" class="craft">
         <p class="craftamount">Basic core: <p  id="basiccore" class="craftamount">0</p></p>
         <ul>
@@ -397,10 +397,20 @@
   <button id="upgradebreakpower" onclick="upgradebreakpower()"><img src="pickaxe.png" ><br>Upgrade tool breakpower<br>Cost : <div id="breakpowercost">1000 cobblestone</div></button>
 </div>
 <div id="Forgediv">
+    <div id="forgetop">
     <button class="Closemachine" onclick="CloseMachine()">Back</button>
     <input type="number" name="Coalfuel" id="Coalfuel">
     <button id="fueladd" onclick="powerforge()">Add fuel to forge</button>
     <p id="fueltimeleft">Time left: 0s</p>
+</div>
+    <div id="craftfurnace" class="craft">
+        <p class="craftamount">Furnaces: <p  id="furnace" class="craftamount"> 0</p></p>
+        <ul>
+             <li>1e4 Cobblestone</li>
+             <li>10 Advanced core</li>
+          
+        </ul>
+        <button class="craftbutton" onclick="craftfurnace()"><img src="Craft.jpeg">Craft</button>
 </div>
 </div>
 

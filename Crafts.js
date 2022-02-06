@@ -266,3 +266,14 @@ if(game.advancedcore >= craftmaterials[37] &&
 
       }
   }
+  function craftfurnace()
+  {
+    if(game.cobblestone >= 1e4 * tocraft &&
+    game.advancedcore >= 10 * tocraft)
+    {
+game.furnace += tocraft
+game.cobblestone -= 1e4 * tocraft 
+    game.advancedcore -= 10 * tocraft
+    resourceupdate()
+    }
+  }
