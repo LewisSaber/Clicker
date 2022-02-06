@@ -277,3 +277,16 @@ game.cobblestone -= 1e4 * tocraft
     resourceupdate()
     }
   }
+  function craftobsidianalloy()
+  {
+    if(game.ironingot >= craftmaterials2[0] &&
+      game.obsidian >= craftmaterials2[1] &&
+      game.diamond >= craftmaterials2[2] )
+      {
+        game.obsidianalloy += decidefurnace()
+        game.ironingot -= craftmaterials2[0] 
+      game.obsidian -= craftmaterials2[1] 
+      game.diamond -= craftmaterials2[2]
+resourceupdate()
+      }
+  }

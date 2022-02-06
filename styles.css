@@ -722,13 +722,35 @@
   margin-top: 1%;
   
 }
-#craftfurnace li ul
+#craftfurnace li ul 
 {
   display: inline;
 }
-
+.materials2
+{
+  display: inline;
+}
 #forgetop
 {display:block;
   height: 8vh;
 margin-bottom: 1%;
+}
+.craftbutton2 {
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 1%;
+  background: #137aad;
+  border: 0.1vh solid #3a3a34;
+  border-radius: 10px;
+  opacity: 10;
+}
+.craftbutton2:hover {
+  background: #11618a;
+}
+
+.craftbutton2 img {
+  height: 1em;
+  width: 1em;
+  background-size: contain;
+  background-repeat: no-repeat;
 }

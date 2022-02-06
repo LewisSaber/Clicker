@@ -113,6 +113,7 @@ function reset() {
     ironingot: 0,
     goldingot: 0,
     furnace: 0,
+    obsidianalloy: 0,
   }
 }
 reset()
@@ -230,6 +231,9 @@ Obsidian=document.getElementById("obsidian")
 Coal=document.getElementById("coal")
 Forgebasin = document.getElementById("forgebasin")
 Furnace = document.getElementById("furnace")
+Ironingot = document.getElementById("ironingot")
+Goldingot = document.getElementById("goldingot")
+Obsidianalloy = document.getElementById("obsidianalloy")
 //
 function click1() {
   game.clicks += game.clickpower
@@ -328,6 +332,9 @@ function resourceupdate() {
   Obsidian.innerText = "Obsidian: "+ game.obsidian.formateNumber()
   Forgebasin.innerText =  game.forgebasin.formateNumber()
   Furnace.innerText = game.furnace.formateNumber()
+  Ironingot.innerText = "Iron ingots: " + game.ironingot.formateNumber()
+  Goldingot.innerText = "Gold ingots: " + game.goldingot.formateNumber()
+  Obsidianalloy.innerText = game.obsidianalloy
   OverlayUpdate()
 }
 function CloseMenu() {
@@ -872,10 +879,11 @@ function fueltick()
   {
 game.forgefuel--
 forgefuelleft.innerText = " Time left: " + game.forgefuel + "s"
-console.log(game.forgefuel)
+forgesmelt()
   }
+  
 }
- forgefueltimer = setInterval(fueltick,1000)
+
 function powerforge()
 {
 
@@ -891,9 +899,24 @@ function powerforge()
 
 }
 
-//forgefuelleft = document.getElementById("fueltimeleft")
-//Coalfuel = document.getElementById("Coalfuel")
-
+function forgesmelt()
+{
+  if(game.forgefuel > 0)
+  {
+ 
+    if(game.ironore >= game.furnace)
+    {
+      game.ironore-=game.furnace
+      game.ironingot += game.furnace
+    }
+    if(game.goldore >= game.furnace)
+    {
+      game.goldore -= game.furnace
+      game.goldingot += game.furnace
+    }
+  }
+}
+forgefueltimer = setInterval(fueltick,1000)
 
 
 

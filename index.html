@@ -158,6 +158,10 @@
         <p class="resource" id="obsidian">Obsidian: 0 </p>
         
     </div>
+    <div id="forgemats">
+        <p class="resource" id="ironingot">Iron ingots: 0 </p>
+        <p class="resource" id="goldingot">Gold ingots: 0 </p>
+    </div>
 
 </div>
 <div id="hiddenresources"></div>
@@ -406,11 +410,21 @@
     <div id="craftfurnace" class="craft">
         <p class="craftamount">Furnaces: <p  id="furnace" class="craftamount"> 0</p></p>
         <ul>
-             <li>1e4 Cobblestone</li>
-             <li>10 Advanced core</li>
+             <li><div class="materials1">1e4</div> Cobblestone</li>
+             <li><div class="materials1">10</div> Advanced core</li>
           
         </ul>
         <button class="craftbutton" onclick="craftfurnace()"><img src="Craft.jpeg">Craft</button>
+</div>
+<div id="craftobsidianalloy" class="craft">
+    <p class="craftamount">Obsidian alloy: <p  id="obsidianalloy" class="craftamount"> 0</p></p>
+    <ul>
+        <li><div class="materials2">100</div> iron ingots</li>
+         <li><div class="materials2">10</div> obsidian</li>
+         <li><div class="materials2">10</div> diamond</li>
+      
+    </ul>
+    <button class="craftbutton2" onclick="craftobsidianalloy()"><img src="Craft.jpeg">Craft</button>
 </div>
 </div>
 
