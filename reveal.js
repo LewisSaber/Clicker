@@ -37,6 +37,7 @@ let Partsofgame = [
   document.getElementById("Forge"),//35
   document.getElementById("Mineshaft"),//36
   document.getElementById("forgemats"),//37
+  document.getElementById("gen4"),//38
 ]
 tabs = []
 for (let i = 0; i <Partsofgame.length; i++) {
@@ -83,6 +84,7 @@ function revealstatus() {
   if (tabs[35] == false && game.forge > 0 ) tabs[35] = true
   if (tabs[36] == false && game.mineshaft > 0 ) tabs[36] = true
   if (tabs[37] == false && game.furnace > 0 ) tabs[37] = true
+  if (tabs[38] == false && game.gen4 > 0 ) tabs[38] = true
 
 }
 function reveal() {

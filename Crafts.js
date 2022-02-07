@@ -316,3 +316,16 @@ resourceupdate()
       resourceupdate()
       }
   }
+  function craftgen4()
+  {
+    if(game.elitecore >= craftmaterials2[9]&&
+      game.gen3 >= craftmaterials2[10] &&
+      game.generatorshard >= craftmaterials2[11])
+      {
+        game.gen4 += decidefurnace()
+        game.elitecore -= craftmaterials2[9]
+      game.gen3 -= craftmaterials2[10] 
+      game.generatorshard -= craftmaterials2[11]
+      resourceupdate()
+      }
+  }

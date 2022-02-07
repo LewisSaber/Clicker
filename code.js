@@ -177,6 +177,7 @@ Counter = document.getElementById("Counter")
 gt1 = document.getElementById("gt1")
 gt2 = document.getElementById("gt2")
 gt3 = document.getElementById("gt3")
+gt4 = document.getElementById("gt4")
 
 key1number = document.getElementById("key1number")
 mainmenu = document.getElementById("mainmenu")
@@ -266,6 +267,7 @@ function onTick() {
     game.clicks + game.gen1 * (1 + game.clickpower / 30) * game.genmult //game.clicks per second
   game.gen1 += game.gen2 * game.genmult
   game.gen2 += game.gen3 * game.genmult * (game.dragonlore + 1)
+  game.gen3 += game.gen4 * game.genmult 
   Counter.innerText = game.clicks.formateNumber()
   key1number.innerText = game.GK.formateNumber(1e4) //export game.GK
 
@@ -276,6 +278,7 @@ function onTick() {
   gt1.innerText = game.gen1.formateNumber()
   gt2.innerText = game.gen2.formateNumber()
   gt3.innerText = game.gen3.formateNumber()
+  gt4.innerText = game.gen4.formateNumber()
 
   game.GKM = (1 + game.GKMa) * +game.upgrade.upgrade3effect
 
@@ -778,7 +781,13 @@ function OpenCrate3()
       game.scrapsorter += loot
       loot = "+ " + loot.formateNumber() + " Scrap sorters"
     }
-  
+    else if(compare(drop,36,40)&& toopen >= 5000)
+    {
+      loot = craterandom(10)*1e6
+      game.genmult += loot
+      loot = " + "+ loot.formateNumber() + " Generator multiplier"
+    }
+    
     history(loot)
     OverlayUpdate()
   }
