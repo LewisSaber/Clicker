@@ -119,6 +119,7 @@ function reset() {
     elitecore: 0,
     goldring: 0,
     brokengoldring: 0,
+    relicclickshard: 0,
   }
 }
 reset()
@@ -248,14 +249,7 @@ function click1() {
 
   Counter.innerText = game.clicks.formateNumber() //export game.clicks on counter
 
-  if (game.legendaryclickshard + 2 > 50) {
-    game.clickshard += (game.legendaryclickshard + 2) / 100
-  } else {
-    dropclickshard = Math.floor(Math.random() * 100)
-  }
-  if (dropclickshard < game.legendaryclickshard + 3) {
-    game.clickshard++
-  }
+ game.clickshard += game.legendaryclickshard/100 * (game.relicclickshard+1)
 
   Clickshard.innerText = "Clickshards: " + game.clickshard.formateNumber(1e4)
 }
@@ -680,6 +674,19 @@ function OpenCrate2() {
     game.GKMa += loot
     loot = "+ "+ loot.formateNumber() + " Gold key modifiers"
     
+    }else
+    if(drop == 40 && toopen >= 10000)
+    {
+      if(random(10)==1)
+      {
+        loot = luck()
+        game.relicclickshard += loot
+        loot = "+ "+ loot.formateNumber() + " Relic click shard"
+     
+        loot4.style.backgroundImage = "linear-gradient(rgb(158, 30, 232),rgb(158, 30, 231))"
+        loot6.style.backgroundImage = "linear-gradient(rgb(158, 30, 232),rgb(158, 30, 231))"
+        history2(loot)
+      }
     }else
     loot = "nothing"
     history(loot)
