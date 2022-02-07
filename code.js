@@ -271,7 +271,7 @@ function onTick() {
 
   game.generatorshard += game.gen1 * 0.1 * (1 + game.clickpower / 1000)
   Generatorshard.innerText =
-    "Generator shards : " + game.generatorshard.formateNumber()
+    "Generator shards: " + game.generatorshard.formateNumber()
 
   gt1.innerText = game.gen1.formateNumber()
   gt2.innerText = game.gen2.formateNumber()
@@ -287,7 +287,7 @@ function onTick() {
       game.upgrade.upgrade6effect *
       game.upgrade.upgrade9effect *
       game.basedatom
-    Atom.innerText = "Atoms : " + game.atom.formateNumber()
+    Atom.innerText = "Atoms: " + game.atom.formateNumber()
   }
   document.getElementById("ClickPower").innerText =
     game.clickpower.formateNumber()
