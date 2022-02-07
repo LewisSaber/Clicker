@@ -290,3 +290,29 @@ game.cobblestone -= 1e4 * tocraft
 resourceupdate()
       }
   }
+  function craftgoldring()
+  {
+    if(game.goldingot >= craftmaterials2[3]&&
+      game.diamond >= craftmaterials2[4]&&
+      game.brokengoldring >= craftmaterials2[5])
+      {
+        game.goldring += decidefurnace()
+        game.goldingot -= craftmaterials2[3]
+      game.diamond -= craftmaterials2[4]
+      game.brokengoldring -= craftmaterials2[5]
+      resourceupdate()
+      }
+  }
+  function craftelitecore()
+  {
+    if(game.advancedcore >= craftmaterials2[6] &&
+      game.obsidianalloy >= craftmaterials2[7] &&
+      game.goldring >= craftmaterials2[8])
+      {
+        game.elitecore += decidefurnace()
+        game.advancedcore -= craftmaterials2[6] 
+      game.obsidianalloy -= craftmaterials2[7] 
+      game.goldring -= craftmaterials2[8]
+      resourceupdate()
+      }
+  }

@@ -116,6 +116,9 @@ function reset() {
     obsidianalloy: 0,
     maxcrates : 1000,
     maxcrate1upgr : 0,
+    elitecore: 0,
+    goldring: 0,
+    brokengoldring: 0,
   }
 }
 reset()
@@ -236,6 +239,9 @@ Furnace = document.getElementById("furnace")
 Ironingot = document.getElementById("ironingot")
 Goldingot = document.getElementById("goldingot")
 Obsidianalloy = document.getElementById("obsidianalloy")
+Brokengoldring = document.getElementById("brokengoldring")
+Goldring = document.getElementById("goldring")
+Elitecore = document.getElementById("elitecore")
 //
 function click1() {
   game.clicks += game.clickpower
@@ -337,6 +343,9 @@ function resourceupdate() {
   Ironingot.innerText = "Iron ingots: " + game.ironingot.formateNumber()
   Goldingot.innerText = "Gold ingots: " + game.goldingot.formateNumber()
   Obsidianalloy.innerText = game.obsidianalloy
+  Brokengoldring.innerText = "Broken gold ring: "+ game.brokengoldring.formateNumber()
+  Goldring.innerText = game.goldring.formateNumber()
+  Elitecore.innerText = game.elitecore.formateNumber()
   OverlayUpdate()
 }
 function CloseMenu() {
@@ -561,6 +570,17 @@ function OpenCrate1() {
       loot4.style.backgroundImage = "linear-gradient(rgb(0, 255, 0),rgb(0, 254, 0))"
       loot6.style.backgroundImage = "linear-gradient(rgb(0, 255, 0),rgb(0, 254, 0))"
       history2(loot)
+    }else if(drop== 48 && toopen >=10000)
+    {
+      if(random(2) == 1)
+      {
+        loot = random(4)*luck()
+        game.brokengoldring += loot
+        loot = "+ "+ loot.formateNumber() + " broken gold rings"
+        loot4.style.backgroundImage = "linear-gradient(rgb(255, 255, 0),rgb(254, 255, 0))"
+        loot6.style.backgroundImage = "linear-gradient(rgb(255, 255, 0),rgb(254, 255, 0))"
+        history2(loot)
+      }
     }
     else
      loot = "nothing"
