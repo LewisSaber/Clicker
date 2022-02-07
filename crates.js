@@ -10,7 +10,7 @@ function opencrateinfo()
 function luck()
 {
 
-    return (1 + game.luckyshard/50)
+    return (1 + game.luckyshard/25)
 }
 function back()
 {
