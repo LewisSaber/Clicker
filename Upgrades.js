@@ -131,7 +131,11 @@ if(  game.upgrade.upgrade8effect >10 ||  game.upgrade.upgrade8effect == 0){
     else
    
     game.upgrade.upgrade8effect -=100
-    setInterval(click1,game.upgrade.upgrade8effect)
+    if(game.upgrade.upgrade8effect > 0)
+    {
+      clearInterval(click1timer)
+    }
+   click1timer =  setInterval(click1,game.upgrade.upgrade8effect)
     updateupgrades()
     OverlayUpdate()
   }
@@ -251,3 +255,7 @@ function updateupgrades() {
   }
 }
 updateupgrades()
+if(game.upgrade.upgrade8effect > 0)
+{
+  click1timer =  setInterval(click1,game.upgrade.upgrade8effect)
+}

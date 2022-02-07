@@ -251,7 +251,7 @@ function click1() {
     game.clickshard++
   }
 
-  Clickshard.innerText = "Clickshards : " + game.clickshard.formateNumber(1e4)
+  Clickshard.innerText = "Clickshards: " + game.clickshard.formateNumber(1e4)
 }
 function random(value)
 {
