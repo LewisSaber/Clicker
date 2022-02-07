@@ -592,7 +592,7 @@ function OpenCrate2() {
     drop = Math.floor(Math.random() * 100)
     game.atom -= 5 * toopen
     if (drop < 10) {
-      let dropBcores = Math.floor(Math.random() * 300) * toopen * luck()
+      let dropBcores = Math.floor(Math.random() * 300) * toopen * luck()* (game.elitecore+1)
       game.basiccore += dropBcores
       loot = "+ " + dropBcores.formateNumber() + " Basic cores"
     } else if (drop < 15 && drop > 10) {
@@ -747,7 +747,7 @@ function OpenCrate3()
     else
     if(compare(drop,20,24))
     {
-      loot = craterandom(4)*10000
+      loot = craterandom(4)*10000* (game.elitecore+1)
       game.basiccore += loot
       loot = "+ " + loot.formateNumber() + " Basic cores"
       
@@ -760,7 +760,7 @@ function OpenCrate3()
     }else
     if(compare(drop,29,31))
     {
-      loot = craterandom(3) * 100
+      loot = craterandom(3) * 100* (game.elitecore+1)
       game.Advancedcore += loot
       loot = "+ " + loot.formateNumber() + " Advanced cores"
 
@@ -770,6 +770,13 @@ function OpenCrate3()
       loot = craterandom(100) 
       game.woodorchard += loot
       loot = " + " + loot.formateNumber() +  " Wood orchards"
+    }
+    else
+    if(compare(drop,34,35) && toopen>=100)
+    {
+      loot = craterandom(5) * 1e4
+      game.scrapsorter += loot
+      loot = "+ " + loot.formateNumber() + " Scrap sorters"
     }
   
     history(loot)

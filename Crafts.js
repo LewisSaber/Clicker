@@ -38,7 +38,7 @@ function OpenCraft() {
       craftmaterials[2] <= game.clickshard &&
       craftmaterials[3] <= game.clicks
     ) {
-      game.basiccore += tocraft
+      game.basiccore += tocraft * (game.elitecore+1)
       game.scrap -=   craftmaterials[1]
       game.clickshard -= craftmaterials[2]
       game.clicks -= craftmaterials[3]
@@ -144,7 +144,7 @@ function OpenCraft() {
         game.leswafer -= craftmaterials[20] 
       game.riscopper -= craftmaterials[21]
       game.basiccore -= craftmaterials[22]
-      game.advancedcore += tocraft
+      game.advancedcore += tocraft* (game.elitecore+1)
       resourceupdate()
       }
   }

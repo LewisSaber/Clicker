@@ -52,7 +52,7 @@ function updateCraftButtons() {
 updateCraftButtons()
 hiddenresdiv = document.getElementById("hiddenresources")
 visibleresdiv = document.getElementById("visibleresources")
-hidresnames = ["Legendary click shards: ","Lucky shard: ","Advanced scrap: ","Based atoms : ", "Saplings: ","Rat ferment: ", "Pickaxe: ","Iron ore: ","Gold ore: ", "Relic click shard: "]
+hidresnames = ["Legendary click shards: ","Lucky shard: ","Advanced scrap: ","Based atoms : ", "Saplings: ","Rat ferment: ", "Pickaxe: ","Iron ore: ","Gold ore: ", "Relic clickshard: "]
 let hidresbool = 0
 let tag
 function ShowHiddenResources() {
