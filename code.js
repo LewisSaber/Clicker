@@ -114,6 +114,8 @@ function reset() {
     goldingot: 0,
     furnace: 0,
     obsidianalloy: 0,
+    maxcrates : 1000,
+    maxcrate1upgr : 0,
   }
 }
 reset()
@@ -446,8 +448,8 @@ function keydown() {
 
 function setcratevalue() {
   //made by sirtage
-  if (+Oa.value > 999) {
-    Oa.value = 999
+  if (+Oa.value > game.maxcrates) {
+    Oa.value = game.maxcrates
   } else if (+Oa.value <= 1) Oa.value = 1
 
   return Oa.value

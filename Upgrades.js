@@ -206,6 +206,17 @@ function updatebreakpowerupgrade()
 }
 updatebreakpowerupgrade()
 
+function UpgradeMaxCrate1()
+{
+  if(game.obsidianalloy >= 100)
+  { 
+  game.obsidianalloy -= 100
+  document.getElementById("upgrademaxcrate").innerText = "Maxed"
+  document.getElementById("upgrademaxcrate").disabled = "true"
+  game.maxcrates *= 10
+  game.maxcrate1upgr = 1
+  }
+}
 
 
 let upgradeelements = document.querySelectorAll(".cost")
@@ -232,6 +243,11 @@ function updateupgrades() {
   if (game.decrnumber == 1) {
     document.getElementById("Upgrade2").disabled = true
     document.getElementById("Upgrade2").innerText = "MAXED!"
+  }
+  if(game.maxcrate1upgr == 1)
+  {
+    document.getElementById("upgrademaxcrate").innerText = "Maxed"
+  document.getElementById("upgrademaxcrate").disabled = "true"
   }
 }
 updateupgrades()

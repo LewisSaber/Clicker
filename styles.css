@@ -665,6 +665,24 @@
   height: 2rem;
   margin-top: 0%;
 }
+#upgrademaxcrate
+{
+  display: block;
+  float: left;
+  background: #c2bebe;
+  opacity: 0.9;
+ 
+  border: inset 0.8vh #2468c2;
+  width: 300px;
+  height: 150px;
+  margin: 20px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+#upgrademaxcrate:hover
+{
+  background: #aca7a7;
+}
 #Forgediv
 {
   display: none;
