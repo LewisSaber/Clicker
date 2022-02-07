@@ -568,7 +568,7 @@ function OpenCrate1() {
     {
       if(random(2) == 1)
       {
-        loot = random(4)*luck()
+        loot = random(4)*luck() * (game.elitecore/4+1)
         game.brokengoldring += loot
         loot = "+ "+ loot.formateNumber() + " broken gold rings"
         loot4.style.backgroundImage = "linear-gradient(rgb(255, 255, 0),rgb(254, 255, 0))"
