@@ -87,6 +87,7 @@ function reset() {
       upgrade9effect: 1,
       upgrade10cost: 1,
       upgrade10effect: 1,
+    
     },
     autoclickerfragments: 0,
     basedatom: 1,
@@ -120,6 +121,7 @@ function reset() {
     goldring: 0,
     brokengoldring: 0,
     relicclickshard: 0,
+    
   }
 }
 reset()
@@ -264,10 +266,10 @@ function craterandom(value)
 }
 function onTick() {
   game.clicks =
-    game.clicks + game.gen1 * (1 + game.clickpower / 30) * game.genmult //game.clicks per second
+    game.clicks + game.gen1 * (1 + game.clickpower / 300 ) * game.genmult //game.clicks per second
   game.gen1 += game.gen2 * game.genmult
   game.gen2 += game.gen3 * game.genmult * (game.dragonlore + 1)
-  game.gen3 += game.gen4 * game.genmult 
+  game.gen3 += game.gen4 * game.genmult
   Counter.innerText = game.clicks.formateNumber()
   key1number.innerText = game.GK.formateNumber(1e4) //export game.GK
 
@@ -764,7 +766,7 @@ function OpenCrate3()
     if(compare(drop,29,31))
     {
       loot = craterandom(3) * 100* (game.elitecore+1)
-      game.Advancedcore += loot
+      game.advancedcore += loot
       loot = "+ " + loot.formateNumber() + " Advanced cores"
 
     }else
