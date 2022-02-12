@@ -56,6 +56,11 @@ function OpenCraft() {
       game.generatorshard -= craftmaterials[5]
       game.basiccore -= craftmaterials[6]
       resourceupdate()
+      if(starsunlocked == 0)
+      {
+        starsunlocked = 1
+          document.getElementById("Buygen1").innerText = "Change star"
+      }
     }
   }
  

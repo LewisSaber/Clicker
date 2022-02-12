@@ -3,7 +3,8 @@ let numberforstop = 0 //numeer used to stop key trial
 //game.clicks
 let loot //loot from last crate
 let drop //drop chance
-
+let star = 0
+let starsunlocked = 0
 let scraptimer
 let woodtimer
 let tocraft = 1
@@ -136,7 +137,11 @@ function load() {
   if (loadgame != null) {
     loadGame(loadgame)
   }
+  if(game.gen2 > 0)
+  {starsunlocked += 1
+    document.getElementById("Buygen1").innerText = "Change star"
 
+  }
   //Keys,generators,upgrades,crates,crafts,upgrade2,upgrade3
 }
 load()
@@ -164,6 +169,7 @@ function loadGame(loadgame) {
       }
     }
   }
+
 }
 
 Number.prototype.formateNumber = function (max = 1e5) {
@@ -176,11 +182,13 @@ Number.prototype.formateNumber = function (max = 1e5) {
 clearInterval(woodtimer)
 //elements
 Counter = document.getElementById("Counter")
+CounterDesc = document.getElementById("Counter1")
+Mainclick = document.getElementById("mainclick")
 gt1 = document.getElementById("gt1")
 gt2 = document.getElementById("gt2")
 gt3 = document.getElementById("gt3")
 gt4 = document.getElementById("gt4")
-
+Starvalue = document.getElementById("starvalue")
 key1number = document.getElementById("key1number")
 mainmenu = document.getElementById("mainmenu")
 body = document.getElementById("body")
@@ -246,15 +254,22 @@ Obsidianalloy = document.getElementById("obsidianalloy")
 Brokengoldring = document.getElementById("brokengoldring")
 Goldring = document.getElementById("goldring")
 Elitecore = document.getElementById("elitecore")
+
 //
 function click1() {
+  if(star == 0)
+  {
   game.clicks += game.clickpower
-
   Counter.innerText = game.clicks.formateNumber() //export game.clicks on counter
-
- game.clickshard += game.legendaryclickshard/100 * (game.relicclickshard+1)
-
+  game.clickshard += game.legendaryclickshard/100 * (game.relicclickshard+1)
   Clickshard.innerText = "Clickshards: " + game.clickshard.formateNumber(1e4)
+  }
+  if(star == 1)
+  {
+game.atom += atomgain()
+ Counter.innerText = game.atom.formateNumber()
+
+  }
 }
 function random(value)
 {
@@ -270,7 +285,18 @@ function onTick() {
   game.gen1 += game.gen2 * game.genmult
   game.gen2 += game.gen3 * game.genmult * (game.dragonlore + 1)
   game.gen3 += game.gen4 * game.genmult
+  if(star == 0){
   Counter.innerText = game.clicks.formateNumber()
+  starvalue.innerText =
+    game.clickpower.formateNumber()
+}
+  if(star == 1){
+  Counter.innerText = game.atom.formateNumber()
+  starvalue.innerText =
+ atomgain().formateNumber()
+
+}
+  
   key1number.innerText = game.GK.formateNumber(1e4) //export game.GK
 
   game.generatorshard += game.gen1 * 0.1 * (1 + game.clickpower / 1000)
@@ -285,17 +311,10 @@ function onTick() {
   game.GKM = (1 + game.GKMa) * +game.upgrade.upgrade3effect
 
   if (game.gen2 > 0) {
-    game.atom +=
-      (Math.log10(game.gen1) /
-        Math.log10(game.upgrade.upgrade5effect) /
-        game.upgrade.upgrade5effect) *
-      game.upgrade.upgrade6effect *
-      game.upgrade.upgrade9effect *
-      game.basedatom
+    game.atom += atomgain("tick")
     Atom.innerText = "Atoms: " + game.atom.formateNumber()
   }
-  document.getElementById("ClickPower").innerText =
-    game.clickpower.formateNumber()
+ 
     bugcheck()
 }
 
@@ -352,7 +371,10 @@ function CloseMenu() {
 }
 function Close() {
   mainmenu.style.display = "block"
+  if(star == 0)
   body.style.backgroundImage = "url(MAinBackground.jpg)"
+  if (star == 1)
+  body.style.backgroundImage = "url(whitedwarf.png)"
   keytrialdiv.style.display = "none"
   upgradesdiv.style.display = "none"
   cratesdiv.style.display = "none"
@@ -447,7 +469,53 @@ function Buygen1() {
     gt1.innerText = game.gen1.formateNumber()
   }
 }
+function  ChangeStar()
+{
+  if(starsunlocked > 0)
+  {
+    if(star == 0)
+    {
+      console.log(star)
+      star = 1
+      body.style.backgroundImage = "url(whitedwarf.png)"
+      Counter.innerText = game.atom.formateNumber()
+      CounterDesc.innerText = "Your atoms: "
+      Mainclick.innerHTML = "Click!<br> + <p id = 'starvalue'>"+ atomgain().formateNumber() +"</p> Atoms"
+      
+     
+    }else
+    if(star == 1)
+    {
+      star = 0
+      body.style.backgroundImage = "url(MAinBackground.jpg)"
+      Counter.innerText = game.clicks.formateNumber()
+      CounterDesc.innerText = "Your clicks: "
+      Mainclick.innerHTML = "Click!<br> + <p id = 'starvalue'>"  + game.clickpower.formateNumber() + " </p> Clicks"
 
+    }
+    console.log(star)
+  }
+}
+function atomgain(value = "click")
+{
+
+if(value == "tick")
+{
+  atomps = 1
+}
+else
+{
+  atomps = 2
+}
+atomps = 
+ (( Math.log10(game.gen1) /
+        Math.log10(game.upgrade.upgrade5effect) /
+        game.upgrade.upgrade5effect) *
+      game.upgrade.upgrade6effect *
+      game.upgrade.upgrade9effect *
+      game.basedatom) / atomps
+      return atomps
+}
 function keydown() {
   if (event.code == "KeyW") {
     numberforstop++
@@ -969,8 +1037,15 @@ forgefueltimer = setInterval(fueltick,1000)
 
 
 
+function resetgenerators()
+{
+  game.gen4 = 0
+  game.gen3 = 0
+  game.gen2 =0
+  game.gen1 = 0
+  game.clicks = 0
 
-
+}
 
 
 function bugcheck()

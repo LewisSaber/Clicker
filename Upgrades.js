@@ -227,8 +227,7 @@ let upgradeelements = document.querySelectorAll(".cost")
 
 
 function updateupgrades() {
- document.getElementById("ClickPower").innerText =
-    game.clickpower.formateNumber() //updates clickpower showcase
+
 
   for (let i = 0; i < upgradeelements.length; i++) {
     upgradeelements[i].innerText = Object.values(game.upgrade)[i].formateNumber()

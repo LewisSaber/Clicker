@@ -86,6 +86,7 @@ function revealstatus() {
   if (tabs[37] == false && game.furnace > 0 ) tabs[37] = true
   if (tabs[38] == false && game.gen4 > 0 ) tabs[38] = true
 
+
 }
 function reveal() {
   revealstatus()
